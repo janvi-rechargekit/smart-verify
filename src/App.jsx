@@ -108,8 +108,9 @@ function CtaImageButton({ href, label, image, hoverText, variant, showArrow = fa
 
 function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [productsOpen, setProductsOpen] = useState(false);
-  const [useCaseOpen, setUseCaseOpen] = useState(false);
+const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+const [productsOpen, setProductsOpen] = useState(false);
+const [useCaseOpen, setUseCaseOpen] = useState(false);
   const menuCloseTimer = useRef(null);
 
   const cancelMenuClose = () => {
@@ -250,18 +251,112 @@ function Header() {
         </div>
       )}
 
-      {mobileOpen && (
-        <nav aria-label="Mobile navigation" className="absolute left-0 right-0 top-full border-t border-[#E5E5E5] bg-white px-5 pb-5 pt-3 shadow-lg lg:hidden">
-          <div className="mx-auto max-w-[1440px]">
-            {navItems.map((item) => (
-              <a key={item.label} href={item.href} onClick={() => setMobileOpen(false)} className="flex min-h-12 items-center justify-between border-b border-[#F0F0F0] text-[16px] text-[#414141]">
-                {item.label}<ChevronDown />
-              </a>
-            ))}
-            <a href="#contact" onClick={() => setMobileOpen(false)} className="mt-4 flex h-12 items-center justify-center rounded-[10px] bg-[#EC3069] text-white">Talk to Sales</a>
-          </div>
-        </nav>
+      
+{mobileOpen && (
+  <nav
+    aria-label="Mobile navigation"
+    className="absolute left-0 right-0 top-full max-h-[calc(100dvh-90px)] overflow-y-auto border-t border-[#E5E5E5] bg-white px-5 pb-5 pt-3 shadow-lg lg:hidden"
+  >
+    <div className="mx-auto max-w-[1440px]">
+      {/* Products: tap to expand */}
+      <button
+        type="button"
+        aria-expanded={mobileProductsOpen}
+        aria-controls="mobile-products-list"
+        onClick={() =>
+          setMobileProductsOpen((open) => !open)
+        }
+        className="flex min-h-12 w-full items-center justify-between border-b border-[#F0F0F0] text-left text-[16px] text-[#414141]"
+      >
+        Products
+
+        <span
+          className={`transition-transform duration-200 ${
+            mobileProductsOpen ? "rotate-180" : ""
+          }`}
+        >
+          <ChevronDown />
+        </span>
+      </button>
+
+      {/* All 12 product landing pages */}
+      {mobileProductsOpen && (
+        <div
+          id="mobile-products-list"
+          className="border-b border-[#F0F0F0] bg-gray-50 py-2 pl-3"
+        >
+          {productMenuItems.map((product) => (
+            <a
+              key={product.title}
+              href={product.href}
+              onClick={() => {
+                setMobileOpen(false);
+                setMobileProductsOpen(false);
+              }}
+              className="flex min-h-12 items-center gap-3 border-b border-gray-100 px-3 py-2 text-[14px] text-[#414141] transition-colors duration-200 last:border-b-0 hover:text-[#EC3069]"
+            >
+              <ProductMenuIcon
+                type={product.icon}
+                src={product.iconSrc}
+              />
+
+              <span className="min-w-0">
+                <span className="block font-medium">
+                  {product.title}
+                </span>
+
+                <span className="mt-0.5 block text-xs leading-snug text-gray-500">
+                  {product.description}
+                </span>
+              </span>
+            </a>
+          ))}
+        </div>
       )}
+
+      {/* Other navigation links */}
+      {navItems
+        .filter(
+          (item) =>
+            item.label !== "Products" &&
+            item.label !== "Use case"
+        )
+        .map((item) => (
+          <a
+            key={item.label}
+            href={item.href}
+            onClick={() => setMobileOpen(false)}
+            className="flex min-h-12 items-center justify-between border-b border-[#F0F0F0] text-[16px] text-[#414141]"
+          >
+            {item.label}
+            <ChevronDown />
+          </a>
+        ))}
+
+      {/* Use case dropdown is currently desktop-only */}
+      <a
+        href="#use-cases"
+        onClick={() => setMobileOpen(false)}
+        className="flex min-h-12 items-center justify-between border-b border-[#F0F0F0] text-[16px] text-[#414141]"
+      >
+        Use case
+        <ChevronDown />
+      </a>
+
+      <a
+        href="/contact-us"
+        onClick={() => {
+          setMobileOpen(false);
+          setMobileProductsOpen(false);
+        }}
+        className="mt-4 flex h-12 items-center justify-center rounded-[10px] bg-[#EC3069] text-white transition-colors duration-200 hover:bg-[#d9235b]"
+      >
+        Talk to Sales
+      </a>
+    </div>
+  </nav>
+)}
+
     </header>
   );
 }
