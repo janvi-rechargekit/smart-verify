@@ -480,7 +480,7 @@ function DocumentOcrApiPage() {
 </p>
 
 
-            <div className="mt-7 flex flex-wrap items-center gap-4">
+            <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row sm:items-center sm:justify-start">
               <CtaImageButton
                 href="#documentation"
                 label="View Documentation"
@@ -497,7 +497,7 @@ function DocumentOcrApiPage() {
                 hoverText="Book a Demo"
                 variant="demo"
                 showArrow
-                className="w-full max-w-[220px] sm:w-[200px]"
+                className="w-full max-w-[261px] sm:w-[240px]"
               />
             </div>
           </div>
@@ -530,8 +530,6 @@ function DocumentOcrApiPage() {
   );
 }
 
-
-
 function DigitalKycEkycHero() {
   const description =
     "Customer onboarding shouldn't be slowed down by manual verification. SmartVerify's Digital KYC & eKYC APIs help businesses verify customer identities securely and in real time using Aadhaar, PAN, OTP, and other trusted data sources. Automate KYC workflows, meet regulatory requirements, and deliver a faster onboarding experience with enterprise-grade verification APIs.";
@@ -540,19 +538,48 @@ function DigitalKycEkycHero() {
     <section
       id="digital-kyc-ekyc"
       aria-labelledby="digital-kyc-ekyc-title"
-      className="relative isolate min-h-[731px] w-full overflow-hidden bg-white"
+      className="
+        relative isolate min-h-0 w-full
+        overflow-hidden bg-white
+        min-[900px]:min-h-[731px]
+      "
     >
       {/* Soft pink glow on the left */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 left-0 -z-10 h-[68%] w-[13%] bg-gradient-to-r from-[#EC3069]/35 via-[#EC3069]/12 to-transparent blur-2xl"
+        className="
+          pointer-events-none absolute bottom-0 left-0 -z-10
+          h-[68%] w-[13%]
+          bg-gradient-to-r from-[#EC3069]/35
+          via-[#EC3069]/12 to-transparent blur-2xl
+        "
       />
 
-      <div className="mx-auto grid min-h-[731px] w-full grid-cols-1 items-center gap-8 px-5 py-10 sm:px-8 min-[900px]:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] min-[900px]:items-start min-[900px]:gap-0 min-[900px]:px-0 min-[900px]:py-0">
-
+      <div
+        className="
+          mx-auto grid min-h-0 w-full
+          grid-cols-1 items-start gap-6
+          px-5 pb-8 pt-22
+          sm:px-8 sm:pt-22
+           min-[900px]:pt-0
+          min-[900px]:min-h-[731px]
+          min-[900px]:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]
+          min-[900px]:items-start
+          min-[900px]:gap-0
+          min-[900px]:px-0
+          min-[900px]:py-0
+        "
+      >
         {/* LEFT CONTENT */}
-        <div className="relative z-10 flex min-w-0 flex-col items-start min-[900px]:top-[230px] min-[900px]:ml-[7.5vw] min-[900px]:w-[min(36vw,620px)]">
-
+        <div
+          className="
+            relative z-10 flex min-w-0
+            flex-col items-start
+            min-[900px]:top-[230px]
+            min-[900px]:ml-[7.5vw]
+            min-[900px]:w-[min(36vw,620px)]
+          "
+        >
           {/* Heading */}
           <h1
             id="digital-kyc-ekyc-title"
@@ -567,17 +594,34 @@ function DigitalKycEkycHero() {
             />
           </h1>
 
-          {/* Description: reduced width and controlled spacing */}
-          <img
-            src="/images/digital-kyc-ekyc-description.png"
-            alt={description}
-            className="mt-5 block h-auto w-full max-w-[520px] min-[900px]:mt-[40px]"
-            draggable="false"
-          />
+          {/* Manually written description for mobile and desktop */}
+          <p
+            className="
+              mt-4 block w-full max-w-[520px]
+              text-[13px] leading-[1.4]
+              text-[#666666]
+              sm:text-[14px]
+              min-[900px]:mt-[40px]
+              min-[900px]:text-[15px]
+              min-[900px]:leading-[1.45]
+            "
+          >
+            {description}
+          </p>
 
           {/* CTA buttons */}
-          <div className="mt-7 flex w-full flex-wrap items-center justify-center gap-x-4 gap-y-4 min-[900px]:mt-[42px] min-[900px]:justify-start min-[900px]:gap-x-[27px]">
-
+          <div
+            className="
+              mt-6 flex w-full flex-col
+              items-center justify-center gap-4
+              min-[640px]:flex-row
+              min-[640px]:flex-wrap
+              min-[640px]:gap-x-4
+              min-[900px]:mt-[42px]
+              min-[900px]:justify-start
+              min-[900px]:gap-x-[27px]
+            "
+          >
             <CtaImageButton
               href="#documentation"
               label="View Documentation"
@@ -594,27 +638,38 @@ function DigitalKycEkycHero() {
               hoverText="Book a Demo"
               variant="demo"
               showArrow
-              className="w-[209px] max-w-full min-[900px]:w-[209px]"
+              className="w-[240px] max-w-full min-[900px]:w-[240px]"
             />
-
           </div>
         </div>
 
         {/* RIGHT HERO VISUAL */}
-        <div className="relative flex min-w-0 items-center justify-center min-[900px]:min-h-[731px] min-[900px]:justify-end">
+        <div
+          className="
+            relative flex min-w-0
+            items-center justify-center
+            min-[900px]:min-h-[731px]
+            min-[900px]:justify-end
+          "
+        >
           <img
             src="/images/digital-kyc-ekyc-hero-visual.png"
             alt="Customer using a smartphone with digital identity verification cards"
-            className="block h-auto w-full max-w-[880px] object-contain min-[900px]:translate-x-[12px] min-[900px]:translate-y-4"
+            className="
+              block h-auto w-full max-w-[880px] object-contain
+              min-[900px]:translate-x-[12px]
+              min-[900px]:translate-y-4
+            "
             draggable="false"
             fetchPriority="high"
           />
         </div>
-
       </div>
     </section>
   );
 }
+
+
 
 
 function DigitalKycManualProblemSection() {
@@ -627,17 +682,17 @@ function DigitalKycManualProblemSection() {
     {
       title: "Higher operating costs",
       description:
-        "Automated Digital KYC APIs meet all four points at the same time.",
+        "Automated Digital KYC APIs help reduce manual reviews, repetitive tasks, and the cost of onboarding customers.",
     },
     {
       title: "Human error",
       description:
-        "The likelihood of overlooking false or altered IDs is higher when they are checked manually rather than through an automated system.",
+        "Manual checks make it easier to overlook false or altered IDs. Automated verification helps identify inconsistencies.",
     },
     {
       title: "Compliance exposure",
       description:
-        "Auditors want to see audit trails and consistency checks, and it is not easy to do this with a manual process.",
+        "Manual processes make consistent audit trails and compliance checks harder to maintain.",
     },
   ];
 
@@ -645,52 +700,129 @@ function DigitalKycManualProblemSection() {
     <section
       id="digital-kyc-challenges"
       aria-labelledby="digital-kyc-challenges-title"
-      className="relative isolate min-h-[1100px] w-full overflow-hidden bg-[#6045F8] bg-[url('/images/digital-kyc-manual-bg.png')] bg-cover bg-center bg-no-repeat min-[900px]:aspect-[1920/1004] min-[900px]:min-h-[600px] min-[900px]:overflow-hidden"
+      className="
+        relative isolate w-full overflow-hidden
+        bg-[#6045F8]
+        bg-[url('/images/digital-kyc-manual-bg.png')]
+        bg-cover bg-center bg-no-repeat
+        min-[900px]:min-h-[650px]
+        min-[900px]:aspect-[1920/1004]
+      "
     >
       {/* Heading and subtitle */}
-      <div className="relative z-10 flex flex-col items-center px-5 pt-10 text-center min-[900px]:absolute min-[900px]:left-1/2 min-[900px]:top-[9.5%] min-[900px]:w-full min-[900px]:-translate-x-1/2 min-[900px]:px-0 min-[900px]:pt-0">
+      <div
+        className="
+          relative z-10 mx-auto flex w-full
+          flex-col items-center px-5 pt-10
+          text-center
+          min-[900px]:absolute
+          min-[900px]:left-1/2
+          min-[900px]:top-[9.5%]
+          min-[900px]:-translate-x-1/2
+          min-[900px]:px-0
+          min-[900px]:pt-0
+        "
+      >
         <h2
           id="digital-kyc-challenges-title"
-          className="m-0 w-[90%] max-w-[560px] min-[900px]:w-[min(40vw,760px)] min-[900px]:max-w-none"
+          className="
+            m-0 w-full max-w-[560px]
+            text-[27px] font-semibold
+            leading-[1.15] tracking-[-0.03em]
+            text-white
+            sm:text-[32px]
+            min-[900px]:w-[min(60vw,900px)]
+            min-[900px]:max-w-none
+            min-[900px]:text-[clamp(32px,3vw,54px)]
+          "
         >
-          <img
-            src="/images/digital-kyc-manual-heading.png"
-            alt="Why Businesses Are Moving Away from Manual KYC"
-            className="block h-auto w-full"
-            draggable="false"
-          />
+          Why Businesses Are Moving Away from Manual KYC
         </h2>
 
+        <p
+          className="
+            mt-4 max-w-[560px]
+            text-[14px] leading-[1.45]
+            text-white/90
+            sm:text-[16px]
+            min-[900px]:mt-[22px]
+            min-[900px]:max-w-[760px]
+            min-[900px]:text-[clamp(14px,1.1vw,20px)]
+          "
+        >
+          Manual verification isn't just slow — it creates real business
+          problems.
+        </p>
+      </div>
+
+      {/* ========================================================
+          DESKTOP LAYOUT 
+          ======================================================== */}
+      
+      {/* Center Phone Image */}
+      <div className="absolute bottom-0 left-1/2 z-30 hidden w-[550px] -translate-x-1/2 min-[900px]:block min-[1200px]:w-[650px]">
         <img
-          src="/images/digital-kyc-manual-subtitle.png"
-          alt="Manual verification isn't just slow it creates real business problems:"
-          className="mt-4 block h-auto w-[90%] max-w-[560px] min-[900px]:mt-[22px] min-[900px]:w-[min(39vw,760px)] min-[900px]:max-w-none"
+          src="/images/digital-kyc-manual-phone.png"
+          alt="A hand holding a phone displaying the manual KYC verification workflow"
           draggable="false"
+          className="h-auto w-full object-contain"
         />
       </div>
 
-      {/* DESKTOP: combined Figma image, including phone and card outlines */}
-      <div className="relative z-10 mx-auto mt-8 hidden w-[96%] min-[900px]:absolute min-[900px]:left-1/2 min-[900px]:top-[30%] min-[900px]:mt-0 min-[900px]:block min-[900px]:w-[min(80vw,1534px)] min-[900px]:-translate-x-1/2">
-        <img
-          src="/images/digital-kyc-manual-composition.png"
-          alt=""
-          aria-hidden="true"
-          draggable="false"
-          className="block h-auto w-full"
-        />
+      {/* Left Column Cards (1 & 3) */}
+      <div className="absolute left-[3%] top-[28%] z-20 hidden w-[38%] max-w-[650px] flex-col gap-20 min-[900px]:flex min-[1200px]:gap-24">
+        {[problems[0], problems[2]].map((problem, index) => (
+          <article
+            key={problem.title}
+            className="rounded-sm border border-white/50 bg-transparent p-6 text-white backdrop-blur-[2px]"
+          >
+            {/* Added pr-24 to push heading away from the phone */}
+            <h3 className="pr-24 text-[24px] font-normal leading-snug">
+              {problem.title}
+            </h3>
+            {/* 
+              Increased pr to pr-32 specifically for the second card (index 1) 
+              to avoid the thumb overlapping the text 
+            */}
+            <p className={`mt-2 text-[16px] leading-[1.5] text-white/90 ${index === 1 ? 'pr-32' : 'pr-16'}`}>
+              {problem.description}
+            </p>
+          </article>
+        ))}
       </div>
 
-      {/* MOBILE: individual cards and one phone image */}
-      <div className="relative z-10 mx-auto mt-8 flex w-[90%] max-w-[520px] flex-col gap-3 min-[900px]:hidden">
+      {/* Right Column Cards (2 & 4) */}
+      <div className="absolute right-[3%] top-[28%] z-20 hidden w-[38%] max-w-[650px] flex-col gap-20 min-[900px]:flex min-[1200px]:gap-24">
+        {[problems[1], problems[3]].map((problem) => (
+          <article
+            key={problem.title}
+            className="rounded-sm border border-white/50 bg-transparent p-6 text-white backdrop-blur-[2px]"
+          >
+            {/* Added pl-12 to push heading to the right, away from phone */}
+            <h3 className="pl-12 text-[24px] font-normal leading-snug">
+              {problem.title}
+            </h3>
+            {/* Kept pl-12 on paragraph to align with heading and avoid phone */}
+            <p className="mt-2 pl-12 text-[16px] leading-[1.5] text-white/90">
+              {problem.description}
+            </p>
+          </article>
+        ))}
+      </div>
+
+      {/* ========================================================
+          MOBILE LAYOUT (Unchanged)
+          ======================================================== */}
+      <div className="relative z-10 mx-auto mt-8 flex w-[90%] max-w-[520px] flex-col gap-3 pb-8 min-[900px]:hidden">
         {problems.map((problem) => (
           <article
             key={problem.title}
-            className="rounded-sm border border-white/50 bg-white/[0.04] px-4 py-3 text-white"
+            className="rounded-xl border border-white/40 bg-white/10 px-4 py-4 text-white"
           >
-            <h3 className="text-base font-medium leading-tight">
+            <h3 className="text-[16px] font-medium leading-tight">
               {problem.title}
             </h3>
-            <p className="mt-1 text-sm leading-[1.35] text-white/85">
+            <p className="mt-2 text-[14px] leading-[1.45] text-white/90">
               {problem.description}
             </p>
           </article>
@@ -700,12 +832,14 @@ function DigitalKycManualProblemSection() {
           src="/images/digital-kyc-manual-phone.png"
           alt="A hand holding a phone displaying the manual KYC verification workflow"
           draggable="false"
-          className="mx-auto mt-3 block h-auto w-[min(85vw,380px)] max-w-full"
+          loading="lazy"
+          className="mx-auto mt-6 block h-auto w-[min(85vw,380px)] max-w-full"
         />
       </div>
     </section>
   );
 }
+
 
 function DigitalKycHowItWorksSection() {
   const steps = [
@@ -788,6 +922,7 @@ function DigitalKycHowItWorksSection() {
   );
 }
 
+
 function DigitalKycApiMethodsSection() {
   const cards = [
     {
@@ -798,14 +933,52 @@ function DigitalKycApiMethodsSection() {
     },
     {
       type: "text",
-      src: "/images/digital-kyc-unified-card.png",
-      alt: "Unified Digital KYC API. One integration for Aadhaar OTP eKYC, PAN checks and document verification, with benefits including one integration, dynamic routing, faster deployment and support for diverse user bases.",
+      title: "Unified Digital KYC API",
+      description:
+        "The Unified Digital KYC API streamlines onboarding by offering a single integration point for multiple verification methods—including Aadhaar OTP eKYC, PAN checks, and document verification.",
+      benefits: [
+        {
+          title: "One Integration:",
+          text: "Write code once rather than building and maintaining separate pipelines for every ID type.",
+        },
+        {
+          title: "Dynamic Routing:",
+          text: "Automatically routes customers down the correct verification path based on the document provided.",
+        },
+        {
+          title: "Faster Deployment:",
+          text: "Speeds up development and simplifies updates as regulatory requirements evolve.",
+        },
+        {
+          title: "Best Used For:",
+          text: "Platforms with diverse user bases—such as lending apps, insurance providers, and fintechs—where customers submit different forms of identification.",
+        },
+      ],
       position: "top",
     },
     {
       type: "text",
-      src: "/images/digital-kyc-digilocker-card.png",
-      alt: "DigiLocker Service API with an overview and key benefits.",
+      title: "DigiLocker Service API",
+      description:
+        "The Unified Digital KYC API streamlines onboarding by offering a single integration point for multiple verification methods—including Aadhaar OTP eKYC, PAN checks, and document verification.",
+      benefits: [
+        {
+          title: "One Integration:",
+          text: "Write code once rather than building and maintaining separate pipelines for every ID type.",
+        },
+        {
+          title: "Dynamic Routing:",
+          text: "Automatically routes customers down the correct verification path based on the document provided.",
+        },
+        {
+          title: "Faster Deployment:",
+          text: "Speeds up development and simplifies updates as regulatory requirements evolve.",
+        },
+        {
+          title: "Best Used For:",
+          text: "Platforms with diverse user bases—such as lending apps, insurance providers, and fintechs—where customers submit different forms of identification.",
+        },
+      ],
       position: "bottom",
     },
     {
@@ -822,7 +995,7 @@ function DigitalKycApiMethodsSection() {
       aria-label="Digital KYC API methods"
       className="w-full bg-white"
     >
-      {/* Grey separator between the previous section and this section */}
+      {/* Grey separator */}
       <div
         aria-hidden="true"
         className="h-6 w-full bg-[#F0F0F0]"
@@ -830,19 +1003,69 @@ function DigitalKycApiMethodsSection() {
 
       {/* API cards */}
       <div className="bg-white py-5 sm:py-7 lg:py-[20px]">
-        <div className="mx-auto grid w-[92%] grid-cols-1 gap-5 min-[640px]:w-[88%] min-[640px]:grid-cols-2 min-[900px]:w-[80%] min-[900px]:max-w-[1536px] min-[900px]:gap-x-[1.25vw] min-[900px]:gap-y-[2.3vw]">
+        <div
+          className="
+            mx-auto grid w-[92%] grid-cols-1 gap-5
+            min-[640px]:w-[88%]
+            min-[640px]:grid-cols-2
+            min-[900px]:w-[80%]
+            min-[900px]:max-w-[1536px]
+            min-[900px]:gap-x-[1.25vw]
+            min-[900px]:gap-y-[2.3vw]
+          "
+        >
           {cards.map((card) => (
             <article
-              key={card.src}
-              className="relative aspect-[748/588] min-w-0 overflow-hidden rounded-[18px] bg-[#F6F8FC]"
+              key={card.type === "image" ? card.src : card.title}
+              className="
+                relative min-w-0 overflow-hidden
+                rounded-[18px] bg-[#F6F8FC]
+                aspect-auto
+                min-[640px]:aspect-[748/588]
+              "
             >
-              <img
-                src={card.src}
-                alt={card.alt}
-                draggable="false"
-                loading="lazy"
-                className="block h-full w-full object-cover"
-              />
+              {card.type === "image" ? (
+                <img
+                  src={card.src}
+                  alt={card.alt}
+                  draggable="false"
+                  loading="lazy"
+                  className="block h-full w-full object-cover"
+                />
+              ) : (
+                <div
+                  className="
+                    flex h-full min-h-[300px] flex-col
+                    justify-center px-5 py-6
+                    sm:px-6 sm:py-7
+                    min-[900px]:px-8
+                    min-[900px]:py-8
+                  "
+                >
+                  <h3 className="text-[16px] font-medium leading-snug text-[#111827] sm:text-[18px]">
+                    {card.title}
+                  </h3>
+
+                  <p className="mt-2 text-[13px] leading-[1.4] text-[#444444] sm:text-[14px]">
+                    {card.description}
+                  </p>
+
+                  <p className="mt-4 text-[13px] font-medium text-[#222222] sm:text-[14px]">
+                    Key Benefits:
+                  </p>
+
+                  <ul className="mt-2 list-disc space-y-2 pl-4 text-[12px] leading-[1.4] text-[#333333] sm:text-[13px]">
+                    {card.benefits.map((benefit) => (
+                      <li key={benefit.title}>
+                        <span className="font-medium">
+                          {benefit.title}
+                        </span>{" "}
+                        {benefit.text}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </article>
           ))}
         </div>
@@ -851,27 +1074,39 @@ function DigitalKycApiMethodsSection() {
   );
 }
 
+
+
 function DigitalKycAudienceSection() {
   const audiences = [
     {
-      image: "/images/digital-kyc-audience-fintech.png",
-      alt: "FinTech & Lending Platforms — Speed up loan approvals without slowing down risk checks.",
+      icon: "fintech",
+      title: "FinTech & Lending Platforms",
+      description:
+        "Speed up loan approvals without slowing down risk checks.",
     },
     {
-      image: "/images/digital-kyc-audience-banking.png",
-      alt: "Banking & Financial Services — Meet RBI and regulatory documentation standards and reduce onboarding time.",
+      icon: "banking",
+      title: "Banking & Financial Services",
+      description:
+        "Meet RBI and regulatory documentation standards and reduce onboarding time.",
     },
     {
-      image: "/images/digital-kyc-audience-staffing.png",
-      alt: "Staffing & Recruitment — Verify the identity of candidates before background checks.",
+      icon: "staffing",
+      title: "Staffing & Recruitment",
+      description:
+        "Verify the identity of candidates before background checks.",
     },
     {
-      image: "/images/digital-kyc-audience-insurance.png",
-      alt: "Insurance Providers — Automate policyholder verification at signup and claims, without manual back-and-forth.",
+      icon: "insurance",
+      title: "Insurance Providers",
+      description:
+        "Automate policyholder verification at signup and claims, without manual back-and-forth.",
     },
     {
-      image: "/images/digital-kyc-audience-ecommerce.png",
-      alt: "E-commerce & Marketplaces — Easily onboard sellers and high-value buyers.",
+      icon: "ecommerce",
+      title: "E-commerce & Marketplaces",
+      description:
+        "Easily onboard sellers and high-value buyers.",
     },
   ];
 
@@ -881,15 +1116,24 @@ function DigitalKycAudienceSection() {
       aria-labelledby="digital-kyc-audiences-title"
       className="w-full bg-white"
     >
-      {/* Grey gap between the previous section and this section */}
+      {/* Section separator */}
       <div
         aria-hidden="true"
         className="h-6 w-full bg-[#F0F0F0]"
       />
 
-      <div className="mx-auto grid w-[90%] max-w-[1536px] grid-cols-1 items-start gap-8 py-12 sm:w-[88%] min-[1100px]:w-[80%] min-[1100px]:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] min-[1100px]:gap-x-6 min-[1100px]:gap-y-0">
-
-        {/* LEFT: Heading and five exported audience cards */}
+      <div
+        className="
+          mx-auto grid w-[90%] max-w-[1536px]
+          grid-cols-1 items-start gap-8 py-12
+          sm:w-[88%]
+          min-[1100px]:w-[80%]
+          min-[1100px]:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]
+          min-[1100px]:gap-x-6
+          min-[1100px]:gap-y-0
+        "
+      >
+        {/* LEFT: Heading and manually rendered audience cards */}
         <div className="min-w-0 min-[1120px]:translate-x-12">
           <h2
             id="digital-kyc-audiences-title"
@@ -905,34 +1149,70 @@ function DigitalKycAudienceSection() {
 
           <div className="mt-9 flex flex-col gap-[14px]">
             {audiences.map((audience) => (
-              <img
-                key={audience.image}
-                src={audience.image}
-                alt={audience.alt}
-                draggable="false"
-                loading="lazy"
-                className="block h-auto w-full"
-              />
+              <article
+                key={audience.title}
+                className="
+                  flex items-center gap-3
+                  rounded-[10px]
+                  border border-[#D3CCFF]
+                  bg-white
+                  px-3 py-4
+                  sm:gap-4 sm:px-5 sm:py-5
+                  min-[1100px]:bg-[#E5E4FF]
+                "
+              >
+                <IdentityIndustryIcon type={audience.icon} />
+
+                <div className="min-w-0 flex-1">
+                  <h3
+                    className="
+                      text-[15px] font-medium
+                      leading-snug text-[#111827]
+                      sm:text-[17px]
+                    "
+                  >
+                    {audience.title}
+                  </h3>
+
+                  <p
+                    className="
+                      mt-2 text-[12px]
+                      leading-[1.4] text-[#292929]
+                      sm:text-[14px]
+                    "
+                  >
+                    {audience.description}
+                  </p>
+                </div>
+              </article>
             ))}
           </div>
         </div>
 
-        {/* RIGHT: Main illustration */}
-        <div className="flex min-w-0 items-start justify-center min-[1100px]:mt-[86px] min-[1100px]:translate-x-6">
+        {/* RIGHT: Original illustration */}
+        <div
+          className="
+            flex min-w-0 items-start justify-center
+            min-[1100px]:mt-[86px]
+            min-[1100px]:translate-x-6
+          "
+        >
           <img
             src="/images/digital-kyc-who-uses-visual.png"
             alt="Digital identity verification illustration featuring a secure document, verification shields and protected data."
             draggable="false"
             loading="lazy"
-            className="block h-auto w-full max-w-[520px] object-contain min-[1100px]:max-w-none"
+            className="
+              block h-auto w-full max-w-[520px]
+              object-contain
+              min-[1100px]:max-w-none
+            "
           />
         </div>
-
       </div>
     </section>
   );
 }
-
 function DigitalKycIntroHeroSection() {
   const description =
     "SmartVerify's OCR APIs accurately extract data from blurry, tilted, or low-quality uploads in seconds. Developers can quickly test and integrate using clear documentation and a sandbox environment. Once live, the API helps automate document processing, reduce manual errors, and speed up onboarding.";
@@ -943,29 +1223,43 @@ function DigitalKycIntroHeroSection() {
       aria-labelledby="digital-kyc-intro-title"
       className="w-full bg-white"
     >
-      {/* Grey gap above the hero */}
-      <div
-        aria-hidden="true"
-        className="h-6 w-full bg-[#F0F0F0]"
-      />
+      {/* Grey separator */}
+      <div aria-hidden="true" className="h-6 w-full bg-[#F0F0F0]" />
 
-      {/* Hero banner */}
-      <div className="relative isolate w-full overflow-hidden bg-white min-[900px]:aspect-[1920/868] min-[900px]:min-h-[490px]">
+      {/* Hero Container */}
+      <div className="relative w-full bg-white min-[900px]:aspect-[1920/868] min-[900px]:min-h-[490px] min-[900px]:overflow-hidden">
+        
+        {/* 
+          DESKTOP ONLY: Background composition image.
+          By wrapping it in a div that is strictly hidden on mobile, 
+          we guarantee it won't appear over the text.
+        */}
+        <div className="hidden min-[900px]:block pointer-events-none absolute inset-0">
+          <img
+            src="/images/digital-kyc-ekyc-hero.png"
+            alt=""
+            aria-hidden="true"
+            draggable="false"
+            fetchPriority="high"
+            className="h-full w-full object-cover object-center"
+          />
+        </div>
 
-        {/* Desktop: use the complete Figma hero image as the background */}
-        <img
-          src="/images/digital-kyc-ekyc-hero.png"
-          alt=""
-          aria-hidden="true"
-          draggable="false"
-          fetchPriority="high"
-          className="absolute inset-0 hidden h-full w-full object-cover object-center min-[900px]:block"
-        />
-
-        {/* Left-side content */}
-        <div className="relative z-10 mx-auto flex w-[80%] flex-col items-start py-9 sm:py-12 min-[900px]:absolute min-[900px]:inset-0 min-[900px]:mx-auto min-[900px]:w-[80%] min-[900px]:justify-center min-[900px]:py-0">
-
-          {/* Heading image remains unchanged */}
+        {/* Content: heading, description and Know More */}
+        <div
+          className="
+            relative z-10 mx-auto flex w-[88%]
+            flex-col items-start
+            pt-8 pb-0
+            sm:w-[84%] sm:pt-10
+            min-[900px]:absolute
+            min-[900px]:inset-0
+            min-[900px]:mx-auto
+            min-[900px]:w-[80%]
+            min-[900px]:justify-center
+            min-[900px]:py-0
+          "
+        >
           <h1
             id="digital-kyc-intro-title"
             className="m-0 w-full max-w-[370px] min-[900px]:w-[min(30vw,580px)] min-[900px]:max-w-none"
@@ -979,18 +1273,23 @@ function DigitalKycIntroHeroSection() {
             />
           </h1>
 
-          {/* Original description image with a clear gap below the heading */}
-          <img
-            src="/images/digital-kyc-ekyc-hero-description.png"
-            alt={description}
-            draggable="false"
-            className="mt-4 block h-auto w-full max-w-[330px] min-[900px]:w-[min(29vw,550px)] min-[900px]:max-w-none"
-          />
+          <p
+            className="
+              mt-4 w-full max-w-[420px]
+              text-[13px] leading-[1.45]
+              text-[#555555]
+              sm:text-[14px]
+              min-[900px]:max-w-[550px]
+              min-[900px]:text-[15px]
+              min-[900px]:leading-[1.5]
+            "
+          >
+            {description}
+          </p>
 
-          {/* Reuse the existing Know More button */}
           <a
             href="#digital-kyc-start-apis"
-            className="solutions-know-more mt-6"
+            className="solutions-know-more mt-5"
             aria-label="Know more about Digital KYC and eKYC APIs"
           >
             Know More
@@ -1010,22 +1309,24 @@ function DigitalKycIntroHeroSection() {
             </svg>
           </a>
         </div>
+      </div>
 
-        {/* Mobile: show the illustration below the text instead of cropping it behind the text */}
-        <div className="relative mt-2 h-[250px] w-full overflow-hidden sm:h-[340px] min-[900px]:hidden">
-          <img
-            src="/images/digital-kyc-ekyc-hero-visual.png"
-            alt="Digital KYC document submission and customer verification workflow"
-            draggable="false"
-            loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover object-[78%_center]"
-          />
-        </div>
-
+      {/* MOBILE ONLY: clean illustration below the content */}
+      <div className="block w-full px-4 pb-8 pt-4 min-[900px]:hidden">
+        <img
+          src="/images/digital-kyc-ekyc-hero.png"
+          alt="Digital KYC customer verification illustration"
+          draggable="false"
+          fetchPriority="high"
+          className="block h-auto w-full object-contain"
+        />
       </div>
     </section>
   );
 }
+
+
+
 
 function DigitalKycStartWithApisSection() {
   const description =
@@ -1079,24 +1380,29 @@ function DigitalKycStartWithApisSection() {
             />
 
             {/* Reuse existing Book a Demo button */}
-<div className="mt-5 w-full">
-  <CtaImageButton
-    href="#contact"
-    label="Book a Demo"
-    image="/images/book-demo.png"
-    hoverText="Book a Demo"
-    variant="demo"
-    showArrow
-    className="w-[220px] max-w-full min-[1180px]:w-[195px]"
-  />
-</div>
+            <div className="mt-5 w-full">
+              <CtaImageButton
+                href="#contact"
+                label="Book a Demo"
+                image="/images/book-demo.png"
+                hoverText="Book a Demo"
+                variant="demo"
+                showArrow
+                className="w-[220px] max-w-full min-[1180px]:w-[195px]"
+              />
+            </div>
           </div>
         </div>
 
         {/* MOBILE AND TABLET */}
         <div className="overflow-hidden rounded-[12px] bg-[#6547F8] min-[900px]:hidden">
-          {/* Decorative artwork */}
-          <div className="relative h-[180px] w-full overflow-hidden sm:h-[240px]">
+          
+          {/* 
+            FIX APPLIED HERE: 
+            Added 'hidden' to this container so the scanner image 
+            does not appear on mobile/tablet. 
+          */}
+          <div className="hidden relative h-[180px] w-full overflow-hidden sm:h-[240px]">
             <img
               src="/images/digital-kyc-start-banner.png"
               alt=""
@@ -1107,7 +1413,8 @@ function DigitalKycStartWithApisSection() {
           </div>
 
           {/* Responsive text content */}
-          <div className="flex flex-col items-start px-5 pb-7 pt-2 sm:px-8 sm:pb-9">
+          {/* Added pt-6 (or padding-top) so the text doesn't hit the top edge now that the image is gone */}
+          <div className="flex flex-col items-start px-5 pb-7 pt-6 sm:px-8 sm:pb-9 sm:pt-8">
             <h2
               id="digital-kyc-start-apis-title-mobile"
               className="m-0 w-full max-w-[540px]"
@@ -1433,6 +1740,7 @@ const documentOcrProducts = [
   },
 ];
 
+
 function DocumentOcrProducts() {
   const [activeId, setActiveId] = useState("pan");
   const [previewFailed, setPreviewFailed] = useState(false);
@@ -1456,9 +1764,17 @@ function DocumentOcrProducts() {
 
       <section className="document-ocr-products">
         <div className="document-ocr-products__inner">
-          {/* Section heading and Know More */}
-          <div className="document-ocr-products__top">
-            <div>
+
+          {/* Section heading, Know More and description */}
+          <div
+            className="
+              document-ocr-products__top
+              !flex !flex-col !items-start !justify-start
+              !gap-0
+            "
+          >
+            {/* Heading */}
+            <div className="!w-full">
               <h2 className="sr-only">
                 Explore SmartVerify's Document OCR APIs
               </h2>
@@ -1467,12 +1783,48 @@ function DocumentOcrProducts() {
                 src="/images/document-ocr-products-heading.png"
                 alt=""
                 aria-hidden="true"
-                className="document-ocr-products__heading"
+                className="
+                  document-ocr-products__heading
+                  !w-[82%] !max-w-[300px]
+                  sm:!w-auto sm:!max-w-none
+                "
                 draggable="false"
               />
             </div>
 
-            <div className="document-ocr-products__intro">
+            {/* Know More directly below the heading */}
+            <a
+              href="#document-ocr-products-list"
+              className="
+                solutions-know-more
+                !mt-3
+                min-[1100px]:!mt-4
+              "
+            >
+              Know More
+              <svg
+                className="solutions-know-more__arrow"
+                viewBox="0 0 16 16"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2.5 8h10M8 3.5 12.5 8 8 12.5"
+                  stroke="currentColor"
+                  strokeWidth="1.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </a>
+
+            {/* Description */}
+            <div
+              className="
+                document-ocr-products__intro
+                !mt-4 !w-full
+              "
+            >
               <p className="sr-only">
                 Document OCR isn't one generic tool. Different documents
                 need different extraction logic. SmartVerify offers a
@@ -1487,32 +1839,13 @@ function DocumentOcrProducts() {
                 className="document-ocr-products__description"
                 draggable="false"
               />
-
-              <a
-                href="#document-ocr-products-list"
-                className="solutions-know-more"
-              >
-                Know More
-                <svg
-                  className="solutions-know-more__arrow"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M2.5 8h10M8 3.5 12.5 8 8 12.5"
-                    stroke="currentColor"
-                    strokeWidth="1.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </a>
             </div>
           </div>
 
           {/* Product selector and active preview */}
           <div className="document-ocr-products__content">
+
+            {/* Product list */}
             <div
               id="document-ocr-products-list"
               className="document-ocr-products__list-panel"
@@ -1564,7 +1897,7 @@ function DocumentOcrProducts() {
               </div>
             </div>
 
-            {/* Changes whenever a product is selected */}
+            {/* Active product preview */}
             <div
               className="document-ocr-products__preview"
               aria-live="polite"
@@ -1582,7 +1915,6 @@ function DocumentOcrProducts() {
                 <div className="document-ocr-products__fallback">
                   <div className="document-ocr-products__fallback-art">
                     <div className="document-ocr-products__mock-document">
-                      <icon className="hidden" />
                       <span>{activeProduct.title}</span>
                       <div className="document-ocr-products__mock-lines" />
                     </div>
@@ -1603,12 +1935,14 @@ function DocumentOcrProducts() {
                 </div>
               )}
             </div>
+
           </div>
         </div>
       </section>
     </>
   );
 }
+
 
 function DocumentOcrWhyChoose() {
   return (
@@ -1670,34 +2004,65 @@ function DocumentOcrWhyChoose() {
   );
 }
 
+
 function BankAccountVerificationPage() {
+  const description =
+    "Bank account verification is a critical step in digital onboarding, payouts, lending, and compliance. SmartVerify's Bank Account Verification API enables businesses to instantly validate account details, confirm account ownership, and reduce payment failures through secure, real-time verification.";
+
   return (
     <main className="bank-account-verification-page">
       <section className="bank-account-verification-hero hero-background">
         <div className="bank-account-verification-hero__inner">
 
-          {/* Left: Heading, description and existing CTA buttons */}
-          <div className="bank-account-verification-hero__content">
+          {/* Heading, description and CTA buttons */}
+          <div
+            className="
+              bank-account-verification-hero__content
+              flex flex-col items-start
+              max-[899px]:w-full
+              max-[899px]:px-5
+              max-[899px]:pt-8
+            "
+          >
             <h1 className="sr-only">
               Bank Account Verification API: Confirm Ownership Before You Pay
             </h1>
 
             <img
               src="/images/bav-heading.png"
-              alt=""
-              aria-hidden="true"
+              alt="Bank Account Verification API: Confirm Ownership Before You Pay"
               className="bank-account-verification-hero__heading"
               draggable="false"
             />
 
-            <img
-              src="/images/bav-description.png"
-              alt="Bank account verification is a critical step in digital onboarding, payouts, lending, and compliance. SmartVerify's Bank Account Verification API enables businesses to instantly validate account details, confirm account ownership, and reduce payment failures through secure, real-time verification."
-              className="bank-account-verification-hero__description"
-              draggable="false"
-            />
+            {/* Manually written description for all screen sizes */}
+            <p
+              className="
+                bank-account-verification-hero__description
+                max-[899px]:mt-4
+                max-[899px]:w-full
+                max-[899px]:max-w-none
+                max-[899px]:text-[14px]
+                max-[899px]:leading-[1.45]
+                max-[899px]:text-[#666666]
+              "
+            >
+              {description}
+            </p>
 
-            <div className="bank-account-verification-hero__actions">
+            {/* Existing CTA buttons */}
+            <div
+              className="
+                bank-account-verification-hero__actions
+                max-[899px]:mt-6
+                max-[899px]:flex
+                max-[899px]:w-full
+                max-[899px]:flex-col
+                max-[899px]:items-center
+                max-[899px]:justify-center
+                max-[899px]:gap-4
+              "
+            >
               <CtaImageButton
                 href="#documentation"
                 label="View Documentation"
@@ -1714,23 +2079,43 @@ function BankAccountVerificationPage() {
                 hoverText="Book a Demo"
                 variant="demo"
                 showArrow
-                className="w-full max-w-[261px] sm:w-[261px]"
+                className="w-full max-w-[300px] sm:w-[300px]"
               />
             </div>
           </div>
 
-          {/* Right: Full Figma-exported visual */}
-          <div className="bank-account-verification-hero__visual-wrap">
+          {/* Hero visual */}
+          <div
+            className="
+              bank-account-verification-hero__visual-wrap
+              max-[899px]:mt-6
+              max-[899px]:flex
+              max-[899px]:w-full
+              max-[899px]:items-end
+              max-[899px]:justify-center
+              max-[899px]:self-end
+              max-[899px]:overflow-hidden
+            "
+          >
             <img
               src="/images/bav-hero-visual.png"
               alt="A customer using a smartphone beside a payment-success screen and bank card."
-              className="bank-account-verification-hero__visual"
+              className="
+                bank-account-verification-hero__visual
+                max-[899px]:block
+                max-[899px]:h-auto
+                max-[899px]:w-full
+                max-[899px]:max-w-none
+                max-[899px]:object-contain
+                max-[899px]:object-bottom
+              "
               draggable="false"
             />
           </div>
 
         </div>
       </section>
+
       <BankAccountVerificationIntro />
       <BankAccountVerificationBenefits />
       <BankAccountVerificationApis />
@@ -1738,12 +2123,11 @@ function BankAccountVerificationPage() {
       <div className="section-separator" aria-hidden="true" />
       <BankAccountVerificationCta />
       <BankAccountVerificationFaq />
-      
-      
       <FooterSection />
     </main>
   );
 }
+
 
 function BankAccountVerificationIntro() {
   return (
@@ -2312,64 +2696,102 @@ function BankAccountVerificationWorkflow() {
   );
 }
 
+
+
 function BankAccountVerificationCta() {
   return (
-    <section className="bav-get-started">
-      <div className="bav-get-started__banner">
-        {/* Exported Figma artwork and gradient background */}
-        <img
-          src="/images/bav-get-started-visual.png"
-          alt=""
-          aria-hidden="true"
-          className="bav-get-started__art"
-          draggable="false"
-        />
+    <section className="w-full bg-white px-4 pt-3 pb-5 sm:px-0 sm:pt-5 sm:pb-6">
+      {/* Centered card with equal space on both sides */}
+      <div
+        className="
+          relative isolate mx-auto
+          min-h-[300px] w-full max-w-[1520px]
+          overflow-hidden rounded-[12px]
+          bg-[linear-gradient(105deg,#6545ff_0%,#8b70ff_48%,#6847ff_100%)]
+          sm:min-h-[340px] sm:w-[80%]
+          min-[1100px]:aspect-[1520/360]
+          min-[1100px]:min-h-0
+          min-[1100px]:w-[72%]
+        "
+      >
+        {/* Original Figma illustration — desktop only */}
+<div
+  aria-hidden="true"
+  className="
+    pointer-events-none absolute inset-0 z-0
+    hidden!
+    min-[1100px]:block!
+  "
+>
+  <img
+    src="/images/business-verification-get-started-visual.png"
+    alt=""
+    draggable="false"className="
+  absolute inset-x-0 top-0
+  h-[108%] w-full
+  object-fill
+"
+  />
+</div>
 
-        {/* Text and CTA layered over the artwork */}
-        <div className="bav-get-started__content">
-          <h2 className="sr-only">
-            Get Started with SmartVerify's Bank Account Verification API
+        {/* Text content */}
+        <div
+          className="
+            relative z-10 flex min-h-[300px]
+            w-full flex-col items-start justify-center
+            px-6 py-8
+            sm:min-h-[340px] sm:px-8
+            min-[750px]:px-8
+            min-[1100px]:h-full
+            min-[1100px]:min-h-0
+            min-[1100px]:w-[64%]
+            min-[1100px]:px-[4.2%]
+            min-[1100px]:py-6
+          "
+        >
+          {/* Heading */}
+          <h2 className="m-0 w-full max-w-[733px]">
+            <img
+              src="/images/bav-get-started-heading.png"
+              alt="Get Started with SmartVerify's Bank Account Verification API"
+              draggable="false"
+              className="block h-auto w-full"
+            />
           </h2>
 
-          <img
-            src="/images/bav-get-started-heading.png"
-            alt=""
-            aria-hidden="true"
-            className="bav-get-started__heading"
-            draggable="false"
-          />
-
-          <p className="sr-only">
+          {/* Manually written description */}
+          <p
+            className="
+              mt-4 max-w-[780px]
+              text-[13px] leading-[1.4] text-white
+              sm:text-[14px]
+              min-[1100px]:mt-5
+              min-[1100px]:text-[clamp(14px,1.05vw,20px)]
+              min-[1100px]:leading-[1.2]
+            "
+          >
             SmartVerify provides a sandbox environment where you can test
             each Bank Account Verification endpoint with sample data
             before going live.
           </p>
 
-          <img
-            src="/images/bav-get-started-description.png"
-            alt=""
-            aria-hidden="true"
-            className="bav-get-started__description"
-            draggable="false"
+          {/* Existing Book a Demo button */}
+          <CtaImageButton
+            href="#contact"
+            label="Book a Demo"
+            image="/images/book-demo.png"
+            hoverText="Book a Demo"
+            variant="demo"
+            showArrow
+            className="mt-5 w-[180px] shrink-0 sm:w-[195px]"
           />
-
-          {/* Reuse the existing animated Book a Demo button */}
-          <div className="bav-get-started__actions">
-            <CtaImageButton
-              href="#contact"
-              label="Book a Demo"
-              image="/images/book-demo.png"
-              hoverText="Book a Demo"
-              variant="demo"
-              showArrow
-              className="w-[185px]"
-            />
-          </div>
         </div>
       </div>
     </section>
   );
 }
+
+
 
 function BankAccountVerificationFaq() {
   return (
@@ -2384,7 +2806,6 @@ function BankAccountVerificationFaq() {
   );
 }
 
-
 function NumberIntelligenceHero() {
   const description =
     "A mobile number carries more information than most businesses realise. It can reveal who owns it, how long they've had it, whether it's linked to a real bank account, and whether it shows up in past fraud attempts. SmartVerify's Number Intelligence API suite turns that single data point into a full identity signal, so you catch fake sign-ups before they cost you money.";
@@ -2393,30 +2814,46 @@ function NumberIntelligenceHero() {
     <section
       id="number-intelligence-hero"
       aria-labelledby="number-intelligence-title"
-      className="relative isolate w-full overflow-hidden bg-white min-[1100px]:min-h-[clamp(640px,42.6vw,817px)]"
+      className="
+        relative isolate w-full overflow-hidden bg-white
+        min-[1100px]:min-h-[clamp(600px,45vw,820px)]
+      "
     >
-      {/* Background gradients matching the Figma artwork */}
+      {/* Background gradients */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(90deg,#FFFFFF_0%,#FFFFFF_66%,#FAF7FF_100%)]"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(90deg,#FFFFFF_0%,#FFFFFF_60%,#F8F5FF_100%)]"
       />
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 left-0 -z-10 h-[75%] w-[18%] bg-[radial-gradient(ellipse_at_bottom_left,rgba(236,49,105,0.25),transparent_70%)]"
+        className="pointer-events-none absolute bottom-0 left-0 -z-10 h-[75%] w-[25%] bg-[radial-gradient(ellipse_at_bottom_left,rgba(236,49,105,0.15),transparent_70%)]"
       />
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 -z-10 hidden w-[38%] bg-[radial-gradient(ellipse_at_80%_45%,rgba(126,91,255,0.22),transparent_68%)] min-[1100px]:block"
+        className="pointer-events-none absolute inset-y-0 right-0 -z-10 hidden w-[45%] bg-[radial-gradient(ellipse_at_70%_50%,rgba(126,91,255,0.15),transparent_70%)] min-[1100px]:block"
       />
 
-      {/* LEFT: Heading, description and CTA buttons */}
-      <div className="relative z-10 mx-auto flex w-[88%] flex-col items-start pb-8 pt-10 sm:pb-10 sm:pt-12 min-[1100px]:absolute min-[1100px]:left-[10.3%] min-[1100px]:top-[27%] min-[1100px]:mx-0 min-[1100px]:w-[42.4%] min-[1100px]:pb-0 min-[1100px]:pt-0">
-
+      {/* Heading, description and CTA buttons */}
+      <div
+        className="
+          relative z-10 mx-auto flex w-[88%] flex-col items-start
+          pt-28 pb-8
+          sm:pt-32 sm:pb-10
+          min-[1100px]:absolute
+          min-[1100px]:left-[8%]
+          min-[1100px]:top-1/2
+          min-[1100px]:-translate-y-1/2
+          min-[1100px]:mx-0
+          min-[1100px]:w-[48%]
+          min-[1100px]:pt-0
+          min-[1100px]:pb-0
+        "
+      >
         <h1
           id="number-intelligence-title"
-          className="m-0 w-full max-w-[812px]"
+          className="m-0 w-full max-w-[700px] overflow-visible"
         >
           <img
             src="/images/number-intelligence-hero-heading.png"
@@ -2427,29 +2864,36 @@ function NumberIntelligenceHero() {
           />
         </h1>
 
-        {/* Original Figma-exported description */}
-        <img
-          src="/images/number-intelligence-hero-description.png"
-          alt={description}
-          draggable="false"
-          className="mt-[42px] hidden h-auto w-full max-w-[797px] min-[1100px]:block"
-        />
-
-        {/* Responsive description on smaller screens */}
-        <p className="mt-5 max-w-[620px] text-[14px] leading-[1.45] text-[#383838] sm:text-[16px] min-[1100px]:hidden">
+        {/* Description text closely following the heading */}
+        <p
+          className="
+            mt-5 block w-full max-w-[500px]
+            text-[14px] leading-[1.5] text-[#383838]
+            sm:text-[15px]
+            min-[1100px]:mt-6
+            min-[1100px]:max-w-[520px]
+            min-[1100px]:text-[14px]
+            min-[1100px]:leading-[1.6]
+          "
+        >
           {description}
         </p>
 
-        {/* Reuse the existing shared CTA buttons */}
-        <div className="mt-8 flex w-full flex-col flex-wrap items-start gap-4 min-[760px]:flex-row min-[760px]:items-center min-[760px]:gap-6 min-[1100px]:mt-[50px] min-[1100px]:gap-[27px]">
-
+        {/* CTA buttons */}
+        <div
+          className="
+            mt-8 flex w-full flex-col items-center gap-4
+            min-[760px]:flex-row min-[760px]:items-center min-[760px]:justify-center min-[760px]:gap-6
+            min-[1100px]:mt-8 min-[1100px]:items-start min-[1100px]:justify-start min-[1100px]:gap-6
+          "
+        >
           <CtaImageButton
             href="#documentation"
             label="View Documentation"
             image="/images/view-documentation.png"
             hoverText="View Documentation"
             variant="docs"
-            className="w-[240px] max-w-full"
+            className="w-[220px] max-w-full"
           />
 
           <CtaImageButton
@@ -2459,22 +2903,37 @@ function NumberIntelligenceHero() {
             hoverText="Book a Demo"
             variant="demo"
             showArrow
-            className="w-[209px] max-w-full"
+            className="w-[220px] max-w-full"
           />
         </div>
       </div>
 
-      {/* RIGHT: Complete Figma-exported illustration */}
+      {/* 
+        Hero visual 
+        Anchored to the bottom right to match the reference image perfectly 
+      */}
       <img
         src="/images/number-intelligence-hero-visual.png"
         alt="Woman using her phone with number verification, address and OTP verification panels"
         draggable="false"
         fetchPriority="high"
-        className="relative z-0 mx-auto mb-3 block h-auto w-[94%] max-w-[720px] object-contain min-[1100px]:absolute min-[1100px]:right-[5%] min-[1100px]:top-[22%] min-[1100px]:mx-0 min-[1100px]:mb-0 min-[1100px]:w-[min(50.3vw,964px)] min-[1100px]:max-w-none"
+        className="
+          relative z-0 mx-auto mt-12 block h-auto w-[94%]
+          max-w-[720px] object-contain
+          min-[1100px]:absolute
+          min-[1100px]:bottom-0
+          min-[1100px]:right-0
+          min-[1100px]:mt-0
+          min-[1100px]:mx-0
+          min-[1100px]:w-[52vw]
+          min-[1100px]:max-w-[1000px]
+        "
       />
     </section>
   );
 }
+
+
 
 function NumberIntelligenceApiExplorer() {
   const apis = [
@@ -2632,34 +3091,40 @@ function NumberIntelligenceApiExplorer() {
 }
 
 
+
 function NumberIntelligenceBenefitsSection() {
   const benefits = [
     {
-      number: "01",
+      id: "fake-accounts",
+      icon: "/images/number-intelligence-benefit-icon-1.png",
       title: "Fewer fake accounts",
       description:
         "Catch throwaway numbers and synthetic identities at the point of entry.",
     },
     {
-      number: "02",
+      id: "onboarding",
+      icon: "/images/number-intelligence-benefit-icon-2.png",
       title: "Faster onboarding",
       description:
         "Pre-populate forms with verified information instead of having the customer type it all in.",
     },
     {
-      number: "03",
+      id: "fraud-losses",
+      icon: "/images/number-intelligence-benefit-icon-3.png",
       title: "Lower fraud losses",
       description:
         "Spot duplicate accounts, mismatched names, and newly issued numbers before they become chargebacks.",
     },
     {
-      number: "04",
+      id: "manual-review",
+      icon: "/images/number-intelligence-benefit-icon-4.png",
       title: "Less manual review",
       description:
         "Give the compliance team a data-backed signal instead of a blank phone number field.",
     },
     {
-      number: "05",
+      id: "conversion",
+      icon: "/images/number-intelligence-benefit-icon-5.png",
       title: "Better conversion",
       description:
         "Shorter forms and instant checks mean fewer drop-offs mid-signup.",
@@ -2672,25 +3137,30 @@ function NumberIntelligenceBenefitsSection() {
       aria-labelledby="number-intelligence-benefits-title"
       className="relative isolate w-full overflow-hidden bg-white"
     >
-      {/* Figma-inspired pink and purple background glows */}
+      {/* Background accents */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 bg-white"
       />
-
       <div
         aria-hidden="true"
         className="pointer-events-none absolute bottom-0 left-0 -z-10 h-[85%] w-[18%] bg-[radial-gradient(ellipse_at_bottom_left,rgba(236,49,105,0.24),transparent_72%)]"
       />
-
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-y-0 right-0 -z-10 w-[20%] bg-[linear-gradient(90deg,transparent,rgba(139,104,255,0.17))]"
       />
 
-      <div className="mx-auto w-[92%] max-w-[1520px] pb-10 pt-10 sm:w-[88%] sm:pb-12 min-[900px]:translate-x-12 c:\Users\ABC\Downloads\number-intelligence-use-cases-visual.png min-[900px]:pb-[36px] min-[900px]:pt-[56px]">
-
-        {/* Heading and subtitle */}
+      <div
+        className="
+          mx-auto w-[92%] max-w-[1520px]
+          pb-10 pt-10 sm:w-[88%] sm:pb-12
+          min-[900px]:translate-x-12
+          min-[900px]:pb-[36px]
+          min-[900px]:pt-[56px]
+        "
+      >
+        {/* Heading */}
         <header className="flex flex-col items-start">
           <h2
             id="number-intelligence-benefits-title"
@@ -2704,36 +3174,61 @@ function NumberIntelligenceBenefitsSection() {
             />
           </h2>
 
-          <img
-            src="/images/number-intelligence-benefits-subtitle.png"
-            alt="Manual verification creates delays, fraud risks, and missed opportunities."
-            draggable="false"
-            className="mt-4 block h-auto w-full max-w-[673px] min-[900px]:w-[44%]"
-          />
+          {/* Manually written description */}
+          <p
+            className="
+              mt-4 max-w-[673px]
+              text-[14px] leading-[1.5] text-[#555555]
+              sm:text-[15px]
+              min-[900px]:w-[44%]
+            "
+          >
+            Manual verification creates delays, fraud risks, and missed
+            opportunities.
+          </p>
         </header>
 
-        {/* Desktop: exact exported five-card composition */}
-        <img
-          src="/images/number-intelligence-benefits-cards.png"
-          alt="Five benefits of Number Intelligence: fewer fake accounts, faster onboarding, lower fraud losses, less manual review and better conversion."
-          draggable="false"
-          loading="lazy"
-          className="mt-8 hidden h-auto w-full min-[900px]:mt-[50px] min-[900px]:block"
-        />
+       {/* Desktop cards image — never display on mobile or tablet */}
+<div className="hidden min-[900px]:block">
+  <img
+    src="/images/number-intelligence-benefits-cards.png"
+    alt="Five benefits of Number Intelligence"
+    draggable="false"
+    loading="lazy"
+    className="mt-[50px] block h-auto w-full"
+  />
+</div>
 
-        {/* Mobile and tablet: readable responsive benefit cards */}
-        <div className="mt-8 grid grid-cols-1 gap-3 min-[520px]:grid-cols-2 min-[900px]:hidden">
+        {/* Mobile and tablet: manually written cards with icons */}
+        <div
+          className="
+            mt-8 grid grid-cols-1 gap-3
+            min-[520px]:grid-cols-2
+            min-[900px]:hidden
+          "
+        >
           {benefits.map((benefit) => (
             <article
-              key={benefit.number}
-              className="flex min-w-0 gap-3 rounded-md border border-[#DCD5FF] bg-white/80 p-4 shadow-[0_1px_4px_rgba(79,62,202,0.04)]"
+              key={benefit.id}
+              className="
+                flex min-w-0 items-start gap-3
+                rounded-md border border-[#DCD5FF]
+                bg-white p-4
+                shadow-[0_1px_4px_rgba(79,62,202,0.04)]
+              "
             >
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-[#4D3ECA]/10 text-sm font-semibold text-[#4D3ECA]">
-                {benefit.number}
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-[#F0EDFF] p-2">
+                <img
+                  src={benefit.icon}
+                  alt=""
+                  aria-hidden="true"
+                  draggable="false"
+                  className="block h-full w-full object-contain"
+                />
               </div>
 
-              <div className="min-w-0">
-                <h3 className="text-[16px] font-medium leading-snug text-[#292929]">
+              <div className="min-w-0 flex-1">
+                <h3 className="m-0 text-[16px] font-medium leading-snug text-[#292929]">
                   {benefit.title}
                 </h3>
                 <p className="mt-2 text-[14px] leading-[1.4] text-[#555555]">
@@ -2743,38 +3238,63 @@ function NumberIntelligenceBenefitsSection() {
             </article>
           ))}
         </div>
-
       </div>
     </section>
   );
 }
 
+
+
 function NumberIntelligenceUseCasesSection() {
+  const description =
+    "Verify identities faster, reduce manual effort, and make smarter risk decisions with reliable mobile intelligence.";
+
+  const useCasesAlt =
+    "Use cases across FinTech and Lending, E-commerce, Insurance, Staffing and Recruitment, and other industries.";
+
   return (
     <section
       id="number-intelligence-use-cases"
       aria-labelledby="number-intelligence-use-cases-title"
       className="relative isolate w-full overflow-hidden bg-white"
     >
-      {/* Grey gap between the previous section and this section */}
+      {/* Grey separator */}
       <div
         aria-hidden="true"
         className="h-6 w-full bg-[#F0F0F0]"
       />
 
+      {/* Right-side desktop background tint */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 -z-10 w-[18%] bg-[linear-gradient(90deg,transparent,rgba(139,104,255,0.12))]"
+        className="
+          pointer-events-none absolute inset-y-0 right-0 -z-10
+          hidden w-[18%]
+          bg-[linear-gradient(90deg,transparent,rgba(139,104,255,0.12))]
+          min-[1000px]:block
+        "
       />
 
-      {/* Main layout */}
-      <div className="mx-auto grid w-[90%] max-w-[1536px] grid-cols-1 items-start gap-7 pb-12 pt-8 sm:w-[88%] min-[1000px]:w-[80%] min-[1000px]:translate-x-12 grid-cols-[minmax(0,1fr)_minmax(0,1fr)] min-[1000px]:gap-x-[1.5vw] min-[1000px]:gap-y-0 min-[1000px]:pb-14 min-[1000px]:pt-8">
-
-        {/* LEFT: Heading, subtitle and five use-case cards */}
+      <div
+        className="
+          mx-auto grid w-[90%] max-w-[1536px]
+          grid-cols-1 items-start gap-7
+          pb-10 pt-8
+          sm:w-[88%]
+          min-[1000px]:w-[80%]
+          min-[1000px]:translate-x-12
+          min-[1000px]:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]
+          min-[1000px]:gap-x-[1.5vw]
+          min-[1000px]:gap-y-0
+          min-[1000px]:pb-14
+          min-[1000px]:pt-8
+        "
+      >
+        {/* LEFT: Heading, manually written description and cards */}
         <div className="min-w-0">
           <h2
             id="number-intelligence-use-cases-title"
-            className="mt-12 w-full"
+            className="m-0 mt-6 w-full min-[1000px]:mt-12"
           >
             <img
               src="/images/number-intelligence-use-cases-heading.png"
@@ -2784,38 +3304,74 @@ function NumberIntelligenceUseCasesSection() {
             />
           </h2>
 
-          <img
-            src="/images/number-intelligence-use-cases-subtitle.png"
-            alt="Verify identities faster, reduce manual effort, and make smarter risk decisions with reliable mobile intelligence."
-            draggable="false"
-            className="mt-6 block h-auto w-full min-[1000px]:mt-8"
-          />
+          {/* One manually written description for mobile and desktop */}
+          <p
+            className="
+              mt-4 max-w-[620px]
+              text-[14px] leading-[1.5] text-[#383838]
+              sm:text-[15px]
+              min-[1000px]:mt-6
+              min-[1000px]:text-[14px]
+              min-[1000px]:leading-[1.5]
+            "
+          >
+            {description}
+          </p>
 
-          {/* Combined Figma export: all five cards in the original order */}
-          <img
-            src="/images/number-intelligence-use-cases-cards.png"
-            alt="Five use cases: FinTech and Lending, E-commerce, Insurance, Staffing and Recruitment, and Across Industries."
-            draggable="false"
-            loading="lazy"
-            className="mt-7 block h-auto w-full min-[1000px]:mt-12"
-          />
+          
+{/* Existing Figma cards on a white mobile background */}
+<div
+  className="
+    mt-6 rounded-lg bg-white p-3
+    min-[1000px]:mt-8
+    min-[1000px]:rounded-none
+    min-[1000px]:bg-transparent
+    min-[1000px]:p-0
+  "
+>
+  <img
+    src="/images/number-intelligence-use-cases-cards.png"
+    alt={useCasesAlt}
+    draggable="false"
+    loading="lazy"
+    className="block h-auto w-full"
+  />
+</div>
+
+
+          {/* Mobile illustration: appears below all cards */}
+          <div className="mt-6 flex w-full justify-center min-[1000px]:hidden">
+            <img
+              src="/images/number-intelligence-use-cases-visual.png"
+              alt="Digital verification illustration featuring a protected document, security shield, and identity data."
+              draggable="false"
+              loading="lazy"
+              className="block h-auto w-full max-w-[520px] object-contain"
+            />
+          </div>
         </div>
 
-        {/* RIGHT: Main illustration aligned with the cards */}
-        <div className="flex min-w-0 items-start justify-center min-[1000px]:mt-[250px]">
+        {/* RIGHT: Desktop illustration */}
+        <div
+          className="
+            hidden min-w-0 items-start justify-center
+            min-[1000px]:mt-[250px]
+            min-[1000px]:flex
+          "
+        >
           <img
             src="/images/number-intelligence-use-cases-visual.png"
-            alt="Digital verification illustration with a protected document, security shield, and identity data."
+            alt="Digital verification illustration featuring a protected document, security shield, and identity data."
             draggable="false"
             loading="lazy"
             className="block h-auto w-full object-contain"
           />
         </div>
-
       </div>
     </section>
   );
 }
+
 
 function NumberIntelligenceIntegrationSection() {
   const description =
@@ -2834,13 +3390,13 @@ function NumberIntelligenceIntegrationSection() {
       />
 
       {/* Main content */}
-      <div className="mx-auto grid w-[88%] max-w-[1380px] grid-cols-1 items-center gap-7 pb-8 pt-5 min-[900px]:w-[72%] min-[900px]:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] min-[900px]:gap-x-[clamp(32px,4vw,76px)] min-[900px]:py-4">
+      <div className="mx-auto grid w-[88%] max-w-[1380px] grid-cols-1 items-center gap-8 pb-10 pt-8 min-[900px]:w-[72%] min-[900px]:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] min-[900px]:gap-x-[clamp(32px,4vw,76px)] min-[900px]:py-12">
 
         {/* LEFT: Heading and description */}
-        <div className="flex min-w-0 flex-col items-start min-[900px]:pl-0 min-[900px]:-translate-x-16">
+        <div className="flex min-w-0 flex-col items-start">
           <h2
             id="number-intelligence-integration-title"
-            className="mt-12 w-full"
+            className="w-full"
           >
             <img
               src="/images/number-intelligence-integration-heading.png"
@@ -2850,23 +3406,32 @@ function NumberIntelligenceIntegrationSection() {
             />
           </h2>
 
-          <img
-            src="/images/number-intelligence-integration-description.png"
-            alt={description}
-            draggable="false"
-            loading="lazy"
-            className="mt-12 block h-auto w-full max-w-[641px]"
-          />
+          {/* Manually written description for both desktop and mobile */}
+          <p
+            className="
+              mt-6 w-full max-w-[600px]
+              text-[14px] leading-[1.6] text-[#4B5563]
+              sm:text-[15px]
+              min-[900px]:mt-8
+              min-[900px]:text-[15px]
+              min-[900px]:leading-[1.65]
+            "
+          >
+            {description}
+          </p>
         </div>
 
         {/* RIGHT: Integration illustration */}
-        <div className="mt-4 flex min-w-0 items-center justify-center min-[900px]:justify-end">
+        <div className="mt-4 flex min-w-0 items-center justify-center min-[900px]:justify-end min-[900px]:mt-0">
           <img
             src="/images/number-intelligence-integration-visual.png"
             alt="Illustration of an API connecting a laptop, processing engine, and server."
             draggable="false"
             loading="lazy"
-            className="block h-auto w-[min(80vw,360px)] max-w-full object-contain min-[900px]:translate-x-6 w-[min(28vw,619px)]"
+            className="
+              block h-auto w-[min(80vw,360px)] max-w-full object-contain
+              min-[900px]:w-[min(28vw,619px)]
+            "
           />
         </div>
 
@@ -2874,6 +3439,7 @@ function NumberIntelligenceIntegrationSection() {
     </section>
   );
 }
+
 function NumberIntelligenceIdentitySignalCta() {
   const description =
     "A mobile number is one of the cheapest, fastest identity signals a business can act on if it's read correctly. SmartVerify's Number Intelligence suite turns that single field into a fraud check, an address lookup, and a pre-fill tool all at once. Test any of the ten APIs above in the sandbox environment and see how much manual review can be cut from your onboarding flow.";
@@ -2929,20 +3495,13 @@ function NumberIntelligenceIdentitySignalCta() {
 
       {/* MOBILE AND TABLET BANNER */}
       <div className="mx-auto w-[92%] max-w-[720px] overflow-hidden rounded-[12px] bg-[#6547F8] min-[1100px]:hidden">
+        
+        {/* 
+          The decorative illustration div has been completely removed here.
+        */}
 
-        {/* Decorative illustration */}
-        <div className="relative h-[150px] w-full overflow-hidden sm:h-[210px]">
-          <img
-            src="/images/number-intelligence-identity-signal-bg.png"
-            alt=""
-            aria-hidden="true"
-            draggable="false"
-            className="absolute inset-0 h-full w-full object-cover object-[78%_center]"
-          />
-        </div>
-
-        {/* Responsive content */}
-        <div className="flex flex-col items-start px-5 pb-7 pt-1 text-white sm:px-8 sm:pb-9">
+        {/* Responsive content (Added pt-6 to compensate for the removed image) */}
+        <div className="flex flex-col items-start px-5 pb-7 pt-6 text-white sm:px-8 sm:pb-9 sm:pt-8">
           <h2
             id="number-intelligence-identity-signal-title-mobile"
             className="m-0 w-full text-[clamp(27px,5vw,40px)] font-semibold leading-[1.12] tracking-[-0.03em]"
@@ -2999,7 +3558,7 @@ function IdentityVerificationHero() {
       aria-label="Identity Verification API"
       className="relative isolate w-full overflow-hidden bg-white min-[1100px]:min-h-[782px]"
     >
-      {/* Pink and purple background, matching the main-page hero */}
+      {/* Background gradients */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 bg-white"
@@ -3020,12 +3579,28 @@ function IdentityVerificationHero() {
         className="pointer-events-none absolute inset-y-0 right-0 -z-10 w-[26%] bg-[linear-gradient(90deg,transparent,rgba(139,104,255,0.24))]"
       />
 
-      {/* DESKTOP: left text and right visual */}
-      <div className="mt-14 relative mx-auto min-h-0 w-[88%] py-10 min-[1100px]:min-h-[782px] min-[1100px]:w-full min-[1100px]:py-0">
-
-        {/* LEFT: Heading, description and CTA buttons */}
-        <div className="relative z-10 flex max-w-[680px] flex-col items-start min-[1100px]:absolute min-[1100px]:left-[5.4%] min-[1100px]:top-[24%] min-[1100px]:w-[min(42vw,652px)]">
-
+      {/* Main layout */}
+      <div
+        className="
+          relative mx-auto mt-14
+          w-[88%] py-10
+          min-[1100px]:mt-14
+          min-[1100px]:min-h-[782px]
+          min-[1100px]:w-full
+          min-[1100px]:py-0
+        "
+      >
+        {/* Heading, manually written description and buttons */}
+        <div
+          className="
+            relative z-10 flex max-w-[680px]
+            flex-col items-start
+            min-[1100px]:absolute
+            min-[1100px]:left-[5.4%]
+            min-[1100px]:top-[24%]
+            min-[1100px]:w-[min(42vw,652px)]
+          "
+        >
           <h1
             id="identity-verification-hero-title"
             className="m-0 w-full max-w-[620px] min-[1100px]:w-[min(39vw,610px)]"
@@ -3039,16 +3614,36 @@ function IdentityVerificationHero() {
             />
           </h1>
 
-          <img
-            src="/images/identity-verification-hero-description.png"
-            alt={description}
-            draggable="false"
-           className="mt-7 block h-auto w-full max-w-[530px] min-[1100px]:w-[min(33vw,530px)]"
-          />
+          {/* One description for all screen sizes */}
+          <p
+            className="
+              mt-5 block w-full
+              text-[13px] leading-[1.4]
+              text-[#666666]
+              min-[640px]:text-[14px]
+              min-[1100px]:mt-7
+              min-[1100px]:w-[min(33vw,530px)]
+              min-[1100px]:max-w-[530px]
+              min-[1100px]:text-[15px]
+              min-[1100px]:leading-[1.45]
+            "
+          >
+            {description}
+          </p>
 
-          {/* Existing shared CTA buttons */}
-          <div className="mt-8 flex w-full flex-col flex-wrap items-start gap-4 min-[640px]:flex-row min-[640px]:items-center min-[640px]:gap-6 min-[1100px]:mt-9 min-[1100px]:gap-[24px]">
-
+          {/* CTA buttons */}
+          <div
+            className="
+              mt-7 flex w-full flex-col
+              items-center justify-center gap-4
+              min-[640px]:flex-row
+              min-[640px]:items-center
+              min-[640px]:gap-6
+              min-[1100px]:mt-9
+              min-[1100px]:justify-start
+              min-[1100px]:gap-[24px]
+            "
+          >
             <CtaImageButton
               href="#documentation"
               label="View Documentation"
@@ -3067,23 +3662,37 @@ function IdentityVerificationHero() {
               showArrow
               className="w-[225px] max-w-full"
             />
-
           </div>
         </div>
 
-        {/* RIGHT: Full exported identity-verification composition */}
+        {/* Desktop hero illustration only */}
         <img
           src="/images/identity-verification-hero-visual.png"
           alt="Customer face verification on a mobile phone, with identity document cards and verification status panels."
           draggable="false"
           fetchPriority="high"
-          className="relative mx-auto mt-12 block h-auto w-full max-w-[800px] object-contain min-[1100px]:absolute min-[1100px]:right-[5.3%] min-[1100px]:top-[56%] min-[1100px]:mx-0 min-[1100px]:mt-0 min-[1100px]:w-[min(42vw,800px)] min-[1100px]:max-w-none min-[1100px]:-translate-y-1/2"
+          className="
+            relative left-1/2 mt-10 block h-auto w-[112%]
+            max-w-none -translate-x-1/2 translate-y-8
+            object-contain
+            min-[1100px]:absolute
+            min-[1100px]:left-auto
+            min-[1100px]:right-[5.3%]
+            min-[1100px]:top-[56%]
+            min-[1100px]:mx-0
+            min-[1100px]:mt-0
+            min-[1100px]:w-[min(42vw,800px)]
+            min-[1100px]:max-w-none
+            min-[1100px]:translate-x-0
+            min-[1100px]:-translate-y-[50%]
+          "
         />
-
       </div>
     </section>
   );
 }
+
+
 const identityVerificationApis = [
   {
     title: "PAN Basic V1",
@@ -3463,10 +4072,10 @@ function IdentityVerificationIndustriesSection() {
       <div className="mx-auto flex w-[84%] max-w-[540px] flex-col gap-4 pt-3 pb-8 min-[900px]:hidden">
         <div className="flex flex-col gap-3">
           {industries.map((industry) => (
-  <article
-    key={industry.title}
-    className="flex items-center gap-3 rounded-[10px] border border-[#D3CCFF] bg-[#E5E4FF] px-3 py-4 sm:gap-4 sm:px-5 sm:py-5"
-  >
+<article
+  key={industry.title}
+  className="flex items-center gap-3 rounded-[10px] border border-[#D3CCFF] bg-white px-3 py-4 sm:gap-4 sm:px-5 sm:py-5"
+>
     <IdentityIndustryIcon type={industry.icon} />
 
     <div className="min-w-0 flex-1">
@@ -3654,7 +4263,7 @@ function IdentityVerificationSeamlessVerificationSection() {
             alt=""
             aria-hidden="true"
             draggable="false"
-            className="pointer-events-none absolute inset-0 h-full w-full object-cover object-left min-[1100px]:object-fill"
+            className="pointer-events-none absolute inset-0 h-[108%] w-full object-cover object-left min-[1100px]:object-fill"
           />
 
           {/* Text and CTA */}
@@ -3964,7 +4573,7 @@ function FaceAuthenticationHero() {
               hoverText="Book a Demo"
               variant="demo"
               showArrow
-              className="w-full max-w-[240px] shrink-0 sm:w-[261px]"
+              className="w-full max-w-[260px] shrink-0 sm:w-[300px]"
             />
           </div>
         </div>
@@ -4856,7 +5465,7 @@ function VehicleVerificationHero() {
               src="/images/vehicle-verification-heading.png"
               alt="Vehicle Verification API for Instant RC, Ownership & Challan Checks"
               draggable="false"
-              className="mt-16 block h-auto w-full"
+              className="mt-11 block h-auto w-full"
             />
           </h1>
 
@@ -4909,7 +5518,7 @@ function VehicleVerificationHero() {
               hoverText="Book a Demo"
               variant="demo"
               showArrow
-              className="w-full max-w-[195px] shrink-0 sm:w-[261px]"
+              className="w-full max-w-[242px] shrink-0 sm:w-[300px]"
             />
           </div>
         </div>
@@ -5695,7 +6304,7 @@ function VehicleVerificationIndustriesSection() {
                 className="
                   flex min-w-0 items-center gap-4
                   rounded-[9px] border border-[#D8D2FF]
-                  bg-[#E8E7FF] px-4 py-4
+                  bg-white px-4 py-4
                 "
               >
                 <VehicleVerificationIndustryIcon type={industry.icon} />
@@ -6301,42 +6910,50 @@ function BusinessVerificationHero() {
     </section>
   );
 }
+
 function BusinessVerificationMattersSection() {
   const cards = [
     {
       id: "onboarding",
       image: "/images/business-verification-matters-card-1.png",
-      alt: "Onboard vendors and merchants faster. Verification that took a back-office team hours now returns in seconds.",
+      imageAlt: "Business identity verification and merchant onboarding",
+      title: "Onboard vendors and merchants faster",
+      description:
+        "Verification that took a back-office team hours now returns in seconds.",
     },
     {
       id: "shell-companies",
       image: "/images/business-verification-matters-card-2.png",
-      alt: "Catch shell or dissolved companies early, before a contract or payout goes through.",
+      imageAlt: "Company verification and shell company detection",
+      title: "Catch shell or dissolved companies early",
+      description:
+        "Before a contract or payout goes through.",
     },
     {
       id: "directors",
       image: "/images/business-verification-matters-card-3.png",
-      alt: "Cross-check directors against company records to verify signing authority.",
+      imageAlt: "Director verification and company record checks",
+      title: "Cross-check directors against company records",
+      description:
+        "So the person signing actually has the authority to sign.",
     },
     {
       id: "compliance",
       image: "/images/business-verification-matters-card-4.png",
-      alt: "Meet compliance expectations for lending, marketplaces, insurance, and BFSI onboarding.",
+      imageAlt: "Business compliance and verification checks",
+      title: "Meet compliance expectations",
+      description:
+        "For lending, marketplaces, insurance, and BFSI onboarding.",
     },
   ];
 
   return (
     <>
-      {/* Thin grey divider between sections */}
       <div
         aria-hidden="true"
         className="h-3 w-full bg-[#F0F0F0]"
       />
-      {/* Thin grey divider before the next section */}
-      <div
-        aria-hidden="true"
-        className="h-1 w-full bg-[#F0F0F0]"
-      />
+
       <section
         aria-labelledby="business-verification-matters-heading"
         className="w-full bg-white"
@@ -6351,7 +6968,7 @@ function BusinessVerificationMattersSection() {
             min-[1100px]:pt-[46px]
           "
         >
-          {/* Heading and introduction */}
+          {/* Section heading and manually written introduction */}
           <div
             className="
               grid grid-cols-1 items-start gap-5
@@ -6362,7 +6979,7 @@ function BusinessVerificationMattersSection() {
           >
             <h2
               id="business-verification-matters-heading"
-              className="mt-6 m-0 w-full max-w-[540px]"
+              className="m-0 mt-6 w-full max-w-[540px]"
             >
               <img
                 src="/images/business-verification-matters-heading.png"
@@ -6373,48 +6990,74 @@ function BusinessVerificationMattersSection() {
             </h2>
 
             <p
-              className="mt-6
-                m-0 max-w-[400px]
-                text-[16px] leading-[1.3] text-[#555555]
-                sm:text-[15px]
+              className="
+                m-0 mt-6 max-w-[400px]
+                text-[15px] leading-[1.5] text-[#555555]
                 min-[768px]:ml-auto
-                min-[1100px]:text-[13px]
+                min-[1100px]:text-[14px]
               "
             >
-              Manual company checks eat time and still let fraud slip through.
-              Fake CINs, shell companies, mismatched director records, and
-              forged FSSAI or IEC certificates cost businesses money and
-              regulatory trouble. A KYB API strips out the guesswork.
+              Manual company checks take time and can still let fraud slip
+              through. Fake CINs, shell companies, mismatched director
+              records, and forged FSSAI or IEC certificates can cost
+              businesses money and create regulatory challenges.
+              Business verification helps reduce manual checks and
+              streamline the process.
             </p>
           </div>
 
-          {/* Four Figma cards */}
+          {/* Four cards: image first, editable text underneath */}
           <div
             className="
-              mt-7 grid grid-cols-1
-              gap-x-[18px] gap-y-6
+              mt-7 grid grid-cols-1 items-stretch gap-5
               min-[540px]:grid-cols-2
-              min-[1100px]:mt-[32px]
+              min-[1100px]:mt-8
               min-[1100px]:grid-cols-4
               min-[1100px]:gap-x-[18px]
               min-[1100px]:gap-y-0
             "
           >
             {cards.map((card) => (
-              <div
+              <article
                 key={card.id}
-                className="min-w-0 w-full"
+                className="
+                  flex h-full min-w-0 flex-col
+                  overflow-hidden rounded-[10px]
+                  border border-[#D5D5D5] bg-white
+                "
               >
-                <div className="mx-auto aspect-[5/7] w-full max-w-[360px] overflow-hidden min-[1100px]:max-w-none">
-  <img
-    src={card.image}
-    alt={card.alt}
-    draggable="false"
-    loading="lazy"
-    className="block h-full w-full object-fill"
-  />
-</div>
-              </div>
+                {/* Keep the original Figma image */}
+                <div className="aspect-square w-full overflow-hidden bg-[#EAF2FF]">
+                  <img
+                    src={card.image}
+                    alt={card.imageAlt}
+                    draggable="false"
+                    loading="lazy"
+                    className="block h-full w-full object-cover"
+                  />
+                </div>
+
+                {/* Manually written card content */}
+                <div className="flex flex-1 flex-col px-4 py-4 sm:px-4 sm:py-5">
+                  <h3
+                    className="
+                      m-0 text-[16px] font-medium leading-[1.35]
+                      text-[#333333] sm:text-[17px]
+                    "
+                  >
+                    {card.title}
+                  </h3>
+
+                  <p
+                    className="
+                      mt-3 text-[14px] leading-[1.5]
+                      text-[#666666] sm:text-[15px]
+                    "
+                  >
+                    {card.description}
+                  </p>
+                </div>
+              </article>
             ))}
           </div>
         </div>
@@ -6689,7 +7332,7 @@ function BusinessVerificationWhoUsesSection() {
                 className="
                   flex min-w-0 items-center gap-4
                   rounded-[9px] border border-[#D8D2FF]
-                  bg-[#E8E7FF] px-4 py-4
+                  bg-white px-4 py-4
                 "
               >
                 <BusinessVerificationAudienceIcon type={industry.icon} />
@@ -6930,53 +7573,66 @@ function BusinessVerificationIntegrationSection() {
     </>
   );
 }
+
 function BusinessVerificationGetStartedSection() {
   return (
-    <>
-      <section className="w-full bg-white px-4 pb-8 pt-3 sm:pb-10 sm:pt-4 min-[1100px]:px-0 min-[1100px]:pb-[40px] min-[1100px]:pt-[24px]">
-        {/* Thin grey divider */}
-      <div aria-hidden="true" className="h-3 w-full bg-[#F0F0F0]" />
-        {/* Centred CTA card with equal side gaps */}
+    <section className="w-full bg-white px-4 pb-8 pt-3 sm:pb-10 min-[1100px]:px-0 min-[1100px]:py-[40px]">
+      {/* Grey divider */}
+      <div
+        aria-hidden="true"
+        className="mb-6 h-3 w-full bg-[#F0F0F0] min-[1100px]:mb-8"
+      />
+
+      {/* Centred CTA card */}
+      <div
+        className="
+          relative isolate mx-auto
+          w-full max-w-[1520px]
+          overflow-hidden rounded-[10px]
+          bg-[linear-gradient(105deg,#6545ff_0%,#8b70ff_48%,#6847ff_100%)]
+          sm:w-[82%]
+          min-[1100px]:aspect-[1520/350]
+          min-[1100px]:w-[73%]
+        "
+      >
+        {/* Original Figma artwork — desktop only */}
         <div
+          aria-hidden="true"
           className="
-            relative isolate mx-auto
-            w-[94%] max-w-[1520px]
-            overflow-hidden rounded-[10px]
-            sm:w-[80%]
-            sm:mt-8
-            min-[1100px]:mt-10
-            min-[1100px]:aspect-[1520/340]
-            min-[1100px]:min-h-[320px]
-            min-[1100px]:w-[71%]
+            pointer-events-none absolute inset-0 z-0
+            hidden min-[1100px]:block
           "
         >
-          {/* Original Figma background — desktop only */}
           <img
             src="/images/business-verification-get-started-visual.png"
             alt=""
-            aria-hidden="true"
             draggable="false"
-            className="
-  absolute inset-x-0 top-0
-  h-[108%] w-full
-  object-fill
-"
+            className="absolute inset-0 h-full w-full object-fill"
           />
-          {/* Content */}
-          <div
-            className="
-              relative z-10 flex w-full flex-col
-              items-start px-5 py-6
-              sm:px-7 sm:py-8
-              min-[1100px]:absolute
-              min-[1100px]:inset-0
-              min-[1100px]:px-[4.1%]
-              min-[1100px]:pt-[clamp(24px,1.8vw,34px)]
-              min-[1100px]:pb-6
-            "
-          >
-            {/* Exact extracted Figma heading */}
-            <h2 className="m-0 w-full max-w-[450px] min-[1100px]:w-[min(40vw,590px)] min-[1100px]:max-w-none">
+        </div>
+
+        {/* Text content */}
+        <div
+          className="
+            relative z-10 flex w-full flex-col items-start
+            px-5 py-6
+            sm:px-7 sm:py-8
+            min-[1100px]:absolute
+            min-[1100px]:inset-0
+            min-[1100px]:px-[4.1%]
+            min-[1100px]:pt-[clamp(24px,1.8vw,34px)]
+            min-[1100px]:pb-6
+          "
+        >
+          <div className="w-full min-[1100px]:w-[92%]">
+            {/* Heading */}
+            <h2
+              className="
+                m-0 w-full max-w-[450px]
+                min-[1100px]:w-[52%]
+                min-[1100px]:max-w-none
+              "
+            >
               <img
                 src="/images/business-verification-get-started-heading.png"
                 alt="Start Verifying Businesses Smarter"
@@ -6985,17 +7641,17 @@ function BusinessVerificationGetStartedSection() {
               />
             </h2>
 
-            {/* Description matching the Figma reference */}
+            {/* Manually written description */}
             <p
               className="
-                m-0 mt-3 max-w-[650px]
-                text-[14px] leading-[1.35] text-white
-                sm:mt-4 sm:text-[13px]
-                min-[1100px]:mt-[10px]
-                min-[1100px]:w-[62%]
-                min-[1100px]:max-w-[860px]
-                min-[1100px]:text-[clamp(15px,1.05vw,20px)]
-                min-[1100px]:leading-[1.2]
+                mt-4 max-w-[650px]
+                text-[14px] leading-[1.4] text-white
+                sm:mt-5 sm:text-[14px]
+                min-[1100px]:mt-[clamp(8px,1vw,16px)]
+                min-[1100px]:w-[60%]
+                min-[1100px]:max-w-none
+                min-[1100px]:text-[clamp(13px,0.9vw,17px)]
+                min-[1100px]:leading-[1.25]
               "
             >
               Checking a company by hand means chasing documents,
@@ -7008,22 +7664,23 @@ function BusinessVerificationGetStartedSection() {
               today.
             </p>
 
-            {/* Existing Book a Demo CTA with hover animation */}
+            {/* Existing animated Book a Demo CTA */}
             <CtaImageButton
-            href="#contact"
-            label="Book a Demo"
-            image="/images/book-demo.png"
-            hoverText="Book a Demo"
-            variant="demo"
-            showArrow
-            className="mt-5 w-[180px] shrink-0 sm:w-[195px]"
-          />
+              href="#contact"
+              label="Book a Demo"
+              image="/images/book-demo.png"
+              hoverText="Book a Demo"
+              variant="demo"
+              showArrow
+              className="mt-5 w-[180px] shrink-0 sm:w-[195px]"
+            />
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
+
 function BusinessVerificationFaqSection() {
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -7672,7 +8329,7 @@ function GstVerificationWhoUsesSection() {
                 className="
                   flex min-w-0 items-center gap-4
                   rounded-[9px] border border-[#D8D2FF]
-                  bg-[#E8E7FF] px-4 py-4
+                  bg-white px-4 py-4
                 "
               >
                 {/* Reuse the existing icon helper from the previous section */}
@@ -7712,47 +8369,55 @@ function GstVerificationWhoUsesSection() {
     </>
   );
 }
+
 function GstVerificationAutomationBenefitsSection() {
   const cards = [
     {
       id: "pan-gstin",
       image: "/images/gst-verification-automation-card-1.png",
-      alt: "Start with PAN or GSTIN. Begin with whichever business information the customer provides during registration. If you only have a PAN, use GST Search by PAN to identify all GSTINs linked to the business.",
+      imageAlt: "PAN and GSTIN verification workflow illustration",
+      title: "Start with PAN or GSTIN",
+      description:
+        "Begin with whichever business information the customer provides during registration. If you only have a PAN, use GST Search by PAN to identify all GSTINs linked to the business.",
     },
     {
       id: "gst-registration",
       image: "/images/gst-verification-automation-card-2.png",
-      alt: "Verify the GST Registration. Use GST Basic Validation to confirm that the GSTIN is genuine, active, and matches the business details provided.",
+      imageAlt: "GST registration search and verification workflow illustration",
+      title: "Verify the GST Registration",
+      description:
+        "Use GST Basic Validation to confirm that the GSTIN is genuine, active, and matches the business details provided.",
     },
     {
       id: "deeper-checks",
       image: "/images/gst-verification-automation-card-3.png",
-      alt: "Perform Deeper Checks When Required. For higher-risk or credit-based onboarding, use GST Advanced Validation for deeper compliance details and GST to Contact Details to verify registered contact information for follow-ups or KYC.",
+      imageAlt: "Advanced business compliance verification illustration",
+      title: "Perform Deeper Checks When Required",
+      description:
+        "For higher-risk or credit-based onboarding, use GST Advanced Validation for deeper compliance details and GST to Contact Details to verify registered contact information for follow-ups or KYC.",
     },
   ];
 
   return (
     <>
-      {/* Thin grey divider */}
       <div aria-hidden="true" className="h-1 w-full bg-[#F0F0F0]" />
 
       <section
         aria-labelledby="gst-verification-automation-heading"
         className="w-full overflow-hidden bg-white"
       >
-         {/* Thin grey divider before the next section */}
-      <div aria-hidden="true" className="h-3 w-full bg-[#F0F0F0]" />
+        <div aria-hidden="true" className="h-3 w-full bg-[#F0F0F0]" />
+
         <div
           className="
             mx-auto w-[90%] max-w-[1560px]
-            pb-8 pt-8
-            sm:pb-10 sm:pt-10
+            pb-8 pt-8 sm:pb-10 sm:pt-10
             min-[1100px]:w-[80%]
             min-[1100px]:pb-[38px]
             min-[1100px]:pt-[36px]
           "
         >
-          {/* Heading and description */}
+          {/* Section heading and description */}
           <header
             className="
               grid grid-cols-1 items-start gap-4
@@ -7760,30 +8425,25 @@ function GstVerificationAutomationBenefitsSection() {
               min-[768px]:gap-x-[5%]
             "
           >
-            {/* Original Figma heading */}
             <h2
               id="gst-verification-automation-heading"
-              className="m-0 w-full max-w-[500px]"
+              className="m-0 mt-6 w-full max-w-[500px]"
             >
               <img
                 src="/images/gst-verification-automation-heading.png"
                 alt="What Changes When You Automate These Checks"
                 draggable="false"
-                className="mt-6 block h-auto w-full"
+                className="block h-auto w-full"
               />
             </h2>
 
-            {/* Figma description */}
             <p
-              className="mt-6
-                m-0 w-full max-w-[400px]
-                text-[15px] leading-[1.3] text-[#333333]
-                sm:text-[14px]
+              className="
+                m-0 mt-6 w-full max-w-[400px]
+                text-[14px] leading-[1.4] text-[#333333]
                 min-[768px]:ml-auto
-                min-[1100px]:max-w-[400px]
-                min-[1100px]:pt-[8px]
+                min-[1100px]:pt-2
                 min-[1100px]:text-[16px]
-                min-[1100px]:leading-[1.3]
               "
             >
               Running vehicle checks through an API instead of manual
@@ -7791,28 +8451,59 @@ function GstVerificationAutomationBenefitsSection() {
             </p>
           </header>
 
-          {/* Three cards in a single row on desktop */}
+          {/* Cards */}
           <div
             className="
-              mt-8 grid grid-cols-1 gap-5
+              mt-8 grid grid-cols-1 items-start gap-5
               min-[560px]:grid-cols-2
               min-[900px]:grid-cols-3
-              min-[900px]:gap-x-[13px]
-              min-[1100px]:mt-[40px]
+              min-[900px]:gap-4
+              min-[1100px]:mt-10
             "
           >
             {cards.map((card, index) => (
               <article
                 key={card.id}
-                className="min-w-0 w-full"
+                className="
+                  flex h-full min-w-0 flex-col
+                  overflow-hidden rounded-[10px]
+                  border border-[#D0D0D0]
+                  bg-white p-3 sm:p-4
+                "
               >
+                {/* Figma illustration — preserve its natural aspect ratio */}
                 <img
                   src={card.image}
-                  alt={card.alt}
+                  alt={card.imageAlt}
                   draggable="false"
                   loading={index === 0 ? "eager" : "lazy"}
-                  className="block h-auto w-full"
+                  className="
+                    block h-auto w-full
+                    rounded-[8px] object-contain
+                  "
                 />
+
+                {/* Manual text, in normal document flow */}
+                <div className="px-1 pb-1 pt-4">
+                  <h3
+                    className="
+                      m-0 text-[16px] font-medium
+                      leading-[1.4] text-[#111827]
+                      sm:text-[18px]
+                    "
+                  >
+                    {card.title}
+                  </h3>
+
+                  <p
+                    className="
+                      mt-3 text-[14px] leading-[1.5]
+                      text-[#333333] sm:text-[15px]
+                    "
+                  >
+                    {card.description}
+                  </p>
+                </div>
               </article>
             ))}
           </div>
@@ -7821,6 +8512,9 @@ function GstVerificationAutomationBenefitsSection() {
     </>
   );
 }
+
+
+
 function GstVerificationGetStartedSection() {
   return (
     <>
@@ -8219,9 +8913,9 @@ function EsignHero() {
               variant="demo"
               showArrow
               className="
-                w-[180px] shrink-0
+                w-[210px] shrink-0
                 sm:w-[210px]
-                min-[1100px]:w-[min(18.3vw,261px)]
+                min-[1100px]:w-[min(21vw,300px)]
               "
             />
           </div>
@@ -11347,17 +12041,6 @@ function GeolocationAddressGetStartedSection() {
               "
             />
           </div>
-        </div>
-
-        {/* Mobile/tablet illustration */}
-        <div className="relative z-10 mx-auto w-[92%] pb-5 min-[1100px]:hidden">
-          <img
-            src="/images/geolocation-get-started-visual.png"
-            alt="Security and verification illustration"
-            draggable="false"
-            loading="lazy"
-            className="block h-auto w-full object-contain"
-          />
         </div>
       </div>
     </section>
