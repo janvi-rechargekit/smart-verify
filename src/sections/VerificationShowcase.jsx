@@ -14,12 +14,17 @@ function ShowcaseCard({
         }`}
       >
         {image && (
-          <img
-            src={image}
-            alt={imageAlt}
-            draggable="false"
-          />
-        )}
+  <video
+    src={image}
+    aria-label={imageAlt || title}
+    autoPlay
+    loop
+    muted
+    playsInline
+    preload="metadata"
+    draggable="false"
+  />
+)}
       </div>
 
       <div className="showcase-card__label">
@@ -134,15 +139,19 @@ export default function VerificationShowcase() {
           strokeDasharray="2 3"
         />
       </svg>
-      
       {/* Central shield */}
-      <div className="showcase-shield">
-        <img
-          src="/images/Smart verify Enables.gif"
-          alt="SmartVerify protection shield"
-          draggable="false"
-        />
-      </div>
+<div className="showcase-shield">
+  <video
+    src="/videos/Smart%20verify%20Enables.mp4"
+    aria-label="SmartVerify protection shield"
+    autoPlay
+    loop
+    muted
+    playsInline
+    preload="metadata"
+    draggable="false"
+  />
+</div>
 
       {/* Center pill */}
       <div className="showcase-api-pill">
@@ -155,7 +164,7 @@ export default function VerificationShowcase() {
       <ShowcaseCard
         className="showcase-card--document"
         title="Document OCR"
-        image="/images/Document OCR.gif"
+        image="/videos/Document OCR.mp4"
       />
 
       {/* Upper-right card.
@@ -164,7 +173,7 @@ export default function VerificationShowcase() {
       <ShowcaseCard
         className="showcase-card--identity"
         title="Identity Verification"
-        image="/images/Identity Verification.gif"
+        image="/videos/Identity Verification.mp4"
         imageAlt="Driving licence and identity verification"
         cropImageBottom
       />
@@ -173,13 +182,13 @@ export default function VerificationShowcase() {
       <ShowcaseCard
         className="showcase-card--number"
         title="Number Intelligence"
-         image="/images/Number Intelligence.gif"
+         image="/videos/Number Intelligence.mp4"
       />
 
       <ShowcaseCard
         className="showcase-card--face"
         title="Face Authentication"
-        image="/images/Face Authentication.gif"
+        image="/videos/Face Authentication.mp4"
         imageAlt="Face authentication verification"
       />
 
@@ -187,14 +196,14 @@ export default function VerificationShowcase() {
       <ShowcaseCard
         className="showcase-card--digital"
         title="Digital KYC & eKYC"
-        image="/images/Digital KYC & eKYC.gif"
+        image="/videos/Digital KYC & eKYC.mp4"
         imageAlt="Digital KYC verification"
       />
 
       <ShowcaseCard
         className="showcase-card--esign"
         title="eSign"
-        image="/images/esign.gif"
+        image="/videos/esign.mp4"
 
       />
     </div>

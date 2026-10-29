@@ -100,12 +100,16 @@ export default function APIIntegrationSection() {
           </a>
         </div>
 
-       {/* Animated Figma laptop asset */}
-<img
-  src="/images/api integration dashboard.gif"
-  alt="Laptop displaying an API management workspace in Visual Studio Code"
+      {/* Animated Figma laptop asset */}
+<video
+  src="/videos/api%20integration%20dashboard.mp4"
+  aria-label="Laptop displaying an API management workspace in Visual Studio Code"
   className="api-integration-section__laptop"
-  loading="lazy"
+  autoPlay
+  loop
+  muted
+  playsInline
+  preload="metadata"
 />
       </div>
     </section>
