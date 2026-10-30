@@ -7,39 +7,30 @@ export default function VerificationSolutions() {
     >
       <div className="verification-solutions__inner">
         {/* Heading on the left */}
-<div className="verification-solutions__heading w-full min-w-0">
-  <h2
-    id="verification-solutions-heading"
-    className="
-      m-0 w-full max-w-[850px]
-      text-justify [text-align-last:left]
-      break-normal
-      text-[clamp(28px,7vw,36px)]
-      font-semibold leading-[1.18]
-      tracking-[-0.025em]
-      md:text-[clamp(30px,4.5vw,46px)]
-      md:leading-[1.15]
-      lg:text-[clamp(30px,4vw,64px)]
-      lg:leading-[1.12]
-      lg:tracking-[-0.04em]
-    "
-  >
-    <span className="solutions-heading__dark text-[#17121C]">
-      Verification Solutions
-    </span>{" "}
-    <span className="solutions-heading__dark text-[#17121C]">
-      Built
-    </span>{" "}
-    <span className="solutions-heading__purple text-[#4D3ECA]">
-      Around Your Business
-    </span>{" "}
-    <span className="solutions-heading__purple text-[#4D3ECA]">
-      Goals
-    </span>
-  </h2>
-</div>
-
-
+        <div className="verification-solutions__heading w-full min-w-0">
+          <h2
+            id="verification-solutions-heading"
+            className="
+              m-0 w-full max-w-[850px]
+              break-normal
+              text-[clamp(28px,7vw,36px)]
+              font-semibold leading-[1.18]
+              tracking-[-0.025em]
+              md:text-[clamp(30px,4.5vw,46px)]
+              md:leading-[1.15]
+              lg:text-[clamp(30px,4vw,64px)]
+              lg:leading-[1.12]
+              lg:tracking-[-0.04em]
+            "
+          >
+            <span className="solutions-heading__dark text-[#17121C]">
+              Verification Solutions Built{" "}
+            </span>
+            <span className="solutions-heading__purple text-[#4D3ECA]">
+              Around Your Business Goals
+            </span>
+          </h2>
+        </div>
 
         {/* Description and CTA on the right */}
         <div className="verification-solutions__intro">
@@ -74,13 +65,13 @@ export default function VerificationSolutions() {
         </div>
       </div>
 
-     {/* Main Figma visual */}
-<img
-  src="/images/verification-solutions.png"
-  alt="SmartVerify verification solutions showing business goals and verification services"
-  className="verification-solutions__visual"
-  loading="lazy"
-/>
+      {/* Main Figma visual */}
+      <img
+        src="/images/verification-solutions.png"
+        alt="SmartVerify verification solutions showing business goals and verification services"
+        className="verification-solutions__visual"
+        loading="lazy"
+      />
     </section>
   );
 }
