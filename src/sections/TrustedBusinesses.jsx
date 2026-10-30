@@ -42,12 +42,12 @@ const bottomRowLogos = [
 export default function TrustedBusinesses() {
   return (
     <section
-      className="trusted-section"
-      aria-labelledby="trusted-heading"
-    >
+  className="trusted-section !pb-4 lg:!pb-6"
+  aria-labelledby="trusted-heading"
+>
       <div className="trusted-section__inner">
         {/* Left-side heading */}
-        <div className="trusted-section__content">
+        <div className="trusted-section__content lg:translate-x-8 xl:translate-x-31">
           <h2
             id="trusted-heading"
             className="trusted-section__heading"

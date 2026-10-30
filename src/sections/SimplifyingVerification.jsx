@@ -1,9 +1,7 @@
-
 const features = [
   {
     id: "coverage",
     title: "Coverage From Day One",
-    titleImage: "/images/coverage-from-day-one-title.png",
     iconImage: "/images/coverage-from-day-one-icon.png",
     description:
       "Verification starts as soon as a user registers, before they even enter your system. SmartVerify verifies phone numbers, emails, and devices to stop bots in their tracks before fraud takes hold.",
@@ -11,7 +9,6 @@ const features = [
   {
     id: "integration",
     title: "Built for Easy Integration",
-    titleImage: "/images/built-for-easy-integration-title.png",
     iconImage: "/images/built-for-easy-integration-icon.png",
     description:
       "Integrate with assurance using clean, well-structured APIs and a sandbox environment that lets your team test everything before going live.",
@@ -19,7 +16,6 @@ const features = [
   {
     id: "onboarding",
     title: "Seamless Customer Onboarding",
-    titleImage: "/images/seamless-customer-onboarding-title.png",
     iconImage: "/images/seamless customer onboarding.png",
     icon: (
       <>
@@ -35,10 +31,7 @@ const features = [
   {
     id: "launch",
     title: "Go Live Faster",
-    titleImage: "/images/go-live-faster-title.png",
     iconImage: "/images/Go live faster.png",
-
-
     icon: (
       <>
         <path d="M13 3 22 8l-9 5-9-5 9-5Z" />
@@ -53,7 +46,6 @@ const features = [
 ];
 
 function FeatureIcon({ feature }) {
-  // Use the exact Figma-exported PNG wherever available.
   if (feature.iconImage) {
     return (
       <img
@@ -66,7 +58,6 @@ function FeatureIcon({ feature }) {
     );
   }
 
-  // Keep the current SVG icons for cards three and four.
   return (
     <div className="simplifying-feature__icon">
       <svg viewBox="0 0 26 26" fill="none" aria-hidden="true">
@@ -83,23 +74,6 @@ function FeatureIcon({ feature }) {
   );
 }
 
-function FeatureTitle({ feature }) {
-  if (feature.titleImage) {
-    return (
-      <h3 className="simplifying-feature__title simplifying-feature__title--image">
-        <img
-          src={feature.titleImage}
-          alt={feature.title}
-          className="simplifying-feature__title-image"
-          loading="lazy"
-        />
-      </h3>
-    );
-  }
-
-  return <h3>{feature.title}</h3>;
-}
-
 export default function SimplifyingVerification() {
   return (
     <section
@@ -108,8 +82,9 @@ export default function SimplifyingVerification() {
       aria-labelledby="simplifying-verification-heading"
     >
       <div className="simplifying-verification__inner">
+
         {/* Heading and description */}
-        <div className="simplifying-verification__header">
+        <div className="simplifying-verification__header max-[600px]:!flex max-[600px]:!flex-col max-[600px]:!items-start max-[600px]:!gap-4">
           <div className="simplifying-verification__title-wrap">
             <img
               id="simplifying-verification-heading"
@@ -119,7 +94,7 @@ export default function SimplifyingVerification() {
             />
           </div>
 
-          <div className="simplifying-verification__description">
+          <div className="simplifying-verification__description max-[600px]:!w-full max-[600px]:!max-w-none">
             <p>
               Most verification platforms force compromises between
               speed, coverage, and reliability. SmartVerify brings them
@@ -130,7 +105,7 @@ export default function SimplifyingVerification() {
         </div>
 
         {/* Main Figma-exported verification visual */}
-        <div className="simplifying-verification__visual">
+        <div className="simplifying-verification__visual max-[600px]:!mt-5 max-[600px]:!w-full">
           <img
             src="/images/simplifying-verification-visual.png"
             alt="A woman using a laptop alongside SmartVerify identity, document, and face verification results"
@@ -147,11 +122,20 @@ export default function SimplifyingVerification() {
               className="simplifying-feature"
             >
               <FeatureIcon feature={feature} />
-              <FeatureTitle feature={feature} />
+              
+              {/* 
+                Force ALL titles to render as text. 
+                Added classes to match the style of the image headings exactly.
+              */}
+              <h3 className="text-[18px] sm:text-[20px] font-semibold text-[#1f2937] leading-[1.3] mt-4 mb-3">
+                {feature.title}
+              </h3>
+              
               <p>{feature.description}</p>
             </article>
           ))}
         </div>
+
       </div>
     </section>
   );

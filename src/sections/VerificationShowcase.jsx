@@ -4,6 +4,13 @@ function ShowcaseCard({
   image,
   imageAlt = "",
 }) {
+  const centerVideo = [
+    "showcase-card--number",
+    "showcase-card--face",
+    "showcase-card--digital",
+    "showcase-card--esign",
+  ].includes(className);
+
   return (
     <article className={`showcase-card ${className}`}>
       <div
@@ -11,20 +18,29 @@ function ShowcaseCard({
           image
             ? "showcase-card__media--image"
             : "showcase-card__media--blank"
+        } ${
+          centerVideo
+            ? "max-md:! max-md:!items-center max-md:!justify-center"
+            : ""
         }`}
       >
         {image && (
-  <video
-    src={image}
-    aria-label={imageAlt || title}
-    autoPlay
-    loop
-    muted
-    playsInline
-    preload="metadata"
-    draggable="false"
-  />
-)}
+          <video
+            src={image}
+            aria-label={imageAlt || title}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            draggable="false"
+            className={
+              centerVideo
+            ? "max-md:!h-auto max-md:!w-auto max-md:!max-w-full max-md:!max-h-full max-md:object-contain"
+                : ""
+            }
+          />
+        )}
       </div>
 
       <div className="showcase-card__label">
@@ -33,6 +49,7 @@ function ShowcaseCard({
     </article>
   );
 }
+
 function ApiCheckIcon() {
   return (
     <svg
