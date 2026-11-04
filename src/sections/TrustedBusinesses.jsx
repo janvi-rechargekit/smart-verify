@@ -50,7 +50,7 @@ export default function TrustedBusinesses() {
         <div className="trusted-section__content lg:translate-x-8 xl:translate-x-31">
           <h2
             id="trusted-heading"
-            className="trusted-section__heading"
+            className="trusted-section__heading "
           >
             Over <span>500+ Businesses</span>
             <br />

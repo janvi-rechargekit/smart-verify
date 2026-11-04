@@ -14,16 +14,12 @@ function ShowcaseCard({
   return (
     <article className={`showcase-card ${className}`}>
       <div
-        className={`showcase-card__media ${
-          image
-            ? "showcase-card__media--image"
-            : "showcase-card__media--blank"
-        } ${
-          centerVideo
-            ? "max-md:! max-md:!items-center max-md:!justify-center"
-            : ""
-        }`}
-      >
+  className={`showcase-card__media ${
+    image
+      ? "showcase-card__media--image"
+      : "showcase-card__media--blank"
+  } max-md:!flex max-md:!items-center max-md:!justify-center`}
+>
         {image && (
           <video
             src={image}
@@ -32,13 +28,21 @@ function ShowcaseCard({
             loop
             muted
             playsInline
+            controls={false}
+            disablePictureInPicture
+            disableRemotePlayback
+            controlsList="nodownload noplaybackrate noremoteplayback"
             preload="metadata"
             draggable="false"
-            className={
-              centerVideo
-            ? "max-md:!h-auto max-md:!w-auto max-md:!max-w-full max-md:!max-h-full max-md:object-contain"
-                : ""
-            }
+            tabIndex={-1}
+            className={`
+              pointer-events-none select-none
+              ${
+                centerVideo
+                  ? "max-md:!h-auto max-md:!w-auto max-md:!max-w-full max-md:!max-h-full max-md:object-centre"
+                  : ""
+              }
+            `}
           />
         )}
       </div>
@@ -78,7 +82,11 @@ function ApiCheckIcon() {
 export default function VerificationShowcase() {
   return (
     <div className="verification-showcase">
-      {/* Connector lines behind the cards */}
+
+      {/* =====================================
+          GREY CONNECTOR GUIDES
+          ===================================== */}
+
       <svg
         aria-hidden="true"
         className="showcase-connectors"
@@ -86,6 +94,7 @@ export default function VerificationShowcase() {
         preserveAspectRatio="none"
         fill="none"
       >
+        {/* Horizontal guides */}
         <path
           d="M 550 76 H 1042"
           stroke="#A5A1A5"
@@ -100,34 +109,7 @@ export default function VerificationShowcase() {
           strokeDasharray="2 3"
         />
 
-        <path
-          d="M 550 112 H 582 V 270 H 690"
-          stroke="#9E8AFF"
-          strokeWidth="1.6"
-          strokeDasharray="2 3"
-        />
-
-        <path
-          d="M 1042 112 H 1010 V 270 H 930"
-          stroke="#9E8AFF"
-          strokeWidth="1.6"
-          strokeDasharray="2 3"
-        />
-
-        <path
-          d="M 550 515 H 582 V 356 H 690"
-          stroke="#9E8AFF"
-          strokeWidth="1.6"
-          strokeDasharray="2 3"
-        />
-
-        <path
-          d="M 930 356 H 1010 V 505 H 1042"
-          stroke="#9E8AFF"
-          strokeWidth="1.6"
-          strokeDasharray="2 3"
-        />
-
+        {/* Vertical guides */}
         <path
           d="M 200 0 V 710"
           stroke="#A5A1A5"
@@ -142,6 +124,7 @@ export default function VerificationShowcase() {
           strokeDasharray="2 4"
         />
 
+        {/* Lower decorative guides */}
         <path
           d="M 145 648 H 686 V 680"
           stroke="#C1B1FF"
@@ -156,50 +139,162 @@ export default function VerificationShowcase() {
           strokeDasharray="2 3"
         />
       </svg>
-      {/* Central shield */}
-<div className="showcase-shield">
-  <video
-    src="/videos/Smart%20verify%20Enables.mp4"
-    aria-label="SmartVerify protection shield"
-    autoPlay
-    loop
-    muted
-    playsInline
-    preload="metadata"
-    draggable="false"
-  />
-</div>
 
-      {/* Center pill */}
+      {/* =====================================
+          FOUR ORIGINAL FIGMA CONNECTOR IMAGES
+          ===================================== */}
+
+      <div
+        className="showcase-connector-layer"
+        aria-hidden="true"
+      >
+        <img
+          src="/images/showcase-connector-top-left.png"
+          className="showcase-connector-image showcase-connector--top-left"
+          alt=""
+          draggable="false"
+        />
+
+        <img
+          src="/images/showcase-connector-top-right.png"
+          className="showcase-connector-image showcase-connector--top-right"
+          alt=""
+          draggable="false"
+        />
+
+        <img
+          src="/images/showcase-connector-bottom-left.png"
+          className="showcase-connector-image showcase-connector--bottom-left"
+          alt=""
+          draggable="false"
+        />
+
+        <img
+          src="/images/showcase-connector-bottom-right.png"
+          className="showcase-connector-image showcase-connector--bottom-right"
+          alt=""
+          draggable="false"
+        />
+
+        {/* Animated purple highlights */}
+        <svg
+          className="showcase-connector-animation"
+          viewBox="0 0 1620 710"
+          preserveAspectRatio="none"
+          fill="none"
+        >
+          <defs>
+            <filter
+              id="showcaseConnectorGlow"
+              x="-100%"
+              y="-100%"
+              width="300%"
+              height="300%"
+            >
+              <feGaussianBlur
+                stdDeviation="3"
+                result="blur"
+              />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          <g
+            fill="none"
+            stroke="#6442F5"
+            strokeWidth="7"
+            strokeLinecap="round"
+            filter="url(#showcaseConnectorGlow)"
+          >
+            {/* Upper-left: towards shield */}
+            <path
+              className="connector-flow connector-flow--one"
+              d="M 550 112 H 582 V 270 H 690"
+              pathLength="1000"
+            />
+
+            {/* Upper-right: towards shield */}
+            <path
+              className="connector-flow connector-flow--two"
+              d="M 1042 112 H 1010 V 270 H 930"
+              pathLength="1000"
+            />
+
+            {/* Lower-left: towards shield */}
+            <path
+              className="connector-flow connector-flow--three"
+              d="M 550 515 H 582 V 356 H 690"
+              pathLength="1000"
+            />
+
+            {/* Lower-right: towards shield */}
+            <path
+              className="connector-flow connector-flow--four"
+              d="M 1042 505 H 1010 V 356 H 930"
+              pathLength="1000"
+            />
+          </g>
+        </svg>
+      </div>
+
+      {/* =====================================
+          CENTRAL SHIELD
+          ===================================== */}
+
+      <div className="showcase-shield">
+        <video
+          src="/videos/Smart%20verify%20Enables.mp4"
+          aria-label="SmartVerify protection shield"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          draggable="false"
+        />
+      </div>
+
+      {/* =====================================
+          CENTER PILL
+          ===================================== */}
+
       <div className="showcase-api-pill">
         <ApiCheckIcon />
         <span>SmartVerify API enables</span>
       </div>
-      
 
-      {/* Upper-left card */}
+      {/* =====================================
+          UPPER-LEFT CARD
+          ===================================== */}
+
       <ShowcaseCard
         className="showcase-card--document"
         title="Document OCR"
         image="/videos/Document OCR.mp4"
       />
 
-      {/* Upper-right card.
-          The source image includes its own bottom title strip,
-          so crop that strip before displaying our separate label. */}
+      {/* =====================================
+          UPPER-RIGHT CARD
+          ===================================== */}
+
       <ShowcaseCard
         className="showcase-card--identity"
         title="Identity Verification"
         image="/videos/Identity Verification.mp4"
         imageAlt="Driving licence and identity verification"
-        cropImageBottom
       />
 
-      {/* Lower-left cards */}
+      {/* =====================================
+          LOWER-LEFT CARDS
+          ===================================== */}
+
       <ShowcaseCard
         className="showcase-card--number"
         title="Number Intelligence"
-         image="/videos/Number Intelligence.mp4"
+        image="/videos/Number Intelligence.mp4"
       />
 
       <ShowcaseCard
@@ -209,7 +304,10 @@ export default function VerificationShowcase() {
         imageAlt="Face authentication verification"
       />
 
-      {/* Lower-right cards */}
+      {/* =====================================
+          LOWER-RIGHT CARDS
+          ===================================== */}
+
       <ShowcaseCard
         className="showcase-card--digital"
         title="Digital KYC & eKYC"
@@ -221,8 +319,8 @@ export default function VerificationShowcase() {
         className="showcase-card--esign"
         title="eSign"
         image="/videos/esign.mp4"
-
       />
+
     </div>
   );
 }

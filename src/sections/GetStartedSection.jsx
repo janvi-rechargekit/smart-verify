@@ -13,7 +13,12 @@ function CtaImageButton({ href, label, image, hoverText, variant, showArrow = fa
     </a>
   );
 }
-function GetStartedSection() {
+
+function GetStartedSection({
+  heading = "Get Started with SmartVerify",
+  description = "Simplify customer onboarding with a single platform for identity, document, business, and financial verification. Explore reliable verification solutions designed to help your business onboard customers faster and operate with confidence.",
+  buttonText = "Book a Demo",
+}) {
   return (
     <section
       id="get-started"
@@ -26,7 +31,7 @@ function GetStartedSection() {
         min-[1100px]:py-[40px]
       "
     >
-      {/* Centred card with equal side gaps */}
+      {/* Centred banner */}
       <div
         className="
           relative isolate mx-auto
@@ -73,64 +78,71 @@ function GetStartedSection() {
           "
         >
           <div className="w-full min-[900px]:w-[66%]">
+
             {/* Heading */}
             <h2
               id="get-started-heading"
               className="
-                m-0 w-full
-                max-w-[440px]
-                min-[900px]:w-[min(43vw,610px)]
-                min-[900px]:max-w-none
+                m-0
+                max-w-[560px]
+                text-[27px]
+                font-semibold
+                leading-[1.15]
+                tracking-[-0.035em]
+                text-white
+                sm:text-[34px]
+                sm:leading-[1.16]
+                min-[900px]:max-w-[720px]
+                min-[900px]:text-[clamp(30px,2.65vw,43px)]
+                min-[900px]:leading-[1.12]
               "
             >
-              <img
-                src="/images/get-started-verification-heading.png"
-                alt="Get Started With Verification APIs Now"
-                draggable="false"
-                className="block h-auto w-full"
-                loading="lazy"
-              />
+              {heading}
             </h2>
 
             {/* Description */}
             <p
               className="
-                m-0 mt-3 max-w-[520px]
-                text-[14px] leading-[1.45] text-white
+                m-0 mt-3
+                max-w-[600px]
+                text-[14px]
+                font-normal
+                leading-[1.5]
+                text-white
                 sm:mt-4 sm:text-[15px]
-                min-[900px]:mt-[10px]
-                min-[900px]:w-[98%]
-                min-[900px]:max-w-[760px]
+                min-[900px]:mt-[12px]
+                min-[900px]:max-w-[730px]
                 min-[900px]:text-[clamp(12px,0.9vw,16px)]
-                min-[900px]:leading-[1.3]
+                min-[900px]:leading-[1.4]
               "
             >
-              Integrate 100+ verification APIs from one unified platform
-              designed for fast, accurate, and reliable verification.
+              {description}
             </p>
 
             {/* Existing Book a Demo button and hover animation */}
             <CtaImageButton
               href="#contact"
-              label="Book a Demo"
+              label={buttonText}
               image="/images/book-demo.png"
-              hoverText="Book a Demo"
+              hoverText={buttonText}
               variant="demo"
               showArrow
               className="
                 mt-4 w-[184px] shrink-0
                 sm:w-[195px]
-                min-[900px]:mt-[14px]
+                min-[900px]:mt-[16px]
               "
             />
+
           </div>
         </div>
 
-        {/* Mobile and tablet scanner artwork removed */}
+        {/* Mobile and tablet scanner artwork remains hidden */}
       </div>
     </section>
   );
 }
+
 
 export default GetStartedSection;
 

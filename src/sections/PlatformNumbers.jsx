@@ -1,11 +1,70 @@
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  FileText,
+  CreditCard,
+  Globe,
+  Contact,
+  Landmark,
+  ClipboardCheck,
+  ReceiptText,
+  Building2,
+  ShieldCheck,
+  FolderCheck,
+  Fingerprint,
+  IdCard,
+  Database,
+  Video,
+  BadgeCheck,
+  Link2,
+  ScanFace,
+  Vote,
+  Plane,
+  CarFront,
+  Scan,
+  Smartphone,
+  UserRoundSearch,
+  Camera,
+  Wallet,
+  ArrowLeftRight,
+  FileCheck,
+  Search,
+  ClipboardList,
+  Receipt,
+FileSearch,
+Building,
+ContactRound,
+SearchCheck,
+FileSignature,
+Files,
+} from "lucide-react";
 
 const statsCards = [
-  { src: "/images/verifications-processed.png", alt: "100M+ Verifications Processed" },
-  { src: "/images/platform-uptime.png", alt: "99.99% Platform Uptime" },
-  { src: "/images/businesses-served.png", alt: "500+ Businesses Served" },
-  { src: "/images/verifications-apis.png", alt: "100+ Verification APIs" },
+  {
+    value: 100,
+    suffix: "M+",
+    label: "Verifications Processed",
+    icon: "shield",
+  },
+  {
+    value: 99.99,
+    suffix: "%",
+    label: "Platform Uptime",
+    icon: "uptime",
+    decimals: 2,
+  },
+  {
+    value: 500,
+    suffix: "+",
+    label: "Businesses Served",
+    icon: "business",
+  },
+  {
+    value: 100,
+    suffix: "+",
+    label: "Verification APIs",
+    icon: "api",
+  },
 ];
 
 const categories = [
@@ -37,70 +96,815 @@ const categoryRoutes = {
   "Employee & Income Verification": "/products/employee-income-verification",
   "Geolocation & Address Intelligence": "/products/geolocation-address-intelligence",
 };
+const categoryContent = {
+  "Document OCR": {
+    description:
+      "Extracts key information from identity documents, invoices, and business records in seconds with AI-powered OCR. Eliminate manual data entry, reduce processing errors, and speed up verification workflows. Capture accurate data from multiple document formats while improving operational efficiency.",
+    cta: "Explore Document OCR",
+  },
 
+  "Identity Verification": {
+    description:
+      "Confirm customer identities instantly with trusted verification APIs that connect to reliable data sources. Prevent fraud, reduce onboarding delays, and ensure every user is genuine before granting access. Build trust while staying compliant with regulatory requirements.",
+    cta: "Verify Identities Faster",
+  },
+
+  "Digital KYC & eKYC": {
+    description:
+      "Complete customer onboarding with a fully digital KYC process that eliminates paperwork and long wait times. Verify identities quickly through secure APIs while meeting compliance standards. Deliver a seamless onboarding experience that increases approval rates.",
+    cta: "Simplify KYC",
+  },
+
+  "Face Authentication": {
+    description:
+      "Authenticate users with advanced facial recognition and liveness detection to prevent spoofing and identity fraud. Verify that the right person is behind every transaction or login. Improve security without adding friction to the user experience.",
+    cta: "Secure Every Login",
+  },
+
+  "Bank Account Verification": {
+    description:
+      "Verify bank account ownership in real time before processing payouts, refunds, or financial transactions. Reduce failed payments, prevent account fraud, and improve transaction success rates.",
+    cta: "Verify Bank Accounts",
+  },
+
+  "Vehicle Verification API": {
+    description:
+      "Instantly validate vehicle registration, RC details, and ownership information using official records. Speed up vehicle onboarding, insurance processing, financing, and compliance checks. Ensure every vehicle record is accurate and up to date.",
+    cta: "Validate Vehicle Records",
+  },
+
+  "GST Verification API": {
+    description:
+      "Verify GSTIN details in real time to confirm business authenticity before onboarding customers, vendors, or partners. Reduce compliance risks, prevent fraudulent registrations, and simplify tax-related verification. Make business onboarding faster and more reliable.",
+    cta: "Check GST Details",
+  },
+
+  "Business Verification (KYB)": {
+    description:
+      "Verify the legitimacy of businesses by validating company registrations, tax records, licences, and other official information. Strengthen compliance, reduce fraud risks, and onboard trusted partners with confidence. Automate KYB checks through a single API.",
+    cta: "Verify Business",
+  },
+
+  "Employee & Income Verification": {
+    description:
+      "Verify employment status, salary details, and income information to make faster, more informed decisions. Reduce manual verification efforts for hiring, lending, and insurance workflows. Improve accuracy while minimising the risk of fraud.",
+    cta: "Verify Employment & Income",
+  },
+
+  "Number Intelligence": {
+    description:
+      "Analyse mobile numbers to assess authenticity, activity, and potential fraud risks before onboarding users. Detect suspicious numbers, reduce fake account creation, and strengthen customer verification. Make smarter decisions with real-time telecom intelligence.",
+    cta: "Analyse Mobile Numbers",
+  },
+
+  eSign: {
+    description:
+      "Enable customers to securely sign agreements and documents online with legally compliant digital signatures. Eliminate paperwork, accelerate approvals, and simplify contract management. Complete signing workflows anytime, from any device.",
+    cta: "Sign Documents Digitally",
+  },
+
+  "Geolocation & Address Intelligence": {
+    description:
+      "Validate addresses and analyse location data to improve verification accuracy and delivery success. Detect suspicious location patterns, reduce fraud, and enhance customer onboarding. Make better business decisions with trusted address intelligence.",
+    cta: "Validate Addresses",
+  },
+};
 const documentApis = [
-  "OCR API PAN",
-  "OCR API Bank Passbook",
-  "Aadhaar OCR API",
-  "Passport OCR API",
-  "OCR API Check",
-  "OCR API For Voter ID",
-  "OCR API GST",
-  "COI OCR API Overview",
+  {
+    name: "OCR API PAN",
+    description: "Extract PAN details instantly using OCR.",
+    icon: FileText,
+  },
+  {
+    name: "Aadhaar OCR API",
+    description: "Capture Aadhaar data automatically.",
+    icon: CreditCard,
+  },
+  {
+    name: "Passport OCR API",
+    description: "Extract passport information securely.",
+    icon: Globe,
+  },
+  {
+    name: "OCR API For Voter ID",
+    description: "Extract and read voter ID card details.",
+    icon: Contact,
+  },
+  {
+    name: "OCR API Bank Passbook",
+    description: "Capture account details with OCR.",
+    icon: Landmark,
+  },
+  {
+    name: "OCR API Check",
+    description: "Extract cheque details quickly and accurately.",
+    icon: ClipboardCheck,
+  },
+  {
+    name: "OCR API GST",
+    description: "Read and extract GST document information.",
+    icon: ReceiptText,
+  },
+  {
+    name: "COI OCR API Overview",
+    description: "Extract key information from company incorporation documents.",
+    icon: Building2,
+  },
 ];
-
+const digitalKycApis = [
+  {
+    name: "Unified Digital KYC",
+    description:
+      "Verify customer identities through a unified digital KYC process.",
+    icon: ShieldCheck,
+  },
+  {
+    name: "DigiLocker Service",
+    description:
+      "Fetch and verify customer documents digitally through DigiLocker.",
+    icon: FolderCheck,
+  },
+  {
+    name: "Aadhaar-Based eKYC",
+    description:
+      "Verify customer identity through supported Aadhaar-based authentication.",
+    icon: Fingerprint,
+  },
+  {
+    name: "PAN-Based KYC",
+    description:
+      "Validate PAN details for customer identity verification.",
+    icon: IdCard,
+  },
+  {
+    name: "CKYC Verification",
+    description:
+      "Access existing customer KYC records through supported CKYC services.",
+    icon: Database,
+  },
+  {
+    name: "Video KYC",
+    description:
+      "Facilitate remote customer identity verification through video-based KYC.",
+    icon: Video,
+  },
+];
+const identityVerificationApis = [
+  {
+    name: "PAN Verification API",
+    description:
+      "Verify PAN details and retrieve available information through basic and advanced PAN verification.",
+    icon: BadgeCheck,
+  },
+  {
+    name: "PAN-Aadhaar Link Validation API",
+    description:
+      "Check whether a PAN is linked with the individual's Aadhaar number.",
+    icon: Link2,
+  },
+  {
+    name: "Masked Aadhaar & PAN Retrieval API",
+    description:
+      "Retrieve masked Aadhaar or PAN details using the corresponding supported identification number.",
+    icon: ScanFace,
+  },
+  {
+    name: "Voter ID Verification API",
+    description:
+      "Validate voter ID details for customer identity checks.",
+    icon: Vote,
+  },
+  {
+    name: "Passport Verification API",
+    description:
+      "Verify passport information for identity validation and onboarding.",
+    icon: Plane,
+  },
+  {
+    name: "Driving Licence Verification API",
+    description:
+      "Validate driving licence details using supported verification records.",
+    icon: CarFront,
+  },
+];
+const faceAuthenticationApis = [
+  {
+    name: "Face Authentication API",
+    description:
+      "Verify user identities through advanced facial recognition and authentication technology.",
+    icon: Scan,
+  },
+  {
+    name: "Face Match API",
+    description:
+      "Compare a live selfie with an identity document photograph.",
+    icon: ScanFace,
+  },
+  {
+    name: "Face Liveness SDK",
+    description:
+      "Capture and verify real-time facial presence through SDK integration.",
+    icon: Smartphone,
+  },
+  {
+    name: "Face Liveness BE API",
+    description:
+      "Perform server-side liveness checks to detect spoofing attempts.",
+    icon: ShieldCheck,
+  },
+  {
+    name: "Face Detection API",
+    description:
+      "Detect and identify human faces in submitted images.",
+    icon: UserRoundSearch,
+  },
+  {
+    name: "Selfie Capture SDK",
+    description:
+      "Capture user selfies with guided instructions for identity verification.",
+    icon: Camera,
+  },
+];
+const bankAccountVerificationApis = [
+  {
+    name: "IMPS Penny Drop Verification",
+    description:
+      "Verify bank account ownership through an IMPS-based penny drop transaction.",
+    icon: Landmark,
+  },
+  {
+    name: "IMPS Penniless Verification",
+    description:
+      "Verify bank account details without initiating a penny drop transaction.",
+    icon: Wallet,
+  },
+  {
+    name: "UPI Penniless Verification",
+    description:
+      "Validate bank account details through a UPI-based verification process.",
+    icon: Smartphone,
+  },
+  {
+    name: "Mobile to Account Details",
+    description:
+      "Retrieve available bank account details linked to a mobile number.",
+    icon: ArrowLeftRight,
+  },
+  {
+    name: "PAN Account Link Verification",
+    description:
+      "Check the association between a PAN number and a bank account.",
+    icon: CreditCard,
+  },
+];
+const vehicleVerificationApis = [
+  {
+    name: "RC Advanced Validation",
+    description:
+      "Access detailed vehicle registration information and validate RC records.",
+    icon: CarFront,
+  },
+  {
+    name: "RC Validation Plus",
+    description:
+      "Verify vehicle registration details with additional available RC information.",
+    icon: FileCheck,
+  },
+  {
+    name: "Mobile Number to RC",
+    description:
+      "Retrieve linked vehicle registration details using a mobile number.",
+    icon: Smartphone,
+  },
+  {
+    name: "RC Challan Details",
+    description:
+      "Check pending traffic challans and available violation details for a vehicle.",
+    icon: ClipboardList,
+  },
+  {
+    name: "Reverse RC Lookup",
+    description:
+      "Find vehicle registration details using supported vehicle identification inputs.",
+    icon: Search,
+  },
+];
+const gstVerificationApis = [
+  {
+    name: "GST Search by PAN",
+    description:
+      "Find GST registration details associated with a business PAN.",
+    icon: FileSearch,
+  },
+  {
+    name: "GST Basic Validation",
+    description:
+      "Verify GSTIN and retrieve basic registration details.",
+    icon: Receipt,
+  },
+  {
+    name: "GST Advanced Validation",
+    description:
+      "Access detailed GST registration and taxpayer information.",
+    icon: Building,
+  },
+  {
+    name: "GST to Contact Details",
+    description:
+      "Retrieve available business contact details using a GSTIN.",
+    icon: ContactRound,
+  },
+  {
+    name: "Contact to GST API",
+    description:
+      "Find associated GST registration details using contact information.",
+    icon: SearchCheck,
+  },
+  {
+    name: "GST Status Verification",
+    description:
+      "Check GST registration status and validity.",
+    icon: ShieldCheck,
+  },
+];
+const businessVerificationApis = [
+  {
+    name: "CIN / COI Verification API",
+    description:
+      "Validate company registration details and retrieve key incorporation information.",
+    icon: Building2,
+  },
+  {
+    name: "Company Search API",
+    description:
+      "Find company identification details using the registered company name.",
+    icon: Search,
+  },
+  {
+    name: "PAN–CIN Verification API",
+    description: "Verify and map company PAN and CIN details.",
+    icon: FileCheck,
+  },
+  {
+    name: "DIN Verification API",
+    description:
+      "Validate Director Identification Numbers and retrieve associated details.",
+    icon: UserRoundSearch,
+  },
+  {
+    name: "TAN Verification API",
+    description:
+      "Validate TAN details and retrieve associated business information.",
+    icon: ReceiptText,
+  },
+  {
+    name: "Business Registration Verification API",
+    description:
+      "Verify FSSAI, Import Export (IE), and Udyam registration details.",
+    icon: ClipboardCheck,
+  },
+];
+const employeeIncomeVerificationApis = [
+  {
+    name: "UAN Verification",
+    description:
+      "Verify employee Universal Account Number (UAN) details through supported EPFO records.",
+    icon: BadgeCheck,
+  },
+  {
+    name: "UAN Basic Verification",
+    description:
+      "Retrieve basic employee and UAN-related information.",
+    icon: UserRoundSearch,
+  },
+  {
+    name: "UAN Advanced Verification",
+    description:
+      "Access detailed employment and UAN-related information.",
+    icon: FileSearch,
+  },
+  {
+    name: "Mobile to UAN Verification",
+    description:
+      "Check UAN details using a registered mobile number.",
+    icon: Smartphone,
+  },
+  {
+    name: "TDS Quarterly",
+    description:
+      "Retrieve quarterly TDS filing and tax-related information.",
+    icon: ReceiptText,
+  },
+  {
+    name: "UAN Employment History",
+    description:
+      "Access available employment history linked to a UAN.",
+    icon: ClipboardList,
+  },
+];
+const numberIntelligenceApis = [
+  {
+    name: "Mobile Number Verification",
+    description:
+      "Validate mobile number details for customer verification.",
+    icon: Smartphone,
+  },
+  {
+    name: "Operator & Circle Lookup",
+    description:
+      "Identify the telecom operator and circle associated with a mobile number.",
+    icon: Search,
+  },
+  {
+    name: "Mobile Number Match",
+    description:
+      "Check available mobile number details against customer information.",
+    icon: BadgeCheck,
+  },
+  {
+    name: "Number Portability Check",
+    description:
+      "Check available number portability information for mobile numbers.",
+    icon: ArrowLeftRight,
+  },
+];
+const geolocationAddressApis = [
+  {
+    name: "Lat-Long to Address",
+    description:
+      "Convert geographic coordinates into readable addresses.",
+    icon: Globe,
+  },
+  {
+    name: "Address to Lat-Long",
+    description:
+      "Convert physical addresses into latitude and longitude coordinates.",
+    icon: ArrowLeftRight,
+  },
+  {
+    name: "Distance Between Two Locations",
+    description:
+      "Calculate the distance between two geographic locations.",
+    icon: Search,
+  },
+  {
+    name: "Pincode to Location",
+    description:
+      "Retrieve location details using a postal PIN code.",
+    icon: Contact,
+  },
+  {
+    name: "Address Validation",
+    description:
+      "Validate and standardise submitted address information.",
+    icon: FileCheck,
+  },
+  {
+    name: "Location Intelligence",
+    description:
+      "Retrieve geographic details and location-based information using coordinates.",
+    icon: Smartphone,
+  },
+];
+const eSignApis = [
+  {
+    name: "Aadhaar eSign",
+    description:
+      "Enable legally recognised electronic document signing through Aadhaar-based authentication.",
+    icon: FileCheck,
+  },
+  {
+    name: "PAN-Based eSign",
+    description:
+      "Facilitate digital document signing with PAN-based identity verification.",
+    icon: BadgeCheck,
+  },
+  {
+    name: "Document eSign",
+    description:
+      "Allow users to sign documents electronically from anywhere.",
+    icon: FileSignature,
+  },
+  {
+    name: "Bulk eSign",
+    description:
+      "Manage multiple document-signing requests through a single workflow.",
+    icon: Files,
+  },
+  {
+    name: "eSign Status",
+    description:
+      "Track document signing progress and completion status.",
+    icon: ClipboardCheck,
+  },
+  {
+    name: "eSign Verification",
+    description:
+      "Verify electronic signatures and signed document authenticity.",
+    icon: ShieldCheck,
+  },
+];
 export default function PlatformNumbers() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [activeCategory, setActiveCategory] = useState("Document OCR");
+  const [activeCategory, setActiveCategory] = useState(null);
+  const [hoveredCategory, setHoveredCategory] = useState(null);
+
+  const statsSectionRef = useRef(null);
+  const animationFrameRef = useRef(null);
+  const [animatedValues, setAnimatedValues] = useState(
+    statsCards.map(() => 0)
+  );
+
+  // Animate the statistics whenever the section enters the viewport.
+  useEffect(() => {
+    const section = statsSectionRef.current;
+    if (!section) return undefined;
+
+    let hasAnimated = false;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          hasAnimated = true;
+
+          if (animationFrameRef.current) {
+            cancelAnimationFrame(animationFrameRef.current);
+          }
+
+          setAnimatedValues(statsCards.map(() => 0));
+
+          const duration = 2000;
+          const startTime = performance.now();
+
+          const animate = (now) => {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 4);
+
+            setAnimatedValues(
+              statsCards.map((card) =>
+                Number((card.value * eased).toFixed(card.decimals || 0))
+              )
+            );
+
+            if (progress < 1) {
+              animationFrameRef.current = requestAnimationFrame(animate);
+            }
+          };
+
+          animationFrameRef.current = requestAnimationFrame(animate);
+        }
+
+        if (!entry.isIntersecting) {
+          hasAnimated = false;
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(section);
+
+    return () => {
+      observer.disconnect();
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, []);
 
   const isSearching = searchTerm.trim().length > 0;
-  const isDocumentOCR = activeCategory === "Document OCR";
-  const showExportedDocumentPanel = !isSearching && isDocumentOCR;
 
-  const filteredCategories = useMemo(() => {
-    const query = searchTerm.trim().toLowerCase();
+  // Search category names and the supplied category descriptions/CTA text.
+ const filteredCategories = useMemo(() => {
+  const query = searchTerm.trim().toLowerCase();
+  if (!query) return categories;
 
-    return categories.filter((category) =>
-      category.name.toLowerCase().includes(query)
+  return categories.filter((category) => {
+    const content = categoryContent[category.name];
+
+    return (
+      category.name.toLowerCase().includes(query) ||
+      content?.description.toLowerCase().includes(query) ||
+      content?.cta.toLowerCase().includes(query) ||
+
+      // Search inside Document OCR cards
+      (category.name === "Document OCR" &&
+        documentApis.some((api) =>
+          api.name.toLowerCase().includes(query)
+        )) ||
+
+      // Search inside Digital KYC cards
+      (category.name === "Digital KYC & eKYC" &&
+        digitalKycApis.some((api) =>
+          api.name.toLowerCase().includes(query)
+        )) ||
+
+      // Search inside Identity Verification cards
+      (category.name === "Identity Verification" &&
+        identityVerificationApis.some((api) =>
+          api.name.toLowerCase().includes(query)
+        )) ||
+
+(category.name === "Face Authentication" &&
+  faceAuthenticationApis.some((api) =>
+    api.name.toLowerCase().includes(query)
+  )) ||
+
+(category.name === "Bank Account Verification" &&
+  bankAccountVerificationApis.some((api) =>
+    api.name.toLowerCase().includes(query)
+  )) ||
+
+(category.name === "Vehicle Verification API" &&
+  vehicleVerificationApis.some((api) =>
+    api.name.toLowerCase().includes(query)
+  )) ||
+
+(category.name === "GST Verification API" &&
+  gstVerificationApis.some((api) =>
+    api.name.toLowerCase().includes(query)
+  )) ||
+(category.name === "Business Verification (KYB)" &&
+  businessVerificationApis.some((api) =>
+    `${api.name} ${api.description}`
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  )) || (category.name === "Employee & Income Verification" &&
+  employeeIncomeVerificationApis.some((api) =>
+    api.name.toLowerCase().includes(query)
+  )) || (category.name === "Number Intelligence" &&
+  numberIntelligenceApis.some((api) =>
+    api.name.toLowerCase().includes(query)
+  )) || (category.name === "Geolocation & Address Intelligence" &&
+  geolocationAddressApis.some((api) =>
+    api.name.toLowerCase().includes(query)
+  ))
     );
-  }, [searchTerm]);
+  });
+}, [searchTerm]);
 
-  const categoryRows = useMemo(() => {
-    const rows = [];
+  // Check whether the clicked category is available in the current search.
+const activeCategoryIsValid =
+  activeCategory &&
+  filteredCategories.some(
+    (category) => category.name === activeCategory
+  );
 
-    for (let index = 0; index < filteredCategories.length; index += 5) {
-      rows.push(filteredCategories.slice(index, index + 5));
-    }
+// Check whether the hovered category is available in the current search.
+const hoveredCategoryIsValid =
+  hoveredCategory &&
+  filteredCategories.some(
+    (category) => category.name === hoveredCategory
+  );
 
-    return rows;
-  }, [filteredCategories]);
+// Hover temporarily previews a category.
+// When hover ends, the clicked category is displayed again.
+const selectedCategory = hoveredCategoryIsValid
+  ? hoveredCategory
+  : activeCategoryIsValid
+    ? activeCategory
+    : null;
 
-  const filteredApis = useMemo(() => {
+const selectedContent = selectedCategory
+  ? categoryContent[selectedCategory]
+  : null;
+
+const selectedCategoryIcon =
+  categories.find(
+    (category) => category.name === selectedCategory
+  )?.icon || null;
+
+  // If the search matches an OCR API name, show only matching API chips.
+  // If it matches the OCR category/description, keep the complete OCR list.
+  const visibleDocumentApis = useMemo(() => {
     const query = searchTerm.trim().toLowerCase();
+    if (!query) return documentApis;
 
-    return documentApis.filter((api) =>
-      api.toLowerCase().includes(query)
+    const matches = documentApis.filter((api) =>
+      api.name.toLowerCase().includes(query)
     );
-  }, [searchTerm]);
 
-  const activeCategoryIcon =
-    categories.find((category) => category.name === activeCategory)?.icon ||
-    "/images/icon-document-ocr.png";
+    return matches.length ? matches : documentApis;
+  }, 
+  [searchTerm]);
+const visibleDigitalKycApis = useMemo(() => {
+  const query = searchTerm.trim().toLowerCase();
+  if (!query) return digitalKycApis;
 
-  const [highlightedCard, setHighlightedCard] = useState(0);
+  const matches = digitalKycApis.filter((api) =>
+    api.name.toLowerCase().includes(query)
+  );
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setHighlightedCard((current) => (current + 1) % statsCards.length);
-    }, 1400);
+  return matches.length ? matches : digitalKycApis;
+}, [searchTerm]);
+const visibleIdentityVerificationApis = useMemo(() => {
+  const query = searchTerm.trim().toLowerCase();
+  if (!query) return identityVerificationApis;
 
-    return () => clearInterval(interval);
-  }, []);
+  const matches = identityVerificationApis.filter((api) =>
+    api.name.toLowerCase().includes(query)
+  );
+
+  return matches.length ? matches : identityVerificationApis;
+}, [searchTerm]);
+const visibleFaceAuthenticationApis = useMemo(() => {
+  const query = searchTerm.trim().toLowerCase();
+  if (!query) return faceAuthenticationApis;
+
+  const matches = faceAuthenticationApis.filter((api) =>
+    api.name.toLowerCase().includes(query)
+  );
+
+  return matches.length ? matches : faceAuthenticationApis;
+}, [searchTerm]);
+const visibleBankAccountVerificationApis = useMemo(() => {
+  const query = searchTerm.trim().toLowerCase();
+  if (!query) return bankAccountVerificationApis;
+
+  const matches = bankAccountVerificationApis.filter((api) =>
+    api.name.toLowerCase().includes(query)
+  );
+
+  return matches.length ? matches : bankAccountVerificationApis;
+}, [searchTerm]);
+const visibleVehicleVerificationApis = useMemo(() => {
+  const query = searchTerm.trim().toLowerCase();
+  if (!query) return vehicleVerificationApis;
+
+  const matches = vehicleVerificationApis.filter((api) =>
+    api.name.toLowerCase().includes(query)
+  );
+
+  return matches.length ? matches : vehicleVerificationApis;
+}, [searchTerm]);
+const visibleGstVerificationApis = useMemo(() => {
+  const query = searchTerm.trim().toLowerCase();
+  if (!query) return gstVerificationApis;
+
+  const matches = gstVerificationApis.filter((api) =>
+    api.name.toLowerCase().includes(query)
+  );
+
+  return matches.length ? matches : gstVerificationApis;
+}, [searchTerm]);
+const visibleBusinessVerificationApis = useMemo(
+  () =>
+    businessVerificationApis.filter((api) =>
+      `${api.name} ${api.description}`
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase())
+    ),
+  [searchTerm]
+);
+const visibleEmployeeIncomeVerificationApis = useMemo(() => {
+  const query = searchTerm.trim().toLowerCase();
+  if (!query) return employeeIncomeVerificationApis;
+
+  const matches = employeeIncomeVerificationApis.filter((api) =>
+    api.name.toLowerCase().includes(query)
+  );
+
+  return matches.length ? matches : employeeIncomeVerificationApis;
+}, [searchTerm]);
+const visibleNumberIntelligenceApis = useMemo(() => {
+  const query = searchTerm.trim().toLowerCase();
+  if (!query) return numberIntelligenceApis;
+
+  const matches = numberIntelligenceApis.filter((api) =>
+    api.name.toLowerCase().includes(query)
+  );
+
+  return matches.length ? matches : numberIntelligenceApis;
+}, [searchTerm]);
+const visibleGeolocationAddressApis = useMemo(() => {
+  const query = searchTerm.trim().toLowerCase();
+  if (!query) return geolocationAddressApis;
+
+  const matches = geolocationAddressApis.filter((api) =>
+    api.name.toLowerCase().includes(query)
+  );
+
+  return matches.length ? matches : geolocationAddressApis;
+}, [searchTerm]);
+ const esignApis = useMemo(() => {
+  const query = searchTerm.trim().toLowerCase();
+  if (!query) return geolocationAddressApis;
+  const matches = eSignApis.filter((api) =>
+  api.name.toLowerCase().includes(query)
+);
+
+return matches.length ? matches : eSignApis;
+}, [searchTerm]);
+ 
+
+  const handleCategoryClick = (categoryName) => {
+  setActiveCategory(categoryName);
+};
 
   return (
     <>
       {/* Platform statistics */}
       <section
+        ref={statsSectionRef}
         className="platform-stats-section"
         aria-labelledby="platform-stats-heading"
       >
@@ -113,14 +917,30 @@ export default function PlatformNumbers() {
           />
 
           <div className="platform-stats__grid">
-            {statsCards.map((card) => (
-              <img
-                key={card.src}
-                src={card.src}
-                alt={card.alt}
-                loading="lazy"
-                className="platform-stat-image rounded-2xl transition-[filter,transform] duration-500 ease-in-out hover:scale-[1.015] hover:drop-shadow-[0_0_12px_rgba(116,76,255,0.45)]"
-              />
+            {statsCards.map((card, index) => (
+              <article
+                key={card.label}
+                className="
+                  flex min-w-0 flex-col items-center justify-center
+                  rounded-2xl border border-[#E8E7F2] bg-white
+                  px-4 py-8 text-center
+                  shadow-[0_8px_25px_rgba(30,25,80,0.04)]
+                  transition-all duration-300
+                  hover:-translate-y-1
+                  hover:shadow-[0_12px_30px_rgba(116,76,255,0.12)]
+                "
+              >
+                <div
+                  className="text-[28px] font-semibold leading-tight tracking-tight text-[#41465A] sm:text-[32px]"
+                  aria-live="off"
+                >
+                  {animatedValues[index].toFixed(card.decimals || 0)}
+                  {card.suffix}
+                </div>
+                <p className="mb-0 mt-3 text-[14px] font-medium text-[#41465A] sm:text-[16px]">
+                  {card.label}
+                </p>
+              </article>
             ))}
           </div>
         </div>
@@ -140,12 +960,12 @@ export default function PlatformNumbers() {
               alt="Search for the Verification API You Need All in One Place"
               className="api-finder__heading-image"
             />
-
             <p>Search over 100 APIs organized by category.</p>
           </header>
 
           {/* Search bar */}
           <div className="api-search-image-wrap">
+            {/* Desktop search bar */}
             <div className="relative hidden min-[601px]:block">
               <img
                 src="/images/api-search-glow.png"
@@ -153,14 +973,12 @@ export default function PlatformNumbers() {
                 aria-hidden="true"
                 className="api-finder__side-glow api-finder__side-glow--left"
               />
-
               <img
                 src="/images/api-search-glow.png"
                 alt=""
                 aria-hidden="true"
                 className="api-finder__side-glow api-finder__side-glow--right"
               />
-
               <img
                 src="/images/api-search-bar.png"
                 alt=""
@@ -169,10 +987,7 @@ export default function PlatformNumbers() {
               />
 
               {isSearching && (
-                <span
-                  className="api-search-value-mask"
-                  aria-hidden="true"
-                />
+                <span className="api-search-value-mask" aria-hidden="true" />
               )}
 
               <div className="api-search-image-overlay">
@@ -186,7 +1001,6 @@ export default function PlatformNumbers() {
                     isSearching ? "has-value" : ""
                   }`}
                 />
-
                 {isSearching && (
                   <button
                     type="button"
@@ -222,7 +1036,6 @@ export default function PlatformNumbers() {
                   strokeLinecap="round"
                 />
               </svg>
-
               <input
                 type="search"
                 value={searchTerm}
@@ -231,7 +1044,6 @@ export default function PlatformNumbers() {
                 aria-label="Search verification APIs"
                 className="h-full min-w-0 flex-1 bg-transparent text-sm text-[#343B4B] outline-none placeholder:text-[#8B8B9A]"
               />
-
               {isSearching && (
                 <button
                   type="button"
@@ -245,327 +1057,750 @@ export default function PlatformNumbers() {
             </div>
           </div>
 
-          {/* Figma category rows */}
-          <div
-            className="api-categories api-categories--interactive"
-            aria-label="API categories"
-          >
-            {categoryRows.map((row, rowIndex) => (
-              <div className="api-categories__row" key={rowIndex}>
-                {row.map((category) => {
-                  const isActive = activeCategory === category.name;
+          {/* Category pills */}
+<div
+  className="
+    api-categories api-categories--interactive
+    min-[701px]:!flex
+    min-[701px]:!flex-row
+    min-[701px]:!flex-wrap
+    min-[701px]:!items-center
+    min-[701px]:!justify-center
+    min-[701px]:!gap-4
+    max-[700px]:!grid
+    max-[700px]:!grid-cols-2
+    max-[700px]:!items-center
+    max-[700px]:!gap-x-2
+    max-[700px]:!gap-y-3
+  "
+  aria-label="API categories"
+>
+  {filteredCategories.map((category) => {
+  const isActive = activeCategory === category.name;
+  const isHovered = hoveredCategory === category.name;
 
-                  return (
-                    <button
-                      type="button"
-                      key={category.name}
-                      onClick={() => {
-                        const route = categoryRoutes[category.name];
-
-                        if (route) {
-                          window.location.href = route;
-                        } else {
-                          setActiveCategory(category.name);
-                        }
-                      }}
-                      className={`
-                        group flex items-center gap-2.5 rounded-full border px-5 py-2.5 text-[15px] font-medium transition-all duration-300 ease-in-out
-                        ${
-                          isActive
-                            ? "border-[#4D3ECA] bg-[#4D3ECA] text-white shadow-md"
-                            : "border-[#D1D5DB] bg-white text-[#4B5563] hover:border-[#4D3ECA] hover:bg-[#4D3ECA] hover:text-white hover:shadow-md"
-                        }
-                        ${
-                          category.name === "Document OCR"
-                            ? "min-[701px]:!w-[263px] min-[701px]:!min-w-[263px] min-[701px]:!max-w-[263px] min-[701px]:!shrink-0"
-                            : ""
-                        }
-                      `}
-                      aria-label={category.name}
-                      aria-pressed={isActive}
-                    >
-                      <img
-                        src={category.icon}
-                        alt=""
-                        aria-hidden="true"
-                        draggable="false"
-                        className={`
-                          h-5 w-5 shrink-0 object-contain transition-all duration-300
-                          ${
-                            isActive
-                              ? "brightness-0 invert"
-                              : "group-hover:brightness-0 group-hover:invert"
-                          }
-                        `}
-                      />
-
-                      <span className="truncate">{category.name}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            ))}
-
-            {filteredCategories.length === 0 && (
-              <p className="api-empty-message">
-                No matching categories found.
-              </p>
-            )}
-          </div>
-
-          {/* Default Document OCR panel */}
-          {showExportedDocumentPanel && (
-            <>
-              {/* Desktop: Original Figma panel — unchanged */}
-              <div className="api-document-panel-wrap api-document-desktop-panel">
-                <img
-                  src="/images/document-ocr-panel.png"
-                  alt="Document OCR details and available OCR verification APIs"
-                  className="api-document-panel"
-                  loading="lazy"
-                />
-
-                <span
-                  className="api-document-panel__icon"
-                  aria-hidden="true"
-                >
-                  <svg viewBox="0 0 36 36" fill="none">
-                    <path
-                      d="M11 5H7a3 3 0 0 0-3 3v4M25 5h4a3 3 0 0 1 3 3v4M32 24v4a3 3 0 0 1-3 3h-4M11 31H7a3 3 0 0 1-3-3v-4"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-
-                    <path
-                      d="M11 12h14v12H11z"
-                      fill="currentColor"
-                    />
-
-                    <path
-                      d="M7 18h4m14 0h4"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </span>
-              </div>
-
-              {/* Mobile: Responsive Tailwind panel */}
-              <div className="mx-auto mt-6 mb-8 block w-[calc(100%-24px)] max-w-[460px] rounded-2xl border border-[#E8E5F7] bg-white p-5 shadow-[0_5px_20px_rgba(30,20,80,0.06)] min-[701px]:hidden">
-
-                {/* Heading and scanner icon */}
-                <div className="mb-5 flex items-center gap-3">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center text-[#4D3ECA]">
-                    <svg
-                      viewBox="0 0 36 36"
-                      fill="none"
-                      className="h-full w-full"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M11 5H7a3 3 0 0 0-3 3v4M25 5h4a3 3 0 0 1 3 3v4M32 24v4a3 3 0 0 1-3 3h-4M11 31H7a3 3 0 0 1-3-3v-4"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
-
-                      <path
-                        d="M11 12h14v12H11z"
-                        fill="currentColor"
-                      />
-
-                      <path
-                        d="M7 18h4m14 0h4"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </div>
-
-                  <h3 className="m-0 text-lg font-semibold leading-tight text-[#171717]">
-                    Document OCR
-                  </h3>
-                </div>
-
-                {/* Description */}
-                <p className="m-0 text-[13px] leading-[1.6] text-[#555565]">
-                  Extracts key information from identity documents,
-                  invoices, and business records in seconds with
-                  AI-powered OCR. Eliminate manual data entry, reduce
-                  processing errors, and speed up verification workflows.
-                  Capture accurate data from multiple document formats
-                  while improving operational efficiency.
-                </p>
-
-                {/* Divider */}
-                <div className="my-5 h-px w-full bg-[#E5E1FA]" />
-
-                
-{/* API cards with visible purple icons */}
-<div className="grid grid-cols-2 gap-3">
-  {documentApis.map((api) => (
-    <div
-      key={api}
-      className="flex min-h-[46px] min-w-0 items-center gap-2 rounded-full border border-[#BDBDBD] bg-white px-3 py-2"
+  return (
+    <button
+      type="button"
+      key={category.name}
+      onClick={() => handleCategoryClick(category.name)}
+      onMouseEnter={() => setHoveredCategory(category.name)}
+      onMouseLeave={() => setHoveredCategory(null)}
+      aria-label={category.name}
+      aria-pressed={isActive}
+      className={`
+        group flex w-auto min-w-max shrink-0
+        items-center justify-center gap-2.5
+        rounded-full border
+        px-5 py-2.5 text-[15px] font-medium
+        transition-all duration-300 ease-in-out
+        min-[701px]:!w-auto
+        min-[701px]:!min-w-max
+        min-[701px]:!whitespace-nowrap
+        max-[700px]:!w-full
+        max-[700px]:!min-w-0
+        max-[700px]:!gap-1.5
+        max-[700px]:!px-2
+        max-[700px]:!py-3
+        max-[700px]:!text-[11px]
+        ${
+          isActive || isHovered
+            ? "!border-[#4D3ECA] !bg-[#4D3ECA] !text-white shadow-md"
+            : "border-[#D1D5DB] bg-white text-[#4B5563]"
+        }
+      `}
     >
-      {/* Purple document icon */}
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        className="h-5 w-5 shrink-0"
+      <span
         aria-hidden="true"
-      >
-        <rect
-          x="4"
-          y="2"
-          width="16"
-          height="20"
-          rx="2"
-          fill="#4D3ECA"
-        />
-        <path
-          d="M7 6h10M7 9h10"
-          stroke="white"
-          strokeWidth="1.2"
-          strokeLinecap="round"
-        />
-        <circle
-          cx="12"
-          cy="14"
-          r="2.2"
-          stroke="white"
-          strokeWidth="1.2"
-        />
-        <path
-          d="M8 19c.6-1.8 1.9-2.7 4-2.7s3.4.9 4 2.7"
-          stroke="white"
-          strokeWidth="1.2"
-          strokeLinecap="round"
-        />
-      </svg>
+        className={`h-5 w-5 shrink-0 ${
+          isActive || isHovered
+            ? "bg-white"
+            : "bg-[#4D3ECA]"
+        }`}
+        style={{
+          mask: `url("${category.icon}") center / contain no-repeat`,
+          WebkitMask: `url("${category.icon}") center / contain no-repeat`,
+        }}
+      />
 
-      <span className="min-w-0 text-[11px] leading-[1.3] text-[#555555]">
-        {api}
+      <span className="min-w-0 text-center leading-tight min-[701px]:whitespace-nowrap">
+        {category.name}
       </span>
-    </div>
-  ))}
+    </button>
+  );
+})}
+
+  {filteredCategories.length === 0 && (
+    <p className="api-empty-message col-span-2">
+      No matching categories found.
+    </p>
+  )}
 </div>
 
-                {/* Explore link — below all API cards */}
-                <a
-                  href="/products/document-ocr-api"
-                  className="mt-6 inline-flex items-center gap-2 text-[15px] font-medium text-[#6552E8] transition-colors duration-300 hover:text-[#EA3369]"
-                >
-                  Explore Document OCR
-                  <svg
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    className="h-5 w-5"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M3 10h13M10 4l6 6-6 6"
-                      stroke="currentColor"
-                      strokeWidth="1.6"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </>
-          )}
+          {/* Category information panel — same layout for every selected category */}
+          {selectedCategory && selectedContent && (
+            <section
+              className="
+                mt-10 w-full rounded-[24px]
+                border border-[#E0E7F1]
+                bg-[#F7F9FC]
+                px-6 py-8
+                sm:px-8 sm:py-10
+                lg:px-14 lg:py-12
+              "
+              aria-live="polite"
+              key={selectedCategory}
+            >
+              <div className="max-w-[820px]">
+                <h3 className="m-0 text-[25px] font-semibold leading-tight tracking-[-0.025em] text-[#34348F] sm:text-[30px] lg:text-[34px]">
+                  {selectedCategory === "Document OCR"
+                    ? "OCR API for Document Data Extraction"
+                    : selectedCategory}
+                </h3>
 
-          {/* Dynamic details panel */}
-          {!showExportedDocumentPanel && (
-            <div className="api-details-card api-details-card--interactive is-searching">
-              <div className="api-details-card__intro">
-                <span className="api-details-card__main-icon">
-                  <img
-                    src={activeCategoryIcon}
-                    alt=""
-                    className="api-category__png-icon"
-                    loading="lazy"
-                  />
-                </span>
-
-                <h3>{activeCategory}</h3>
-
-                <p>
-                  {isDocumentOCR
-                    ? "Extract key information from identity documents, invoices, and business records in seconds with AI-powered OCR. Eliminate manual data entry, reduce processing errors, and speed up verification workflows. Capture accurate data from multiple document formats while improving operational efficiency."
-                    : `Explore ${activeCategory} solutions to support faster, more consistent verification workflows for your business.`}
-                </p>
+                <p className="api-integration-section__description">
+  {selectedCategory === "Document OCR"
+    ? "Use AI based OCR APIs to extract structured data from ID documents, financial documents and business documents in real time. High accuracy OCR APIs for automating document verification and data extraction workflows for KYC and onboarding use-cases."
+    : selectedContent.description}
+</p>
 
                 <a
-                  href="#verification-details"
-                  className="api-details-card__link"
+                  href={categoryRoutes[selectedCategory] || "#contact"}
+                  className="mt-8 inline-flex items-center gap-2 text-[16px] font-semibold text-[#34348F] transition-colors duration-200 hover:text-[#6547F8]"
                 >
-                  Explore {activeCategory} <span aria-hidden="true">→</span>
+                  {selectedCategory === "Document OCR"
+                    ? "Begin Using OCR API"
+                    : selectedContent.cta}
+                  <span aria-hidden="true" className="text-xl leading-none">→</span>
                 </a>
               </div>
 
-              <div className="api-details-card__divider" />
-
-              <div className="api-details-card__list">
-                {filteredApis.map((api) => (
-                  <button
-                    className="api-service"
-                    type="button"
-                    key={api}
-                    onClick={() => setSearchTerm(api)}
-                    title={`Search for ${api}`}
-                  >
-                    <img
-                      src="/images/icon-document-ocr.png"
-                      alt=""
-                      className="api-category__png-icon"
-                      loading="lazy"
-                    />
-
-                    <span>{api}</span>
-                  </button>
-                ))}
-
-                {filteredApis.length === 0 && (
-                  <p className="api-empty-message">
-                    No matching APIs in this category list.
-                  </p>
-                )}
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Verification API benefits */}
-      <section
-        id="verification-benefits"
-        className="verification-benefits"
-        aria-labelledby="verification-benefits-heading"
+              {selectedCategory === "Document OCR" ? (
+  /* DOCUMENT OCR CARDS */
+  <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+    {visibleDocumentApis.map((api) => (
+      <button
+        key={api.name}
+        type="button"
+        onClick={() => setSearchTerm(api.name)}
+        title={`Search for ${api.name}`}
+        className="
+          group flex min-h-[112px] min-w-0 items-center gap-4
+          rounded-[20px] border border-[#DCE5F2]
+          bg-white px-5 py-5 text-left font-[inherit]
+          shadow-[0_2px_8px_rgba(30,50,90,0.02)]
+          transition-all duration-200
+          hover:-translate-y-0.5 hover:border-[#B9ACFF]
+          hover:shadow-[0_8px_22px_rgba(77,62,202,0.09)]
+          focus-visible:outline-2 focus-visible:outline-offset-2
+          focus-visible:outline-[#6547F8]
+        "
       >
-        <div className="verification-benefits__inner">
-          <h2
-            id="verification-benefits-heading"
-            className="verification-benefits__heading"
-          >
-            Why Use Our <span>Verification APIs</span>
-            <br /> for Your Business?
-          </h2>
+        <span className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-[15px] bg-[#F0EEFF]">
+          <api.icon
+            size={34}
+            strokeWidth={1.8}
+            color="#4D3ECA"
+            fill="white"
+          />
+        </span>
 
-          <div className="verification-benefits__visual">
-            <img
-              src="/images/verification-benefits-full.png"
-              alt="Verification API benefits"
-              className="verification-benefits__full-image"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </section>
-    </>
-  );
+        <span className="flex min-w-0 max-w-[260px] flex-1 flex-col gap-1">
+          <span className="text-[15px] font-semibold leading-[1.4] text-[#172033]">
+            {api.name}
+          </span>
+
+          <span className="whitespace-normal break-words text-[14px] font-normal leading-[1.5] text-[#64748B]">
+            {api.description}
+          </span>
+        </span>
+      </button>
+    ))}
+  </div>
+
+) : selectedCategory === "Digital KYC & eKYC" ? (
+
+  /* DIGITAL KYC & eKYC CARDS */
+  <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+    {visibleDigitalKycApis.map((api) => (
+      <button
+        key={api.name}
+        type="button"
+        onClick={() => setSearchTerm(api.name)}
+        title={`Search for ${api.name}`}
+        className="
+          group flex min-h-[112px] min-w-0 items-center gap-4
+          rounded-[20px] border border-[#DCE5F2]
+          bg-white px-5 py-5 text-left font-[inherit]
+          shadow-[0_2px_8px_rgba(30,50,90,0.02)]
+          transition-all duration-200
+          hover:-translate-y-0.5 hover:border-[#B9ACFF]
+          hover:shadow-[0_8px_22px_rgba(77,62,202,0.09)]
+          focus-visible:outline-2 focus-visible:outline-offset-2
+          focus-visible:outline-[#6547F8]
+        "
+      >
+        <span className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-[15px] bg-[#F0EEFF]">
+          <api.icon
+            size={34}
+            strokeWidth={1.8}
+            color="#4D3ECA"
+          />
+        </span>
+
+        <span className="flex min-w-0 max-w-[260px] flex-1 flex-col gap-1">
+          <span className="text-[15px] font-semibold leading-[1.4] text-[#172033]">
+            {api.name}
+          </span>
+
+          <span className="whitespace-normal break-words text-[14px] font-normal leading-[1.5] text-[#64748B]">
+            {api.description}
+          </span>
+        </span>
+      </button>
+    ))}
+  </div>
+
+) : selectedCategory === "Identity Verification" ? (
+  <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+    {visibleIdentityVerificationApis.map((api) => (
+      <button
+        key={api.name}
+        type="button"
+        onClick={() => setSearchTerm(api.name)}
+        title={`Search for ${api.name}`}
+        className="
+          group flex min-h-[112px] min-w-0 items-center gap-4
+          rounded-[20px] border border-[#DCE5F2]
+          bg-white px-5 py-5 text-left font-[inherit]
+          shadow-[0_2px_8px_rgba(30,50,90,0.02)]
+          transition-all duration-200
+          hover:-translate-y-0.5 hover:border-[#B9ACFF]
+          hover:shadow-[0_8px_22px_rgba(77,62,202,0.09)]
+          focus-visible:outline-2 focus-visible:outline-offset-2
+          focus-visible:outline-[#6547F8]
+        "
+      >
+        <span className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-[15px] bg-[#F0EEFF]">
+          <api.icon
+            size={34}
+            strokeWidth={1.8}
+            color="#4D3ECA"
+            fill="white"
+          />
+        </span>
+
+        <span className="flex min-w-0 max-w-[260px] flex-1 flex-col gap-1">
+          <span className="text-[15px] font-semibold leading-[1.4] text-[#172033]">
+            {api.name}
+          </span>
+          <span className="whitespace-normal break-words text-[14px] font-normal leading-[1.5] text-[#64748B]">
+            {api.description}
+          </span>
+        </span>
+      </button>
+    ))}
+  </div>
+  ) : selectedCategory === "Face Authentication" ? (
+
+  /* FACE AUTHENTICATION CARDS */
+  <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+    {visibleFaceAuthenticationApis.map((api) => (
+      <button
+        key={api.name}
+        type="button"
+        onClick={() => setSearchTerm(api.name)}
+        title={`Search for ${api.name}`}
+        className="
+          group flex min-h-[112px] min-w-0 items-center gap-4
+          rounded-[20px] border border-[#DCE5F2]
+          bg-white px-5 py-5 text-left font-[inherit]
+          shadow-[0_2px_8px_rgba(30,50,90,0.02)]
+          transition-all duration-200
+          hover:-translate-y-0.5 hover:border-[#B9ACFF]
+          hover:shadow-[0_8px_22px_rgba(77,62,202,0.09)]
+          focus-visible:outline-2 focus-visible:outline-offset-2
+          focus-visible:outline-[#6547F8]
+        "
+      >
+        <span className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-[15px] bg-[#F0EEFF]">
+          <api.icon size={34} strokeWidth={1.8} color="#4D3ECA" fill="white" />
+        </span>
+        <span className="flex min-w-0 max-w-[260px] flex-1 flex-col gap-1">
+          <span className="text-[15px] font-semibold leading-[1.4] text-[#172033]">
+            {api.name}
+          </span>
+          <span className="whitespace-normal break-words text-[14px] font-normal leading-[1.5] text-[#64748B]">
+            {api.description}
+          </span>
+        </span>
+      </button>
+    ))}
+  </div>
+  ) : selectedCategory === "Bank Account Verification" ? (
+
+  /* BANK ACCOUNT VERIFICATION CARDS */
+  <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+    {visibleBankAccountVerificationApis.map((api) => (
+      <button
+        key={api.name}
+        type="button"
+        onClick={() => setSearchTerm(api.name)}
+        title={`Search for ${api.name}`}
+        className="
+          group flex min-h-[112px] min-w-0 items-center gap-4
+          rounded-[20px] border border-[#DCE5F2]
+          bg-white px-5 py-5 text-left font-[inherit]
+          shadow-[0_2px_8px_rgba(30,50,90,0.02)]
+          transition-all duration-200
+          hover:-translate-y-0.5 hover:border-[#B9ACFF]
+          hover:shadow-[0_8px_22px_rgba(77,62,202,0.09)]
+          focus-visible:outline-2 focus-visible:outline-offset-2
+          focus-visible:outline-[#6547F8]
+        "
+      >
+        <span className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-[15px] bg-[#F0EEFF]">
+          <api.icon
+            size={34}
+            strokeWidth={1.8}
+            color="#4D3ECA"
+            fill="white"
+          />
+        </span>
+
+        <span className="flex min-w-0 max-w-[260px] flex-1 flex-col gap-1">
+          <span className="text-[15px] font-semibold leading-[1.4] text-[#172033]">
+            {api.name}
+          </span>
+          <span className="whitespace-normal break-words text-[14px] font-normal leading-[1.5] text-[#64748B]">
+            {api.description}
+          </span>
+        </span>
+      </button>
+    ))}
+  </div>
+) : selectedCategory === "Vehicle Verification API" ? (
+
+  /* VEHICLE VERIFICATION API CARDS */
+  <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+    {visibleVehicleVerificationApis.map((api) => (
+      <button
+        key={api.name}
+        type="button"
+        onClick={() => setSearchTerm(api.name)}
+        title={`Search for ${api.name}`}
+        className="
+          group flex min-h-[112px] min-w-0 items-center gap-4
+          rounded-[20px] border border-[#DCE5F2]
+          bg-white px-5 py-5 text-left font-[inherit]
+          shadow-[0_2px_8px_rgba(30,50,90,0.02)]
+          transition-all duration-200
+          hover:-translate-y-0.5 hover:border-[#B9ACFF]
+          hover:shadow-[0_8px_22px_rgba(77,62,202,0.09)]
+          focus-visible:outline-2 focus-visible:outline-offset-2
+          focus-visible:outline-[#6547F8]
+        "
+      >
+        <span className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-[15px] bg-[#F0EEFF]">
+          <api.icon
+            size={34}
+            strokeWidth={1.8}
+            color="#4D3ECA"
+            fill="white"
+          />
+        </span>
+
+        <span className="flex min-w-0 max-w-[260px] flex-1 flex-col gap-1">
+          <span className="text-[15px] font-semibold leading-[1.4] text-[#172033]">
+            {api.name}
+          </span>
+          <span className="whitespace-normal break-words text-[14px] font-normal leading-[1.5] text-[#64748B]">
+            {api.description}
+          </span>
+        </span>
+      </button>
+    ))}
+  </div>
+
+) : selectedCategory === "GST Verification API" ? (
+
+  /* GST VERIFICATION API CARDS */
+  <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+    {visibleGstVerificationApis.map((api) => (
+      <button
+        key={api.name}
+        type="button"
+        onClick={() => setSearchTerm(api.name)}
+        title={`Search for ${api.name}`}
+        className="
+          group flex min-h-[112px] min-w-0 items-center gap-4
+          rounded-[20px] border border-[#DCE5F2]
+          bg-white px-5 py-5 text-left font-[inherit]
+          shadow-[0_2px_8px_rgba(30,50,90,0.02)]
+          transition-all duration-200
+          hover:-translate-y-0.5 hover:border-[#B9ACFF]
+          hover:shadow-[0_8px_22px_rgba(77,62,202,0.09)]
+          focus-visible:outline-2 focus-visible:outline-offset-2
+          focus-visible:outline-[#6547F8]
+        "
+      >
+        <span className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-[15px] bg-[#F0EEFF]">
+          <api.icon
+            size={34}
+            strokeWidth={1.8}
+            color="#4D3ECA"
+            fill="white"
+          />
+        </span>
+
+        <span className="flex min-w-0 max-w-[260px] flex-1 flex-col gap-1">
+          <span className="text-[15px] font-semibold leading-[1.4] text-[#172033]">
+            {api.name}
+          </span>
+          <span className="whitespace-normal break-words text-[14px] font-normal leading-[1.5] text-[#64748B]">
+            {api.description}
+          </span>
+        </span>
+      </button>
+    ))}
+  </div>
+
+) : selectedCategory === "Business Verification (KYB)" ? (
+  <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+    {visibleBusinessVerificationApis.map((api) => (
+      <button
+        key={api.name}
+        type="button"
+        onClick={() => setSearchTerm(api.name)}
+        title={`Search for ${api.name}`}
+        className="
+          group flex min-h-[112px] min-w-0 items-center gap-4
+          rounded-[20px] border border-[#DCE5F2]
+          bg-white px-5 py-5 text-left font-[inherit]
+          shadow-[0_2px_8px_rgba(30,50,90,0.02)]
+          transition-all duration-200
+          hover:-translate-y-0.5 hover:border-[#B9ACFF]
+          hover:shadow-[0_8px_22px_rgba(77,62,202,0.09)]
+          focus-visible:outline-2 focus-visible:outline-offset-2
+          focus-visible:outline-[#6547F8]
+        "
+      >
+        <span className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-[15px] bg-[#F0EEFF]">
+          <api.icon
+            size={34}
+            strokeWidth={1.8}
+            color="#4D3ECA"
+            fill="white"
+          />
+        </span>
+
+        <span className="flex min-w-0 max-w-[260px] flex-1 flex-col gap-1">
+          <span className="text-[15px] font-semibold leading-[1.4] text-[#172033]">
+            {api.name}
+          </span>
+          <span className="whitespace-normal break-words text-[14px] font-normal leading-[1.5] text-[#64748B]">
+            {api.description}
+          </span>
+        </span>
+      </button>
+    ))}
+  </div>
+): selectedCategory === "Employee & Income Verification" ? (
+  <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+    {visibleEmployeeIncomeVerificationApis.map((api) => (
+      <button
+        key={api.name}
+        type="button"
+        onClick={() => setSearchTerm(api.name)}
+        title={`Search for ${api.name}`}
+        className="
+          group flex min-h-[112px] min-w-0 items-center gap-4
+          rounded-[20px] border border-[#DCE5F2]
+          bg-white px-5 py-5 text-left font-[inherit]
+          shadow-[0_2px_8px_rgba(30,50,90,0.02)]
+          transition-all duration-200
+          hover:-translate-y-0.5 hover:border-[#B9ACFF]
+          hover:shadow-[0_8px_22px_rgba(77,62,202,0.09)]
+          focus-visible:outline-2 focus-visible:outline-offset-2
+          focus-visible:outline-[#6547F8]
+        "
+      >
+        <span className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-[15px] bg-[#F0EEFF]">
+          <api.icon
+            size={34}
+            strokeWidth={1.8}
+            color="#4D3ECA"
+            fill="white"
+          />
+        </span>
+
+        <span className="flex min-w-0 max-w-[260px] flex-1 flex-col gap-1">
+          <span className="text-[15px] font-semibold leading-[1.4] text-[#172033]">
+            {api.name}
+          </span>
+          <span className="whitespace-normal break-words text-[14px] font-normal leading-[1.5] text-[#64748B]">
+            {api.description}
+          </span>
+        </span>
+      </button>
+    ))}
+  </div>
+) : selectedCategory === "Number Intelligence" ? (
+  <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+    {visibleNumberIntelligenceApis.map((api) => (
+      <button
+        key={api.name}
+        type="button"
+        onClick={() => setSearchTerm(api.name)}
+        title={`Search for ${api.name}`}
+        className="
+          group flex min-h-[112px] min-w-0 items-center gap-4
+          rounded-[20px] border border-[#DCE5F2]
+          bg-white px-5 py-5 text-left font-[inherit]
+          shadow-[0_2px_8px_rgba(30,50,90,0.02)]
+          transition-all duration-200
+          hover:-translate-y-0.5 hover:border-[#B9ACFF]
+          hover:shadow-[0_8px_22px_rgba(77,62,202,0.09)]
+          focus-visible:outline-2 focus-visible:outline-offset-2
+          focus-visible:outline-[#6547F8]
+        "
+      >
+        <span className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-[15px] bg-[#F0EEFF]">
+          <api.icon
+            size={34}
+            strokeWidth={1.8}
+            color="#4D3ECA"
+            fill="white"
+          />
+        </span>
+
+        <span className="flex min-w-0 max-w-[260px] flex-1 flex-col gap-1">
+          <span className="text-[15px] font-semibold leading-[1.4] text-[#172033]">
+            {api.name}
+          </span>
+          <span className="whitespace-normal break-words text-[14px] font-normal leading-[1.5] text-[#64748B]">
+            {api.description}
+          </span>
+        </span>
+      </button>
+    ))}
+  </div>
+) : selectedCategory === "Geolocation & Address Intelligence" ? (
+  <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+    {visibleGeolocationAddressApis.map((api) => (
+      <button
+        key={api.name}
+        type="button"
+        onClick={() => setSearchTerm(api.name)}
+        title={`Search for ${api.name}`}
+        className="
+          group flex min-h-[112px] min-w-0 items-center gap-4
+          rounded-[20px] border border-[#DCE5F2]
+          bg-white px-5 py-5 text-left font-[inherit]
+          shadow-[0_2px_8px_rgba(30,50,90,0.02)]
+          transition-all duration-200
+          hover:-translate-y-0.5 hover:border-[#B9ACFF]
+          hover:shadow-[0_8px_22px_rgba(77,62,202,0.09)]
+          focus-visible:outline-2 focus-visible:outline-offset-2
+          focus-visible:outline-[#6547F8]
+        "
+      >
+        <span className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-[15px] bg-[#F0EEFF]">
+          <api.icon
+            size={34}
+            strokeWidth={1.8}
+            color="#4D3ECA"
+            fill="white"
+          />
+        </span>
+
+        <span className="flex min-w-0 max-w-[260px] flex-1 flex-col gap-1">
+          <span className="text-[15px] font-semibold leading-[1.4] text-[#172033]">
+            {api.name}
+          </span>
+          <span className="whitespace-normal break-words text-[14px] font-normal leading-[1.5] text-[#64748B]">
+            {api.description}
+          </span>
+        </span>
+      </button>
+    ))}
+  </div>
+) : selectedCategory === "eSign" ? (
+  <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+    {eSignApis.map((api) => (
+      <button
+        key={api.name}
+        type="button"
+        onClick={() => setSearchTerm(api.name)}
+        title={`Search for ${api.name}`}
+        className="
+          group flex min-h-[112px] min-w-0 items-center gap-4
+          rounded-[20px] border border-[#DCE5F2]
+          bg-white px-5 py-5 text-left font-[inherit]
+          shadow-[0_2px_8px_rgba(30,50,90,0.02)]
+          transition-all duration-200
+          hover:-translate-y-0.5 hover:border-[#B9ACFF]
+          hover:shadow-[0_8px_22px_rgba(77,62,202,0.09)]
+          focus-visible:outline-2 focus-visible:outline-offset-2
+          focus-visible:outline-[#6547F8]
+        "
+      >
+        <span className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-[15px] bg-[#F0EEFF]">
+          <api.icon
+            size={34}
+            strokeWidth={1.8}
+            color="#4D3ECA"
+            fill="white"
+          />
+        </span>
+
+        <span className="flex min-w-0 max-w-[260px] flex-1 flex-col gap-1">
+          <span className="text-[15px] font-semibold leading-[1.4] text-[#172033]">
+            {api.name}
+          </span>
+
+          <span className="whitespace-normal break-words text-[14px] font-normal leading-[1.5] text-[#64748B]">
+            {api.description}
+          </span>
+        </span>
+      </button>
+    ))}
+  </div>
+  ) : null}
+</section>
+          )}
+</div>
+</section>
+      {/* Verification API benefits */}
+      
+<section
+  id="verification-benefits"
+  className="verification-benefits"
+  aria-labelledby="verification-benefits-heading"
+>
+  <div className="verification-benefits__inner">
+
+    {/* Desktop layout — existing design */}
+    <div className="hidden md:block">
+      <h2
+        id="verification-benefits-heading"
+        className="verification-benefits__heading"
+      >
+        Why Use Our <span>Verification APIs</span>
+        <br /> for Your Business?
+      </h2>
+
+      <div className="verification-benefits__visual">
+        <img
+          src="/images/verification-benefits-full.png"
+          alt="Verification API benefits"
+          className="verification-benefits__full-image"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    {/* Mobile layout */}
+    <div className="px-4 pb-8 pt-5 md:hidden">
+
+      <h2 className="mb-4 text-[34px] font-semibold leading-[1.12] tracking-[-1.2px] text-[#111111]">
+        Where Every
+        <br />
+        <span className="text-[#4D3ECA]">
+          Verification Matters
+        </span>
+      </h2>
+
+      <p className="mb-5 text-[15px] leading-[1.45] text-[#555555]">
+        From fintech and education to logistics and insurance,
+        SmartVerify helps businesses verify customers, validate
+        documents, and prevent fraud with reliable verification
+        solutions tailored to their industry needs.
+      </p>
+
+      {/* Man visual */}
+      <div className="mb-5 h-[125px] w-full overflow-hidden">
+        <img
+          src="/images/verification-benefits-mobile.png"
+          alt="Business professional using the SmartVerify dashboard"
+          className="h-full w-full object-cover object-[72%_center]"
+          loading="lazy"
+        />
+      </div>
+
+      {/* Benefit cards */}
+      <div className="grid grid-cols-2 gap-x-4 gap-y-7">
+
+        <article className="min-w-0 border-r border-[#E5E5E5] pr-3">
+          <img
+            src="/images/benefit-coverage.png"
+            alt=""
+            className="mb-3 h-10 w-10 object-contain"
+          />
+          <h3 className="mb-2 text-[14px] font-semibold leading-[1.3] text-[#171717]">
+            Coverage From Day One
+          </h3>
+          <p className="text-[11px] leading-[1.5] text-[#666666]">
+            Verification starts as soon as a user registers, before
+            they even enter your system. SmartVerify verifies phone
+            numbers, emails, and devices to stop bots in their tracks
+            before fraud takes hold.
+          </p>
+        </article>
+
+        <article className="min-w-0">
+          <img
+            src="/images/benefit-integration.png"
+            alt=""
+            className="mb-3 h-10 w-10 object-contain"
+          />
+          <h3 className="mb-2 text-[14px] font-semibold leading-[1.3] text-[#171717]">
+            Built for Easy Integration
+          </h3>
+          <p className="text-[11px] leading-[1.5] text-[#666666]">
+            Integrate with assurance using clean, well-structured
+            APIs and a sandbox environment that lets your team test
+            everything before going live.
+          </p>
+        </article>
+
+        <article className="min-w-0 border-r border-[#E5E5E5] pr-3">
+          <img
+            src="/images/benefit-onboarding.png"
+            alt=""
+            className="mb-3 h-10 w-10 object-contain"
+          />
+          <h3 className="mb-2 text-[14px] font-semibold leading-[1.3] text-[#171717]">
+            Seamless Customer Onboarding
+          </h3>
+          <p className="text-[11px] leading-[1.5] text-[#666666]">
+            Make customer verification simple with fast and reliable
+            checks that reduce friction and help users complete
+            onboarding smoothly.
+          </p>
+        </article>
+
+        <article className="min-w-0">
+          <img
+            src="/images/benefit-faster.png"
+            alt=""
+            className="mb-3 h-10 w-10 object-contain"
+          />
+          <h3 className="mb-2 text-[14px] font-semibold leading-[1.3] text-[#171717]">
+            Go Live Faster
+          </h3>
+          <p className="text-[11px] leading-[1.5] text-[#666666]">
+            Integrate, test, and launch verification workflows
+            quickly with developer-friendly APIs and a smooth
+            implementation process.
+          </p>
+        </article>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+</>
+);
 }

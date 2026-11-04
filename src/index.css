@@ -175,19 +175,6 @@ img {
   object-position: center;
   border-radius: 12px;
 }
-
-/* Crop the embedded title strip inside the Identity Verification PNG */
-/* .showcase-card__media--image img.showcase-image--crop-bottom {
-  display: block;
-  width: 100%;
-  height: calc(100% + clamp(28px, 2.5vw, 50px));
-  max-width: none;
-  flex: 0 0 auto;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: 12px;
-} */
-
 /* Purple title bars */
 
 .showcase-card__label {
@@ -257,7 +244,6 @@ img {
 }
 
 /* Central shield */
-
 .showcase-shield {
   position: absolute;
   top: 190px;
@@ -423,6 +409,56 @@ img {
 
   .showcase-card__media--image {
     padding: 10px;
+  }
+}
+/* Animated arrows directly connected to central shield */
+
+.showcase-arrow-connectors {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.showcase-arrow {
+  position: absolute;
+  top: 345px;
+  left: 50%;
+  display: block;
+
+  width: 260px;
+  height: 310px;
+
+  max-width: none;
+  object-fit: fill;
+  transform-origin: center center;
+  pointer-events: none;
+}
+
+/* Four directions around the shield */
+
+.showcase-arrow--one {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.showcase-arrow--two {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.showcase-arrow--three {
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.showcase-arrow--four {
+  transform: translate(-50%, -50%) rotate(270deg);
+}
+
+/* Hide animated arrows on tablet and mobile */
+
+@media (max-width: 1023px) {
+  .showcase-arrow-connectors {
+    display: none;
   }
 }
 /* CTA buttons: smooth Figma hover states */
@@ -5632,9 +5668,13 @@ img {
 }
 
 .bav-apis__description {
-  display: block;
-  width: 100%;
-  height: auto;
+  margin: 0;
+  max-width: 650px;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 .bav-apis__know-more {
@@ -6569,6 +6609,234 @@ img {
   border-radius: 999px;
   background: #4d3eca;
 }
+@theme {
+  --animate-topbar-ltr: topbar-ltr 24s linear infinite;
+  --animate-topbar-rtl: topbar-rtl 24s linear infinite;
+
+  @keyframes topbar-ltr {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    8% {
+      opacity: 1;
+    }
+    42% {
+      transform: translateX(100vw);
+      opacity: 1;
+    }
+    49% {
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(100vw);
+      opacity: 0;
+    }
+  }
+
+  @keyframes topbar-rtl {
+    0% {
+      transform: translateX(100vw);
+      opacity: 0;
+    }
+    50% {
+      transform: translateX(100vw);
+      opacity: 0;
+    }
+    58% {
+      opacity: 1;
+    }
+    92% {
+      transform: translateX(-100%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+  }
+}
+/* Align both animated logo rows from the exact same left position */
+.trusted-logo-loop-wrap,
+.trusted-logo-loop-wrap--bottom {
+  width: 100%;
+  margin-left: 0;
+}
+
+
+/* =========================================
+   CONNECTOR SVG GUIDES
+   ========================================= */
+
+.showcase-connectors {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* =========================================
+   FOUR FIGMA CONNECTOR IMAGES
+   ========================================= */
+
+.showcase-connector-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.showcase-connector-image {
+  position: absolute;
+  display: block;
+  max-width: none;
+  object-fit: fill;
+  pointer-events: none;
+}
+
+/* Upper-left */
+.showcase-connector--top-left {
+  left: 33.95%;
+  top: 15.77%;
+  width: 8.65%;
+  height: 22.25%;
+}
+
+/* Upper-right */
+.showcase-connector--top-right {
+  left: 57.40%;
+  top: 15.77%;
+  width: 6.92%;
+  height: 22.25%;
+}
+
+/* Lower-left */
+.showcase-connector--bottom-left {
+  left: 33.95%;
+  top: 50.14%;
+  width: 8.65%;
+  height: 22.40%;
+}
+
+/* Lower-right */
+.showcase-connector--bottom-right {
+  left: 57.40%;
+  top: 50.14%;
+  width: 6.92%;
+  height: 22.25%;
+}
+
+/* =========================================
+   ANIMATED PURPLE HIGHLIGHTS
+   ========================================= */
+
+.showcase-connector-animation {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.connector-flow {
+  fill: none;
+  stroke: #6442F5;
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 55 945;
+  stroke-dashoffset: 1000;
+  animation: showcase-connector-flow 3.2s linear infinite;
+}
+
+/* Staggered animation */
+
+.connector-flow--one {
+  animation-delay: 0s;
+}
+
+.connector-flow--two {
+  animation-delay: 0.8s;
+}
+
+.connector-flow--three {
+  animation-delay: 1.6s;
+}
+
+.connector-flow--four {
+  animation-delay: 2.4s;
+}
+
+@keyframes showcase-connector-flow {
+  from {
+    stroke-dashoffset: 1000;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* =========================================
+   SHIELD AND PILL LAYERING
+   ========================================= */
+
+.showcase-shield {
+  z-index: 3;
+}
+
+.showcase-shield video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.showcase-api-pill {
+  z-index: 4;
+}
+
+/* =========================================
+   TABLET AND MOBILE
+   ========================================= */
+
+@media (max-width: 1023px) {
+  .showcase-connector-layer {
+    display: none;
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .connector-flow {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+/* Product dropdown – smaller desktop typography */
+@media (min-width: 1024px) {
+  .site-product-menu__title {
+    font-size: 17px !important;
+    line-height: 1.3;
+    font-weight: 400;
+  }
+
+  .site-product-menu__description {
+    font-size: 12px !important;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+}
+
 
 
 

@@ -43,7 +43,7 @@ export default function APIIntegrationSection() {
   return (
     <section
       id="api-integration"
-      className="api-integration-section"
+      className="api-integration-section lg:!pt-[22px] lg:!pb-2 lg:!min-h-0 lg:!h-auto"
       aria-label="API Integration, Developer-Friendly"
     >
       <div className="api-integration-section__inner">
@@ -61,7 +61,7 @@ export default function APIIntegrationSection() {
           </p>
 
           {/* Five Figma-exported feature icons */}
-          <div className="api-integration-section__features">
+          <div className="api-integration-section__features lg:!gap-y-4 lg:!mt-4">
             {integrationFeatures.map((feature) => (
               <div
                 className="api-integration-feature"
@@ -80,7 +80,7 @@ export default function APIIntegrationSection() {
           {/* Documentation CTA */}
           <a
             href="#documentation"
-            className="api-integration-section__cta"
+            className="api-integration-section__cta lg:!mt-5"
           >
             <span>View API Documentation</span>
 
@@ -104,7 +104,7 @@ export default function APIIntegrationSection() {
 <video
   src="/videos/api%20integration%20dashboard.mp4"
   aria-label="Laptop displaying an API management workspace in Visual Studio Code"
-  className="api-integration-section__laptop"
+  className="api-integration-section__laptop lg:-translate-y-6"
   autoPlay
   loop
   muted

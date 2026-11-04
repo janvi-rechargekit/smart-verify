@@ -84,25 +84,33 @@ export default function SimplifyingVerification() {
       <div className="simplifying-verification__inner">
 
         {/* Heading and description */}
-        <div className="simplifying-verification__header max-[600px]:!flex max-[600px]:!flex-col max-[600px]:!items-start max-[600px]:!gap-4">
-          <div className="simplifying-verification__title-wrap">
-            <img
-              id="simplifying-verification-heading"
-              src="/images/simplifying-verification-heading.png"
-              alt="Simplifying Verification for Every Business"
-              className="simplifying-verification__heading-image"
-            />
-          </div>
+<div className="flex flex-col items-start gap-4 min-[601px]:flex-row min-[601px]:justify-between min-[601px]:gap-12">
 
-          <div className="simplifying-verification__description max-[600px]:!w-full max-[600px]:!max-w-none">
-            <p>
-              Most verification platforms force compromises between
-              speed, coverage, and reliability. SmartVerify brings them
-              together in one platform, helping you onboard users faster,
-              prevent fraud earlier, and integrate with minimal effort.
-            </p>
-          </div>
-        </div>
+  {/* Left heading */}
+  <div className="w-full min-w-0 min-[601px]:w-[58%]">
+    <h2
+      id="industries-heading"
+      className="m-0 text-[clamp(36px,3.8vw,64px)] font-semibold leading-[1.18] tracking-[-0.045em] text-[#080808]"
+    >
+      Built for Industries Where
+      <br />
+      <span className="text-[#4D3ECA]">
+        Every Verification Matters
+      </span>
+    </h2>
+  </div>
+
+  {/* Right description */}
+  <div className="w-full min-w-0 min-[601px]:w-[36%] min-[601px]:pt-2">
+    <p className="m-0 text-[16px] font-normal leading-[1.35] text-[#454545]">
+      From fintech and education to logistics and insurance,
+      SmartVerify helps businesses verify customers, validate
+      documents, and prevent fraud with reliable verification
+      solutions tailored to their industry needs.
+    </p>
+  </div>
+
+</div>
 
         {/* Main Figma-exported verification visual */}
         <div className="simplifying-verification__visual max-[600px]:!mt-5 max-[600px]:!w-full">

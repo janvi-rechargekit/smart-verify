@@ -2,10 +2,11 @@ export default function VerificationSolutions() {
   return (
     <section
       id="verification-solutions"
-      className="verification-solutions"
+      // Added !pb-0 to force remove bottom padding, and -mb-10 or -mb-16 to pull the next section up
+      className="verification-solutions !pb-8 !-mb-16 lg:!-mb-32"
       aria-labelledby="verification-solutions-heading"
     >
-      <div className="verification-solutions__inner">
+      <div className="verification-solutions__inner lg:!translate-y-[-40px]">
         {/* Heading on the left */}
         <div className="verification-solutions__heading w-full min-w-0">
           <h2
@@ -24,52 +25,36 @@ export default function VerificationSolutions() {
             "
           >
             <span className="solutions-heading__dark text-[#17121C]">
-              Verification Solutions Built{" "}
+              Verification Solutions Built
             </span>
+
+            <br className="hidden lg:block" />
+
             <span className="solutions-heading__purple text-[#4D3ECA]">
               Around Your Business Goals
             </span>
           </h2>
         </div>
 
-        {/* Description and CTA on the right */}
-        <div className="verification-solutions__intro">
-          <p>
-            SmartVerify helps businesses verify identities, documents,
-            bank accounts, and businesses in seconds, so genuine
-            customers move faster, fraud gets stopped earlier, and
-            your team spends less time chasing paperwork.
-          </p>
-
-          <a
-            href="#verification-details"
-            className="solutions-know-more"
-          >
-            <span>Know More</span>
-
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 20 20"
-              fill="none"
-              className="solutions-know-more__arrow"
-            >
-              <path
-                d="M4 10h11M10 5l5 5-5 5"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </a>
-        </div>
+       {/* Description only */}
+<div className="verification-solutions__intro">
+  <p>
+    SmartVerify helps businesses verify identities, documents,
+    bank accounts, and businesses in seconds, so genuine
+    customers move faster, fraud gets stopped earlier, and
+    your team spends less time chasing paperwork.
+  </p>
+</div>
       </div>
 
-      {/* Main Figma visual */}
+      {/* 
+        Main Figma visual
+        Removed lg:mb-16 and added lg:-mb-20 to pull the bottom up
+      */}
       <img
         src="/images/verification-solutions.png"
         alt="SmartVerify verification solutions showing business goals and verification services"
-        className="verification-solutions__visual"
+        className="verification-solutions__visual lg:relative lg:-top-28 lg:-mb-16 block w-full"
         loading="lazy"
       />
     </section>
