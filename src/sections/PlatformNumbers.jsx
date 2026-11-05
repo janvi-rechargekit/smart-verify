@@ -1090,7 +1090,7 @@ return matches.length ? matches : eSignApis;
       aria-pressed={isActive}
       className={`
         group flex w-auto min-w-max shrink-0
-        items-center justify-center gap-2.5
+        items-center justify-start gap-2.5
         rounded-full border
         px-5 py-2.5 text-[15px] font-medium
         transition-all duration-300 ease-in-out
@@ -1099,7 +1099,8 @@ return matches.length ? matches : eSignApis;
         min-[701px]:!whitespace-nowrap
         max-[700px]:!w-full
         max-[700px]:!min-w-0
-        max-[700px]:!gap-1.5
+        max-[700px]:!justify-start
+        max-[700px]:!gap-2
         max-[700px]:!px-2
         max-[700px]:!py-3
         max-[700px]:!text-[11px]
@@ -1123,7 +1124,7 @@ return matches.length ? matches : eSignApis;
         }}
       />
 
-      <span className="min-w-0 text-center leading-tight min-[701px]:whitespace-nowrap">
+      <span className="min-w-0 text-left leading-tight min-[701px]:whitespace-nowrap min-[701px]:text-center">
         {category.name}
       </span>
     </button>
@@ -1703,7 +1704,7 @@ return matches.length ? matches : eSignApis;
     {/* Mobile layout */}
     <div className="px-4 pb-8 pt-5 md:hidden">
 
-      <h2 className="mb-4 text-[34px] font-semibold leading-[1.12] tracking-[-1.2px] text-[#111111]">
+      <h2 className="mb-4 text-left text-[34px] font-semibold leading-[1.12] tracking-[-1.2px] text-[#111111] text-left">
         Where Every
         <br />
         <span className="text-[#4D3ECA]">
@@ -1731,7 +1732,7 @@ return matches.length ? matches : eSignApis;
       {/* Benefit cards */}
       <div className="grid grid-cols-2 gap-x-4 gap-y-7">
 
-        <article className="min-w-0 border-r border-[#E5E5E5] pr-3">
+        <article className="flex min-w-0 flex-col !items-start border-r border-[#E5E5E5] pr-3 !text-left">
           <img
             src="/images/benefit-coverage.png"
             alt=""
@@ -1748,7 +1749,7 @@ return matches.length ? matches : eSignApis;
           </p>
         </article>
 
-        <article className="min-w-0">
+        <article className="flex min-w-0 flex-col !items-start !text-left">
           <img
             src="/images/benefit-integration.png"
             alt=""
@@ -1764,7 +1765,7 @@ return matches.length ? matches : eSignApis;
           </p>
         </article>
 
-        <article className="min-w-0 border-r border-[#E5E5E5] pr-3">
+        <article className="flex min-w-0 flex-col !items-start !text-left border-r border-[#E5E5E5] pr-3">
           <img
             src="/images/benefit-onboarding.png"
             alt=""
@@ -1780,7 +1781,7 @@ return matches.length ? matches : eSignApis;
           </p>
         </article>
 
-        <article className="min-w-0">
+        <article className="flex min-w-0 flex-col !items-start !text-left">
           <img
             src="/images/benefit-faster.png"
             alt=""

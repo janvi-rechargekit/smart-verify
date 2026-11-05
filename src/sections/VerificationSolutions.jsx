@@ -27,6 +27,7 @@ export default function VerificationSolutions() {
             <span className="solutions-heading__dark text-[#17121C]">
               Verification Solutions Built
             </span>
+            <br />
 
             <br className="hidden lg:block" />
 
