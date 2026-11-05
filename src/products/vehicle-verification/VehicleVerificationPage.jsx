@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CtaImageButton from "../../components/shared/CtaImageButton.jsx";
-import FooterSection from "../../sections/FooterSection.jsx";function VehicleVerificationHero() {
+import FooterSection from "../../sections/FooterSection.jsx";
+function VehicleVerificationHero() {
   return (
     <section
       id="vehicle-verification-hero"
@@ -120,7 +121,7 @@ import FooterSection from "../../sections/FooterSection.jsx";function VehicleVer
         </div>
 
         {/* Mobile and tablet illustration */}
-        <div className="mt-8 w-full min-[1100px]:hidden">
+        <div className="mt-8 w-full min-[1100px]:hidden -mb-16">
           <img
             src="/images/vehicle-verification-hero-visual.png"
             alt="Vehicle registration document, verified car details, and a smartphone showing vehicle verification results"

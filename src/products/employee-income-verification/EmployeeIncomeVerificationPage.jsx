@@ -118,8 +118,8 @@ function EmployeeIncomeVerificationHero() {
               hoverText="View Documentation"
               variant="docs"
               className="
-                w-[220px] shrink-0
-                sm:w-[220px]
+                w-full max-w-[280px] shrink-0
+                sm:w-[220px] sm:max-w-none
                 min-[1100px]:w-[min(21vw,300px)]
               "
             />
@@ -132,8 +132,8 @@ function EmployeeIncomeVerificationHero() {
               variant="demo"
               showArrow
               className="
-                w-[200px] shrink-0
-                sm:w-[200px]
+                w-full max-w-[280px] shrink-0
+                sm:w-[200px] sm:max-w-none
                 min-[1100px]:w-[min(18.3vw,261px)]
               "
             />
@@ -141,7 +141,7 @@ function EmployeeIncomeVerificationHero() {
         </div>
 
         {/* Mobile illustration: shown once below the buttons */}
-        <div className="mt-8 w-full min-[1100px]:hidden">
+        <div className="mt-8 w-full min-[1100px]:hidden -mb-8">
           <img
             src="/images/employee-income-verification-visual.png"
             alt="Employee verification interface showing bank, payroll, and HMRC checks alongside a man using a laptop"

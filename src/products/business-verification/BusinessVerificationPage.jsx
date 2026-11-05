@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CtaImageButton from "../../components/shared/CtaImageButton.jsx";
-import FooterSection from "../../sections/FooterSection.jsx";function BusinessVerificationHero() {
+import FooterSection from "../../sections/FooterSection.jsx";
+function BusinessVerificationHero() {
   return (
     <section
       id="business-verification-hero"
@@ -138,8 +139,8 @@ import FooterSection from "../../sections/FooterSection.jsx";function BusinessVe
               variant="demo"
               showArrow
               className="
-                w-full max-w-[210px] shrink-0
-                sm:w-[231px]
+                w-full max-w-[245px] shrink-0
+                sm:w-[250px]
                 min-[1100px]:w-[min(13.6vw,261px)]
               "
             />
@@ -147,7 +148,7 @@ import FooterSection from "../../sections/FooterSection.jsx";function BusinessVe
         </div>
 
         {/* Mobile/tablet illustration: appears once, below the buttons */}
-        <div className="mt-8 w-full min-[1100px]:hidden">
+        <div className="mt-8 w-full min-[1100px]:hidden -mb-8">
           <img
             src="/images/business-verification-hero-visual.png"
             alt="Business verification illustration showing company registration, compliance summary, director information, and verification results"
@@ -668,35 +669,35 @@ function BusinessVerificationWhoUsesSection() {
       icon: "lenders",
       title: "NBFCs and lenders",
       description:
-        "confirming a borrowing entity and its directors before disbursal",
+        "Confirming a borrowing entity and its directors before disbursal.",
     },
     {
       id: "marketplaces",
       icon: "marketplaces",
       title: "Marketplaces and aggregators",
       description:
-        "Onboarding of sellers and verification of their MSME status for scheme eligibility by marketplaces and aggregators",
+        "Onboarding of sellers and verification of their MSME status for scheme eligibility by marketplaces and aggregators.",
     },
     {
       id: "insurance",
       icon: "insurance",
       title: "Insurance companies verifying",
       description:
-        "corporate policyholders and their registered details",
+        "Corporate policyholders and their registered details.",
     },
     {
       id: "staffing",
       icon: "staffing",
       title: "Staffing and logistics companies",
       description:
-        "Pre-contract vetting of vendor and partner companies by staffing and logistics companies",
+        "Pre-contract vetting of vendor and partner companies by staffing and logistics companies.",
     },
     {
       id: "fintech",
       icon: "fintech",
       title: "Fintech platforms",
       description:
-        "conducting KYB and individual KYC in business account opening",
+        "Conducting KYB and individual KYC in business account opening.",
     },
   ];
 

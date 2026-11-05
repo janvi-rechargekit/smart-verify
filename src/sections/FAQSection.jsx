@@ -34,30 +34,40 @@ const faqItems = [
   },
 ];
 
-export default function FAQSection({ faqItems: pageFaqItems }) {
+export default function FAQSection({
+  faqItems: pageFaqItems,
+  theme = "default",
+}) {
   const [openIndex, setOpenIndex] = useState(null);
   const items = pageFaqItems || faqItems;
+  const isPurple = theme === "purple";
+
   return (
     <section
-      className="w-full bg-white pt-6 pb-16 lg:pt-8 lg:pb-10"
-      aria-label="SmartVerify frequently asked questions"
+      className={`w-full pt-16 pb-16 lg:pt-24 lg:pb-20 ${
+        isPurple
+          ? "bg-[linear-gradient(105deg,#603DFF_0%,#8971FF_48%,#603DFF_100%)]"
+          : "bg-white"
+      }`}
+      aria-label="Frequently asked questions"
     >
       <div className="mx-auto grid w-[80%] max-w-[1512px] grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
 
         {/* FAQ Heading */}
         <div>
-          <h2 className="text-[clamp(34px,4vw,64px)] font-semibold leading-[1.15] tracking-[-0.045em]">
-            <span className="text-[#080808]">
-              Frequently
-            </span>{" "}
-            <span className="text-[#4d3eca]">
-              Asked Questions
-            </span>
+          <h2
+            className={`text-[clamp(34px,4vw,64px)] font-semibold leading-[1.15] tracking-[-0.045em] ${
+              isPurple ? "text-white" : "text-[#080808]"
+            }`}
+          >
+            Frequently
+            <br />
+            Asked Questions
           </h2>
         </div>
 
         {/* FAQ Accordion */}
-        <div className="ml-auto flex w-full max-w-[760px] flex-col gap-3">
+        <div className="ml-auto flex w-full max-w-[760px] flex-col gap-[18px]">
           {items.map((item, index) => {
             const isOpen = openIndex === index;
             const answerId = `faq-answer-${index}`;
@@ -65,7 +75,11 @@ export default function FAQSection({ faqItems: pageFaqItems }) {
             return (
               <div
                 key={index}
-                className="ml-auto w-full max-w-[760px] overflow-hidden rounded-[14px] border border-[#dce1ed] bg-white"
+                className={`ml-auto w-full max-w-[760px] overflow-hidden rounded-[5px] border ${
+                  isPurple
+                    ? "border-white/60 bg-transparent"
+                    : "rounded-[14px] border-[#dce1ed] bg-white"
+                }`}
               >
                 <button
                   type="button"
@@ -74,25 +88,32 @@ export default function FAQSection({ faqItems: pageFaqItems }) {
                   }
                   aria-expanded={isOpen}
                   aria-controls={answerId}
-                  className="
-                    flex min-h-[90px] w-full
+                  className={`
+                    flex min-h-[72px] w-full
                     items-center justify-between gap-5
                     px-6 py-5 text-left
-                    text-[17px] font-medium
-                    text-[#111827]
+                    text-[16px] font-medium
                     transition-colors duration-200
-                    hover:bg-[#fafaff]
-                    md:px-8 md:text-[20px]
-                  "
+                    md:px-7 md:text-[20px]
+                    ${
+                      isPurple
+                        ? "text-white hover:bg-white/10"
+                        : "text-[#111827] hover:bg-[#fafaff]"
+                    }
+                  `}
                 >
                   <span>{item.question}</span>
 
-                  {/* Dropdown arrow */}
+                  {/* Dropdown Arrow */}
                   <svg
                     className={`
                       h-5 w-5 shrink-0
-                      text-[#9ca3af]
                       transition-transform duration-300
+                      ${
+                        isPurple
+                          ? "text-white"
+                          : "text-[#9ca3af]"
+                      }
                       ${isOpen ? "rotate-180" : ""}
                     `}
                     viewBox="0 0 20 20"
@@ -103,17 +124,23 @@ export default function FAQSection({ faqItems: pageFaqItems }) {
                   </svg>
                 </button>
 
-                {/* Expandable answer */}
+                {/* Expandable Answer */}
                 {isOpen && (
                   <div
                     id={answerId}
-                    className="
-                      border-t border-[#edf0f5]
-                      px-6 pb-6 pt-4
-                      md:px-8
-                    "
+                    className={`border-t px-6 pb-6 pt-4 md:px-7 ${
+                      isPurple
+                        ? "border-white/40"
+                        : "border-[#edf0f5]"
+                    }`}
                   >
-                    <p className="text-[15px] leading-[1.7] text-[#626779] md:text-[16px]">
+                    <p
+                      className={`text-[15px] leading-[1.7] md:text-[16px] ${
+                        isPurple
+                          ? "text-white/90"
+                          : "text-[#626779]"
+                      }`}
+                    >
                       {item.answer}
                     </p>
                   </div>

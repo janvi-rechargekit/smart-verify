@@ -121,8 +121,8 @@ function GstVerificationHero() {
               hoverText="View Documentation"
               variant="docs"
               className="
-                w-full max-w-[245px] shrink-0
-                sm:w-[250px]
+                w-full max-w-[280px] shrink-0
+                sm:w-[250px] sm:max-w-none
                 min-[1100px]:w-[300px]
               "
             />
@@ -135,8 +135,8 @@ function GstVerificationHero() {
               variant="demo"
               showArrow
               className="
-                w-full max-w-[210px] shrink-0
-                sm:w-[250px]
+                w-full max-w-[280px] shrink-0
+                sm:w-[250px] sm:max-w-none
                 min-[1100px]:w-[261px]
               "
             />
@@ -144,7 +144,7 @@ function GstVerificationHero() {
         </div>
 
         {/* Mobile/tablet illustration — shown only once */}
-        <div className="mt-7 w-full min-[1100px]:hidden">
+        <div className="mt-7 w-full min-[1100px]:hidden -mb-9">
           <img
             src="/images/gst-verification-hero-visual.png"
             alt="GST verification results, filing summary, taxpayer details and verification status displayed beside a business professional"
@@ -490,6 +490,29 @@ function GstVerificationProblemsSection() {
   );
 }
 function GstVerificationApisIntegrateSection() {
+  const apis = [
+    {
+      title: "Search GST by PAN Number",
+      description: "Some workflows begin with a PAN and not a GSTIN. GST Search by PAN API takes the PAN of a business owner or entity and provides a list of all GSTIN registered against it.",
+      iconImage: "/images/gst-search-pan-icon.png", 
+    },
+    {
+      title: "GST Basic Validation",
+      description: "Once you have a GSTIN, the GST Basic Validation API confirms it's real and active. It returns the legal business name, registration date, GSTIN status (active, cancelled, or suspended), and business constitution.",
+      iconImage: "/images/gst-basic-validation-icon.png",
+    },
+    {
+      title: "GST Advanced Validation",
+      description: "For a closer look, the GST Advanced Validation API goes past the basics. It pulls filing frequency, taxpayer type, jurisdiction details, and the business's compliance history with GST returns.",
+      iconImage: "/images/gst-advanced-validation-icon.png", 
+    },
+    {
+      title: "GST to Contact Details",
+      description: "Sometimes you have the GSTIN but need to reach the business behind it. GST to Contact Details API: The GST to Contact Details API provides the registered mobile number and email address on record against a GSTIN.",
+      iconImage: "/images/gst-contact-icon.png", 
+    },
+  ];
+
   return (
     <>
       {/* Thin grey divider */}
@@ -499,8 +522,8 @@ function GstVerificationApisIntegrateSection() {
         aria-labelledby="gst-verification-apis-integrate-heading"
         className="w-full overflow-hidden bg-white"
       >
-        {/* Thin grey divider before the next section */}
-      <div aria-hidden="true" className="h-3 w-full bg-[#F0F0F0]" />
+        <div aria-hidden="true" className="h-3 w-full bg-[#F0F0F0]" />
+        
         <div
           className="
             mx-auto w-[88%] max-w-[1520px]
@@ -522,7 +545,6 @@ function GstVerificationApisIntegrateSection() {
               min-[768px]:gap-8
             "
           >
-            {/* Figma heading image */}
             <h2
               id="gst-verification-apis-integrate-heading"
               className="
@@ -539,7 +561,6 @@ function GstVerificationApisIntegrateSection() {
               />
             </h2>
 
-            {/* Description positioned on the right, like Figma */}
             <p
               className="
                 m-0 w-full max-w-[450px]
@@ -559,16 +580,98 @@ function GstVerificationApisIntegrateSection() {
             </p>
           </header>
 
-          {/* Original Figma visual with all four API cards */}
-          <div className="mt-5 w-full sm:mt-6 min-[1100px]:mt-[18px]">
+          {/* DESKTOP VIEW */}
+          <div className="relative mt-8 hidden min-[1100px]:block">
+            {/* 
+              Background Visual: 
+              Reduced max-width to 1100px and added h-[500px] to restrict the height.
+              Added object-cover so it fills the space properly without stretching.
+            */}
             <img
-              src="/images/gst-verification-apis-integrate-visual.png"
-              alt="GST API integration overview showing GST Search by PAN, GST Basic Validation, GST Advanced Validation, GST to Contact Details, and a verification analytics dashboard"
-              draggable="false"
-              loading="lazy"
-              className="block h-auto w-full"
+              src="/images/gst-verification-apis-integrate-visual.png" 
+              alt="GST API verification dashboard with professional" 
+              className="ml-auto block h-[500px] w-full max-w-[1100px] rounded-none object-cover object-right"
             />
+
+            {/* 
+              Cards Grid Wrapper:
+              Adjusted top-[5%] and bottom-[5%] to fit inside the newly constrained height.
+            */}
+            <div 
+              className="
+                absolute left-[2%] top-[5%] bottom-[5%]
+                w-[42%] 
+                p-2
+              "
+            >
+              {/* Grid with visible gaps */}
+              <div className="grid h-full w-full grid-cols-2 gap-3">
+                {apis.map((api, index) => (
+                  <article
+                    key={index}
+                    className="
+                      flex flex-col bg-white p-4
+                      rounded-none shadow-sm
+                    "
+                  >
+                    <div className="mb-2 flex h-8 items-center">
+                      <img 
+                        src={api.iconImage} 
+                        alt="" 
+                        className="h-8 w-auto object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                    <h3 className="mb-1 text-[15px] font-semibold text-[#111827]">
+                      {api.title}
+                    </h3>
+                    <p className="text-[12px] leading-[1.4] text-[#4B5563]">
+                      {api.description}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
           </div>
+
+          {/* MOBILE VIEW */}
+          <div className="mt-6 flex flex-col gap-6 min-[1100px]:hidden">
+            <div className="w-full overflow-hidden rounded-xl">
+              <img
+                src="/images/gst-verification-apis-integrate-visual.png" 
+                alt="GST API verification dashboard with professional" 
+                className="block h-auto w-full object-cover"
+              />
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {apis.map((api, index) => (
+                <article
+                  key={index}
+                  className="
+                    flex flex-col bg-white p-5
+                    border border-[#E5E7EB] rounded-lg
+                  "
+                >
+                  <div className="mb-3 flex h-8 items-center">
+                    <img 
+                      src={api.iconImage} 
+                      alt="" 
+                      className="h-8 w-auto object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                  <h3 className="mb-2 text-[15px] font-semibold text-[#111827] sm:text-[16px]">
+                    {api.title}
+                  </h3>
+                  <p className="text-[13px] leading-[1.5] text-[#4B5563] sm:text-[14px]">
+                    {api.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+
         </div>
       </section>
     </>

@@ -12,19 +12,17 @@ function AboutUsHeroSection() {
           lg:min-h-[min(45vw,780px)]
         "
       >
-       
-<div
-  className="
-    relative z-10 mx-auto grid w-full max-w-[1440px]
-    grid-cols-1 items-center gap-8
-    px-5 pb-10 pt-16
-    sm:px-8 sm:py-14
-    lg:min-h-[inherit]
-    lg:grid-cols-[1.15fr_0.85fr]
-    lg:gap-8 lg:px-[7.5%] lg:py-10
-  "
->
-
+        <div
+          className="
+            relative z-10 mx-auto grid w-full max-w-[1440px]
+            grid-cols-1 items-center gap-8
+            px-5 pb-0 pt-16
+            sm:px-8 sm:py-14 sm:pb-0
+            lg:min-h-[inherit]
+            lg:grid-cols-[1.15fr_0.85fr]
+            lg:gap-8 lg:px-[7.5%] lg:py-10
+          "
+        >
           {/* Left: Heading, descriptions and buttons */}
           <div className="relative z-10 min-w-0 px-2 sm:px-0">
             <img
@@ -66,14 +64,15 @@ function AboutUsHeroSection() {
               </p>
             </div>
 
-            {/* Reuse the existing CTA buttons */}
-             <div className="mt-6 flex w-full flex-col items-center justify-center gap-3 sm:mt-7 sm:flex-row sm:items-center sm:gap-4 lg:mt-6 lg:justify-start">              <CtaImageButton
+            {/* Reuse the existing CTA buttons - Made equal on mobile */}
+            <div className="mt-6 flex w-full flex-col items-center justify-center gap-3 sm:mt-7 sm:flex-row sm:items-center sm:gap-4 lg:mt-6 lg:justify-start">
+              <CtaImageButton
                 href="#documentation"
                 label="View Documentation"
                 image="/images/view-documentation.png"
                 hoverText="View Documentation"
                 variant="docs"
-                className="w-full max-w-[300px] sm:w-[240px]"
+                className="w-full max-w-[280px] shrink-0 sm:w-[240px] sm:max-w-none"
               />
 
               <CtaImageButton
@@ -83,24 +82,25 @@ function AboutUsHeroSection() {
                 hoverText="Book a Demo"
                 variant="demo"
                 showArrow
-                className="w-full max-w-[261px] sm:w-[220px]"
+                className="w-full max-w-[280px] shrink-0 sm:w-[220px] sm:max-w-none"
               />
             </div>
           </div>
-{/* Right visual — fit within the hero without clipping */}
-<div className="relative mt-8 flex min-w-0 items-end justify-center lg:absolute lg:inset-y-0 lg:right-0 lg:mt-0 lg:w-[43%]">
-  <img
-    src="/images/about-us-visual.png"
-    alt="Woman presenting a phone displaying identity verification and KYC solutions"
-    draggable="false"
-    className="
-      block h-auto w-full max-w-[440px] object-contain object-bottom
-      sm:max-w-[500px]
-      lg:absolute lg:bottom-0 lg:right-30
-      lg:h-[76%] lg:w-auto lg:max-w-none
-    "
-  />
-</div>
+
+          {/* Right visual — fit within the hero without clipping */}
+          <div className="relative mt-8 flex min-w-0 items-end justify-center lg:absolute lg:inset-y-0 lg:right-0 lg:mt-0 lg:w-[43%] -mb-8 sm:mb-0">
+            <img
+              src="/images/about-us-visual.png"
+              alt="Woman presenting a phone displaying identity verification and KYC solutions"
+              draggable="false"
+              className="
+                block h-auto w-full max-w-[440px] object-contain object-bottom
+                sm:max-w-[500px]
+                lg:absolute lg:bottom-0 lg:right-30
+                lg:h-[76%] lg:w-auto lg:max-w-none
+              "
+            />
+          </div>
         </div>
       </section>
     </main>

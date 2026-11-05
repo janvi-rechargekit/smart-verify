@@ -118,10 +118,12 @@ function DigitalKycEkycHero() {
         <div
           className="
             relative flex min-w-0
+            -mb-8
             items-center justify-center
             min-[900px]:min-h-[620px]
             min-[900px]:justify-end
-            min-[900px]:-translate-y-[100px]
+            min-[900px]:items-end
+            min-[900px]:mb-0
           "
         >
           <img
@@ -130,7 +132,8 @@ function DigitalKycEkycHero() {
             className="
               block h-auto w-full max-w-[880px] object-contain
               min-[900px]:translate-x-[12px]
-              min-[900px]:translate-y-8
+              min-[900px]:translate-y-0
+              min-[900px]:-mb-6
               
             "
             draggable="false"
@@ -283,7 +286,7 @@ function DigitalKycManualProblemSection() {
       {/* ========================================================
           MOBILE LAYOUT (Unchanged)
           ======================================================== */}
-      <div className="relative z-10 mx-auto mt-8 flex w-[90%] max-w-[520px] flex-col gap-3 pb-8 min-[900px]:hidden">
+      <div className="relative z-10 mx-auto mt-8 flex w-[90%] max-w-[520px] flex-col gap-3 pb-0 min-[900px]:hidden">
         {problems.map((problem) => (
           <article
             key={problem.title}
@@ -303,7 +306,7 @@ function DigitalKycManualProblemSection() {
           alt="A hand holding a phone displaying the manual KYC verification workflow"
           draggable="false"
           loading="lazy"
-          className="mx-auto mt-6 block h-auto w-[min(85vw,380px)] max-w-full"
+          className="mx-auto mt-6 block h-auto w-[min(85vw,380px)] max-w-full -mb-8"
         />
       </div>
     </section>

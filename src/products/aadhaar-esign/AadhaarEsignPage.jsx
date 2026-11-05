@@ -143,7 +143,7 @@ function EsignHero() {
         </div>
 
         {/* Mobile/tablet illustration */}
-        <div className="mt-8 w-full min-[1100px]:hidden!">
+        <div className="mt-8 w-full min-[1100px]:hidden! -mb-8">
           <img
             src="/images/esign-hero-visual.png"
             alt="Digital signing interface connected to a signed document, with a business professional holding a tablet"
@@ -165,31 +165,31 @@ function EsignHowItWorksSection() {
       title: "Initiate eSign",
       description:
         "The business sends the document for electronic signing",
-      icon: "document",
+      iconImage: "/images/esign-initiate-icon.png",
     },
     {
       title: "Aadhaar Authentication",
       description:
         "The customer verifies their identity using an Aadhaar-linked OTP",
-      icon: "fingerprint",
+      iconImage: "/images/esign-aadhaar-icon.png",
     },
     {
       title: "Digital Signature",
       description:
         "A cryptographic signature is applied directly to the document",
-      icon: "signature",
+      iconImage: "/images/esign-signature-icon.png",
     },
     {
       title: "Timestamp & Audit Trail",
       description:
         "The signed document is time-stamped and recorded for verification",
-      icon: "audit",
+      iconImage: "/images/esign-timestamp-icon.png",
     },
     {
       title: "Legally Valid",
       description:
         "Unlike a scanned signature, the eSign provides a digitally verifiable signature backed by the Aadhaar authentication process",
-      icon: "legal",
+      iconImage: "/images/esign-legal-icon.png",
     },
   ];
 
@@ -246,9 +246,9 @@ function EsignHowItWorksSection() {
           draggable="false"
           loading="lazy"
           className="
-  mx-auto hidden! h-auto w-full max-w-[1920px]
-  min-[768px]:block!
-"
+            mx-auto hidden! h-auto w-full max-w-[1920px]
+            min-[768px]:block!
+          "
         />
       </div>
 
@@ -271,145 +271,17 @@ function EsignHowItWorksSection() {
               [&+article]:border-t-0
             "
           >
-            {/* Purple icon */}
+            {/* Purple icon image */}
             <div
               aria-hidden="true"
-              className="mb-4 flex h-9 w-9 items-center justify-center text-[#5140D8]"
+              className="mb-4 flex h-10 w-10 items-center justify-start"
             >
-              <svg
-                viewBox="0 0 40 40"
-                fill="none"
-                className="h-9 w-9"
-              >
-                {index === 0 && (
-                  <>
-                    <rect
-                      x="6"
-                      y="3"
-                      width="23"
-                      height="31"
-                      rx="2"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                    />
-                    <path
-                      d="M10 10h15M10 15h15M10 20h11M10 25h8"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="m25 29 7-12 3 2-7 12-5 3z"
-                      fill="currentColor"
-                    />
-                  </>
-                )}
-
-                {index === 1 && (
-                  <>
-                    <path
-                      d="M20 3 34 10v12L20 32 6 22V10z"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                    />
-                    <path
-                      d="M14 17c0-4 2-7 6-7s6 3 6 7M17 20c0-3 1-4 3-4s3 1 3 4M20 20v5"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <rect
-                      x="25"
-                      y="24"
-                      width="12"
-                      height="11"
-                      rx="2"
-                      fill="currentColor"
-                    />
-                    <path
-                      d="M28 24v-2a3 3 0 0 1 6 0v2"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    />
-                  </>
-                )}
-
-                {index === 2 && (
-                  <>
-                    <rect
-                      x="4"
-                      y="8"
-                      width="31"
-                      height="26"
-                      rx="2"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                    />
-                    <path
-                      d="M9 15h12M9 20h7"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    />
-                    <path
-                      d="m18 28 10-15 3 2-10 15-6 3z"
-                      fill="currentColor"
-                    />
-                  </>
-                )}
-
-                {index === 3 && (
-                  <>
-                    <path
-                      d="M8 4h20v29H8z"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                    />
-                    <path
-                      d="M12 11h12M12 16h12M12 21h8"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <circle
-                      cx="28"
-                      cy="27"
-                      r="7"
-                      fill="white"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                    />
-                    <path
-                      d="m33 32 4 4"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                    />
-                  </>
-                )}
-
-                {index === 4 && (
-                  <>
-                    <path
-                      d="M8 4h20v29H8z"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                    />
-                    <path
-                      d="M12 11h12M12 16h12"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="m13 25 4 4 8-9"
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </>
-                )}
-              </svg>
+              <img
+                src={step.iconImage}
+                alt=""
+                className="h-full w-auto object-contain"
+                loading="lazy"
+              />
             </div>
 
             <h3
@@ -597,28 +469,38 @@ function EsignProcessScrollSection() {
   const cards = [
     {
       id: "send-document",
-      image: "/images/esign-process-card-1.png",
-      alt: "The business sends the document to be signed through the API, including the fields where the signature needs to appear.",
+      image: "/images/esign-process-cards-1.png",
+      step: "Find UAN",
+      title: "The business sends the document",
+      description: "To be signed through the API, along with the fields where the signature needs to appear.",
     },
     {
       id: "enter-aadhaar",
-      image: "/images/esign-process-card-2.png",
-      alt: "The customer enters their Aadhaar number on a consent screen that explains what they are signing.",
+      image: "/images/esign-process-cards-2.png",
+      step: "Verify Basic Employment",
+      title: "The customer enters their Aadhaar number",
+      description: "On a consent screen that clearly states what they're signing.",
     },
     {
       id: "uidai-otp",
-      image: "/images/esign-process-card-3.png",
-      alt: "UIDAI sends an OTP to the mobile number linked to the customer's Aadhaar.",
+      image: "/images/esign-process-cards-3.png",
+      step: "Verify Employe History",
+      title: "UIDAI sends an OTP",
+      description: "To the mobile number linked to their Aadhaar.",
     },
     {
       id: "confirm-otp",
-      image: "/images/esign-process-card-4.png",
-      alt: "The customer enters the OTP to confirm their identity and acceptance.",
+      image: "/images/esign-process-cards-4.png",
+      step: "Validate Income",
+      title: "The customer enters the OTP",
+      description: "Confirming their identity and acceptance.",
     },
     {
       id: "signed-document",
-      image: "/images/esign-process-card-5.png",
-      alt: "The completed eSign document is stored digitally and can be retrieved after signing.",
+      image: "/images/esign-process-cards-5.png",
+      step: "Build a Complete profile",
+      title: "The document is signed",
+      description: "The completed eSign document is stored digitally and can be retrieved.",
     },
   ];
 
@@ -628,11 +510,9 @@ function EsignProcessScrollSection() {
         aria-labelledby="esign-process-scroll-heading"
         className="relative w-full overflow-clip bg-white"
       >
-         {/* Thin grey separator below the section */}
-      <div
-        aria-hidden="true"
-        className="h-3 w-full bg-[#F0F0F0]"
-      />
+        {/* Thin grey separator below the section */}
+        <div aria-hidden="true" className="h-3 w-full bg-[#F0F0F0]" />
+        
         {/* Exact Figma heading */}
         <header
           className="
@@ -645,9 +525,9 @@ function EsignProcessScrollSection() {
           <h2
             id="esign-process-scroll-heading"
             className="
-  m-0 w-full max-w-[680px]
-  min-[1100px]:w-[min(42vw,680px)]
-"
+              m-0 w-full max-w-[680px]
+              min-[1100px]:w-[min(42vw,680px)]
+            "
           >
             <img
               src="/images/esign-process-heading.png"
@@ -680,18 +560,41 @@ function EsignProcessScrollSection() {
                 min-[1100px]:sticky
                 min-[1100px]:top-[clamp(72px,9vh,100px)]
                 min-[1100px]:w-[min(52vw,1055px)]
+                /* Added border and rounding for both views */
+                border border-gray-200 rounded-lg p-5 sm:p-6 shadow-sm
               "
             >
-              <img
-                src={card.image}
-                alt={card.alt}
-                draggable="false"
-                loading={index === 0 ? "eager" : "lazy"}
-                className="
-                  block h-auto w-full
-                  select-none
-                "
-              />
+              {/* 
+                UNIFIED LAYOUT (Desktop and Mobile):
+                Image on the left, Text on the right.
+              */}
+              <div className="flex flex-row items-center gap-6 sm:gap-8">
+                
+                {/* Left: Exact Image */}
+                <div className="w-[40%] sm:w-[45%] shrink-0">
+                  <img
+                    src={card.image}
+                    alt=""
+                    draggable="false"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    className="block h-auto w-full object-contain"
+                  />
+                </div>
+
+                {/* Right: Manual Text */}
+                <div className="flex flex-col flex-1">
+                  <span className="inline-flex w-fit items-center justify-center rounded-md bg-[#EEF4FF] px-2.5 py-1 text-[11px] sm:text-[12px] font-medium text-[#0066FF]">
+                    {card.step}
+                  </span>
+                  <h3 className="mt-3 sm:mt-4 text-[16px] sm:text-[26px] font-normal text-[#1A1A1A] leading-tight">                   
+                     {card.title}
+                  </h3>
+                  <p className="mt-2 sm:mt-3 text-[13px] sm:text-[16px] leading-[1.6] sm:leading-[1.5] text-[#555555]">
+                    {card.description}
+                  </p>
+                </div>
+                
+              </div>
             </article>
           ))}
         </div>
@@ -809,15 +712,15 @@ function EsignBusinessUseCasesSection() {
                 <article
                   key={item.id}
                   className="
-  flex min-w-0 items-center gap-2
+  flex min-w-0 items-center gap-4
   rounded-[7px] border border-[#DED8FF]
   bg-[#FBFAFF]
-  px-2 py-8
-  sm:gap-3 sm:px-3
+  px-3 py-6
+  sm:gap-5 sm:px-4
   min-[768px]:flex-none
   min-[1100px]:min-h-[68px]
-  min-[1100px]:gap-[11px]
-  min-[1100px]:px-[11px]
+  min-[1100px]:gap-5
+  min-[1100px]:px-5
   min-[1100px]:py-[12px]
 "
                 >

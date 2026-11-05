@@ -136,8 +136,8 @@ function GeolocationAddressIntelligenceHero() {
               variant="demo"
               showArrow
               className="
-                w-[180px] shrink-0
-                sm:w-[210px]
+                w-[210px] shrink-0
+                sm:w-[240px]
                 min-[1100px]:w-[min(18.3vw,261px)]
               "
             />
@@ -145,7 +145,7 @@ function GeolocationAddressIntelligenceHero() {
         </div>
 
         {/* Mobile and tablet professional image */}
-        <div className="mt-8 w-full min-[1100px]:hidden">
+        <div className="mt-8 w-full min-[1100px]:hidden -mb-8">
           <img
             src="/images/geolocation-hero-visual.png"
             alt="Business professional holding a laptop"
@@ -162,6 +162,29 @@ function GeolocationAddressIntelligenceHero() {
   );
 }
 function GeolocationAddressWhyMattersSection() {
+  const benefits = [
+    {
+      title: "Fewer failed deliveries",
+      description: "Confirming an address before dispatch cuts down on returns and re-delivery costs.",
+      iconImage: "/images/icon-failed-deliveries.png", 
+    },
+    {
+      title: "Stronger fraud signals",
+      description: "Fake or mismatched addresses are often a warning sign of synthetic identity fraud.",
+      iconImage: "/images/icon-fraud-signals.png", 
+    },
+    {
+      title: "More rapid field work",
+      description: "Agents, riders, and surveyors get to the right place the first time.",
+      iconImage: "/images/icon-field-work.png", 
+    },
+    {
+      title: "Better risk assessment",
+      description: "Insurers and lenders can factor in accurate location-based risk instead of guesswork.",
+      iconImage: "/images/icon-risk-assessment.png",
+    },
+  ];
+
   return (
     <section
       aria-labelledby="geolocation-why-matters-heading"
@@ -180,18 +203,17 @@ function GeolocationAddressWhyMattersSection() {
           min-[1100px]:py-[34px]
         "
       >
-        {/* Exact Figma heading image */}
-<h2
-  id="geolocation-why-matters-heading"
-  className="m-0 w-full max-w-[600px] min-[1100px]:w-[min(35vw,600px)] min-[1100px]:translate-x-[22px]"
->
-  <img
-    src="/images/why-accurate-address-verification-matters.png"
-    alt="Why Accurate Address Verification Matters"
-    draggable="false"
-    className="block h-auto w-full"
-  />
-</h2>
+        <h2
+          id="geolocation-why-matters-heading"
+          className="m-0 w-full max-w-[600px] min-[1100px]:w-[min(35vw,600px)] min-[1100px]:translate-x-[22px]"
+        >
+          <img
+            src="/images/why-accurate-address-verification-matters.png"
+            alt="Why Accurate Address Verification Matters"
+            draggable="false"
+            className="block h-auto w-full"
+          />
+        </h2>
 
         <p
           className="
@@ -209,25 +231,61 @@ function GeolocationAddressWhyMattersSection() {
         </p>
       </div>
 
-      {/* Complete Figma image: cards, icons, background and dashboard */}
+      {/* DESKTOP VIEW: Complete Figma image */}
       <div
         className="
-           relative mx-auto
-    w-[80%] max-w-[1520px]
-    overflow-hidden
-    min-[1100px]:translate-x-[22px]
-   "
+          relative mx-auto hidden w-[80%] max-w-[1520px]
+          overflow-hidden min-[1100px]:translate-x-[22px] min-[1100px]:block
+        "
       >
         <img
           src="/images/geolocation-why-matters-visual.png"
-          alt="Four benefits of accurate address verification: fewer failed deliveries, stronger fraud signals, more rapid field work, and better risk assessment, alongside a verification dashboard."
+          alt="Four benefits of accurate address verification alongside a verification dashboard."
           draggable="false"
           loading="lazy"
-          className="
-            block h-auto w-full
-            object-contain
-          "
+          className="block h-auto w-full object-contain"
         />
+      </div>
+
+      {/* MOBILE VIEW: Visual first, then manual cards */}
+      <div className="w-[88%] mx-auto mt-6 pb-8 min-[1100px]:hidden">
+        
+        <div className="w-full mb-6 overflow-hidden">
+          <img
+            src="/images/geolocation-why-matters-mobile-visual.png" 
+            alt="Woman using a laptop with verification dashboard"
+            draggable="false"
+            loading="lazy"
+            className="block h-auto w-full object-cover"
+          />
+        </div>
+
+        <div className="grid grid-cols-1 gap-4">
+          {benefits.map((benefit, index) => (
+            <article
+              key={index}
+              className="
+                flex flex-col bg-white p-6
+                border border-[#E5E7EB] shadow-sm
+              "
+            >
+              <div className="mb-4 flex h-10 items-center">
+                <img
+                  src={benefit.iconImage}
+                  alt=""
+                  className="h-10 w-auto object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <h3 className="mb-2 text-[16px] font-semibold text-[#111827]">
+                {benefit.title}
+              </h3>
+              <p className="text-[13px] leading-[1.5] text-[#4B5563]">
+                {benefit.description}
+              </p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -422,7 +480,7 @@ function GeolocationAddressIntelligenceApiExplorer() {
       <div
         className="
           mx-auto w-[80%] max-w-[1520px]
-          pb-8 pt-10
+          pb-2 pt-10
           sm:pb-10 sm:pt-12
           min-[1100px]:pb-[50px]
           min-[1100px]:pt-[58px]
@@ -449,7 +507,8 @@ function GeolocationAddressIntelligenceApiExplorer() {
       <div
         className="
           relative mx-auto w-[88%] max-w-[1440px]
-          pb-12 
+          -mt-8 pb-12 
+          sm:mt-0
           min-[1100px]:w-[76%]
           min-[1100px]:pb-[100px]
         "

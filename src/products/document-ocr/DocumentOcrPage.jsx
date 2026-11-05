@@ -111,7 +111,7 @@ function DocumentOcrApiPage() {
   buttonText="Book a Demo"
 />
 <div className="section-separator" aria-hidden="true" />
-<FAQSection faqItems={documentOcrFaqs} />
+<FAQSection faqItems={documentOcrFaqs} theme="purple" />
 <div className="section-separator" aria-hidden="true" />
 <FooterSection />
     </main>

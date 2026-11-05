@@ -108,8 +108,8 @@ function FaceAuthenticationHero() {
               image="/images/view-documentation.png"
               hoverText="View Documentation"
               variant="docs"
-              className="w-[210px] shrink-0
-                sm:w-[240px]
+              className=" w-[260px] shrink-0
+                sm:w-[220px] sm:max-w-none
                 min-[1100px]:w-[min(21vw,300px)]"
             />
 
@@ -120,8 +120,8 @@ function FaceAuthenticationHero() {
               hoverText="Book a Demo"
               variant="demo"
               showArrow
-              className="w-[180px] shrink-0
-                sm:w-[220px]
+              className=" w-[260px] shrink-0
+                sm:w-[220px] sm:max-w-none
                 min-[1100px]:w-[min(18.3vw,261px)]"
             />
           </div>
@@ -134,12 +134,14 @@ function FaceAuthenticationHero() {
           draggable="false"
           className="
             relative z-0 block h-auto w-full max-w-[954px]
-            self-center object-contain
+            self-center object-contain -mb-8
             min-[1100px]:absolute
             min-[1100px]:right-[-8.5vw]
+            min-[1100px]:bottom-0
             min-[1100px]:top-[calc(50%+72px)]
             min-[1100px]:w-[min(50vw,954px)]
-            min-[1100px]:-translate-y-1/2
+            min-[1100px]:mb-4
+            
           "
         />
       </div>

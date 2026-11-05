@@ -6691,7 +6691,6 @@ img {
   pointer-events: none;
   overflow: visible;
 }
-
 .showcase-connector-image {
   position: absolute;
   display: block;
@@ -6749,7 +6748,7 @@ img {
 .connector-flow {
   fill: none;
   stroke: #6442F5;
-  stroke-width: 7;
+  stroke-width: 3.5 !important;
   stroke-linecap: round;
   stroke-dasharray: 55 945;
   stroke-dashoffset: 1000;

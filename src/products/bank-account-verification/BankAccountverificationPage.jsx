@@ -67,8 +67,8 @@ function BankAccountVerificationPage() {
               hoverText="View Documentation"
               variant="docs"
               className="
-                w-[210px] shrink-0
-                sm:w-[240px]
+                w-full max-w-[280px] shrink-0
+                sm:w-[240px] sm:max-w-none
                 min-[1100px]:w-[min(21vw,300px)]
               "
             />
@@ -81,8 +81,8 @@ function BankAccountVerificationPage() {
                 variant="demo"
                 showArrow
                 className="
-                w-[180px] shrink-0
-                sm:w-[210px]
+                w-full max-w-[280px] shrink-0
+                sm:w-[210px] sm:max-w-none
                 min-[1100px]:w-[min(21vw,300px)]
               "
               />
@@ -100,6 +100,8 @@ function BankAccountVerificationPage() {
               max-[899px]:justify-center
               max-[899px]:self-end
               max-[899px]:overflow-hidden
+              max-[899px]:!pb-0
+              max-[899px]:-mb-8
             "
           >
             <img
@@ -113,6 +115,7 @@ function BankAccountVerificationPage() {
                 max-[899px]:max-w-none
                 max-[899px]:object-contain
                 max-[899px]:object-bottom
+                max-[899px]:!mb-0
               "
               draggable="false"
             />
@@ -787,17 +790,173 @@ function BankAccountVerificationCta() {
 }
 
 
+const bavFaqItems = [
+  {
+    question:
+      "What's the difference between penny drop and penniless verification?",
+    answer:
+      "Penny Drop sends a real (small) transfer to confirm the account is active and correctly named. Penniless verification checks the same details without moving any money, which makes it faster and cheaper for high-volume checks.",
+  },
+  {
+    question:
+      "Can I verify a bank account using only a UPI ID?",
+    answer:
+      "Yes. The BAV V2 - UPI Penniless API validates an account by the linked UPI ID or VPA and doesn’t need a raw account number and IFSC code.",
+  },
+  {
+    question:
+      "How fast is a typical bank account verification response?",
+    answer:
+      "Most BAV checks are back in seconds because they are taken directly from bank records, not from a manual review.",
+  },
+  {
+    question:
+      "Do I need a customer's PAN for standard bank account verification?",
+    answer:
+      "No. Standard BAV checks (penny drop, penniless, UPI) only need account or UPI details. PAN is only required for the PAN Account Link API, which is meant for PAN-specific compliance checks.",
+  },
+  {
+    question:
+      "Is bank account verification required by regulation?",
+    answer:
+      "Requirements vary by industry and use case, but many regulated sectors, including lending and insurance, treat account-holder verification as a standard part of due diligence before disbursing funds.",
+  },
+];
 
 function BankAccountVerificationFaq() {
+  const [openIndex, setOpenIndex] = useState(null);
+
   return (
-    <section className="bav-faq-image-section">
-      <img
-        src="/images/bav-faq-section.png"
-        alt="Frequently Asked Questions about Bank Account Verification, including penny drop and penniless verification, UPI ID verification, response speed, PAN requirements, regulatory requirements, and SmartVerify."
-        className="bav-faq-image-section__image"
-        draggable="false"
-      />
+    <section
+      className="
+        w-full overflow-hidden
+        bg-[linear-gradient(105deg,#603DFF_0%,#8971FF_48%,#603DFF_100%)]
+        px-5 py-14
+        sm:px-8 sm:py-16
+        lg:px-0 lg:py-20
+      "
+      aria-label="Bank Account Verification frequently asked questions"
+    >
+      <div
+        className="
+          mx-auto grid w-full max-w-[1512px]
+          grid-cols-1 gap-9
+          lg:w-[80%]
+          lg:grid-cols-[0.9fr_1.1fr]
+          lg:items-start
+          lg:gap-12
+        "
+      >
+        {/* LEFT: FAQ Heading */}
+        <div>
+          <h2
+            className="
+              max-w-[500px]
+              text-[36px] font-semibold
+              leading-[1.12]
+              tracking-[-0.045em]
+              text-white
+              sm:text-[44px]
+              lg:text-[clamp(38px,4vw,64px)]
+            "
+          >
+            Frequently Asked
+            <br />
+            Questions
+          </h2>
+        </div>
+
+        {/* RIGHT: FAQ Accordion */}
+        <div className="ml-auto flex w-full max-w-[760px] flex-col gap-[14px]">
+          {bavFaqItems.map((item, index) => {
+            const isOpen = openIndex === index;
+            const answerId = `bav-faq-answer-${index}`;
+
+            return (
+              <div
+                key={index}
+                className="
+                  w-full overflow-hidden
+                  rounded-[5px]
+                  border border-white/60
+                  bg-transparent
+                  transition-colors duration-200
+                "
+              >
+                {/* Question */}
+                <button
+                  type="button"
+                  onClick={() =>
+                    setOpenIndex(isOpen ? null : index)
+                  }
+                  aria-expanded={isOpen}
+                  aria-controls={answerId}
+                  className="
+                    flex min-h-[70px] w-full
+                    items-center justify-between
+                    gap-4 px-5 py-5
+                    text-left
+                    text-[15px] font-medium
+                    leading-[1.5]
+                    text-white
+                    transition-colors duration-200
+                    hover:bg-white/10
+                    sm:px-6 sm:text-[17px]
+                    lg:px-7 lg:text-[19px]
+                  "
+                >
+                  <span className="min-w-0 flex-1">
+                    {item.question}
+                  </span>
+
+                  {/* Dropdown Arrow */}
+                  <svg
+                    className={`
+                      h-5 w-5 shrink-0
+                      text-white
+                      transition-transform duration-300
+                      ${isOpen ? "rotate-180" : ""}
+                    `}
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 7l6 6 6-6H4z" />
+                  </svg>
+                </button>
+
+                {/* Answer */}
+                {isOpen && (
+                  <div
+                    id={answerId}
+                    className="
+                      border-t border-white/40
+                      px-5 pb-5 pt-4
+                      sm:px-6 sm:pb-6
+                      lg:px-7
+                    "
+                  >
+                    <p
+                      className="
+                        text-[14px] font-normal
+                        leading-[1.7]
+                        text-white/90
+                        sm:text-[15px]
+                        lg:text-[16px]
+                      "
+                    >
+                      {item.answer}
+                    </p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 }
+
+
 export default BankAccountVerificationPage;

@@ -183,37 +183,24 @@ export default function VerificationShowcase() {
           preserveAspectRatio="none"
           fill="none"
         >
-          <defs>
-            <filter
-              id="showcaseConnectorGlow"
-              x="-100%"
-              y="-100%"
-              width="300%"
-              height="300%"
-            >
-              <feGaussianBlur
-                stdDeviation="3"
-                result="blur"
-              />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-
           <g
-            fill="none"
-            stroke="#6442F5"
-            strokeWidth="7"
-            strokeLinecap="round"
-            filter="url(#showcaseConnectorGlow)"
-          >
+  fill="none"
+  stroke="#6442F5"
+  strokeLinecap="round"
+  opacity="0.9"
+  style={{
+    strokeWidth: "0.9px",
+    vectorEffect: "non-scaling-stroke",
+    transform: "none"
+  }}
+>
             {/* Upper-left: towards shield */}
             <path
               className="connector-flow connector-flow--one"
               d="M 550 112 H 582 V 270 H 690"
               pathLength="1000"
+              strokeWidth="0.8"
+              strokeDasharray="2 3"
             />
 
             {/* Upper-right: towards shield */}
@@ -221,6 +208,8 @@ export default function VerificationShowcase() {
               className="connector-flow connector-flow--two"
               d="M 1042 112 H 1010 V 270 H 930"
               pathLength="1000"
+              strokeWidth="0.8"
+              strokeDasharray="2 3"
             />
 
             {/* Lower-left: towards shield */}
@@ -228,6 +217,8 @@ export default function VerificationShowcase() {
               className="connector-flow connector-flow--three"
               d="M 550 515 H 582 V 356 H 690"
               pathLength="1000"
+              strokeWidth="0.8"
+              strokeDasharray="2 3"
             />
 
             {/* Lower-right: towards shield */}
@@ -235,6 +226,8 @@ export default function VerificationShowcase() {
               className="connector-flow connector-flow--four"
               d="M 1042 505 H 1010 V 356 H 930"
               pathLength="1000"
+              strokeWidth="0.8"
+              strokeDasharray="2 3"
             />
           </g>
         </svg>

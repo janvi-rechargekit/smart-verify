@@ -1,7 +1,8 @@
 import { useState } from "react";
 import CtaImageButton from "../../components/shared/CtaImageButton.jsx";
 import FooterSection from "../../sections/FooterSection.jsx";
-import IdentityIndustryIcon from "../../components/shared/IdentityIndustryIcon.jsx";function IdentityVerificationHero() {
+import IdentityIndustryIcon from "../../components/shared/IdentityIndustryIcon.jsx";
+function IdentityVerificationHero() {
   const description =
     "Modern businesses need verification that is fast, accurate, and reliable. SmartVerify's Identity Verification APIs help organisations instantly validate customer identities, minimising manual effort while strengthening fraud prevention and compliance. Whether you're onboarding users, approving loans, or validating account holders, our APIs deliver verified data in minutes.";
 
@@ -103,7 +104,7 @@ import IdentityIndustryIcon from "../../components/shared/IdentityIndustryIcon.j
               image="/images/view-documentation.png"
               hoverText="View Documentation"
               variant="docs"
-              className="w-[255px] max-w-full"
+              className="w-full max-w-[210px] shrink-0 min-[640px]:w-[255px] min-[640px]:max-w-none"
             />
 
             <CtaImageButton
@@ -113,7 +114,7 @@ import IdentityIndustryIcon from "../../components/shared/IdentityIndustryIcon.j
               hoverText="Book a Demo"
               variant="demo"
               showArrow
-              className="w-[225px] max-w-full"
+              className="w-[210px] shrink-0 min-[1100px]:w-[min(18.3vw,261px)]"
             />
           </div>
         </div>
@@ -126,7 +127,7 @@ import IdentityIndustryIcon from "../../components/shared/IdentityIndustryIcon.j
           fetchPriority="high"
           className="
             relative left-1/2 mt-10 block h-auto w-[112%]
-            max-w-none -translate-x-1/2 translate-y-8
+            max-w-none -translate-x-1/2 translate-y-8 -mb-11
             object-contain
             min-[1100px]:absolute
             min-[1100px]:left-auto
